@@ -1,12 +1,22 @@
-import express from 'express';
+import app from './app';
+import logger from './utils/logger';
 
-const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 3000;
+
+const server = app.listen(port, () => {
+  logger.info(`Server started on port ${port}`);
+});
 
 app.get('/', (_req, res) => {
   res.send('Hello, World!');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+// Handle graceful shutdown
+process.on('SIGTERM', () => {
+  logger.info('SIGTERM signal received: closing HTTP server');
+  server.close(() => {
+    logger.info('HTTP server closed');
+  });
 });
+
+export default server;

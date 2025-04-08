@@ -1,0 +1,33 @@
+{"level":"info","message":"Server started on port 3000","timestamp":"2025-04-08T05:54:28.328Z"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-08T06:13:00.602Z"}
+{"level":"info","message":"HTTP server closed","timestamp":"2025-04-08T06:17:17.119Z"}
+{"level":"info","message":"Server started on port 3000","timestamp":"2025-04-08T06:17:17.304Z"}
+{"level":"info","message":"Connecting to database...","timestamp":"2025-04-08T14:19:47.168Z"}
+{"level":"info","message":"Connected to database","timestamp":"2025-04-08T14:19:47.215Z"}
+{"level":"info","message":"Setting up database schema...","timestamp":"2025-04-08T14:19:47.216Z"}
+{"level":"info","message":"Seeding database with initial data...","timestamp":"2025-04-08T14:19:47.243Z"}
+{"level":"info","message":"✅ Database setup and seeding completed successfully","timestamp":"2025-04-08T14:19:47.250Z"}
+{"level":"info","message":"Database connection closed","timestamp":"2025-04-08T14:19:47.253Z"}
+{"level":"info","message":"Server started on port 3000","timestamp":"2025-04-08T14:20:15.852Z"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-08T14:20:37.973Z"}
+{"level":"info","message":"HTTP server closed","timestamp":"2025-04-08T14:20:37.974Z"}
+{"level":"info","message":"Server started on port 3000","timestamp":"2025-04-08T14:20:38.149Z"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-08T14:46:41.676Z"}
+{"level":"info","message":"HTTP server closed","timestamp":"2025-04-08T14:46:41.677Z"}
+{"level":"info","message":"Server started on port 3000","timestamp":"2025-04-08T14:46:41.859Z"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-08T14:55:07.625Z"}
+{"level":"info","message":"HTTP server closed","timestamp":"2025-04-08T14:55:07.627Z"}
+{"level":"info","message":"Server started on port 3000","timestamp":"2025-04-08T14:56:56.894Z"}
+{"level":"info","message":"Connecting to database...","timestamp":"2025-04-08T15:07:09.044Z"}
+{"level":"info","message":"Connected to database","timestamp":"2025-04-08T15:07:09.087Z"}
+{"level":"info","message":"Setting up database schema...","timestamp":"2025-04-08T15:07:09.090Z"}
+{"level":"info","message":"Seeding database with initial data...","timestamp":"2025-04-08T15:07:09.113Z"}
+{"level":"info","message":"✅ Database setup and seeding completed successfully","timestamp":"2025-04-08T15:07:09.120Z"}
+{"level":"info","message":"Database connection closed","timestamp":"2025-04-08T15:07:09.122Z"}
+{"level":"info","message":"Attempting to connect to database...","timestamp":"2025-04-08T15:08:15.363Z"}
+{"level":"info","message":"✅ Database connection established successfully","timestamp":"2025-04-08T15:08:15.663Z"}
+{"level":"info","message":"Testing entity queries...","timestamp":"2025-04-08T15:08:15.663Z"}
+{"level":"info","message":"Found 2 users in the database","timestamp":"2025-04-08T15:08:15.668Z"}
+{"level":"info","message":"Found 6 products in the database","timestamp":"2025-04-08T15:08:15.669Z"}
+{"level":"info","message":"Found 6 new products in the database","timestamp":"2025-04-08T15:08:15.674Z"}
+{"level":"info","message":"Found 2 orders in the database","timestamp":"2025-04-08T15:08:15.679Z"}

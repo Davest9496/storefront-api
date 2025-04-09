@@ -31,3 +31,14 @@
 {"level":"info","message":"Found 6 products in the database","timestamp":"2025-04-08T15:08:15.669Z"}
 {"level":"info","message":"Found 6 new products in the database","timestamp":"2025-04-08T15:08:15.674Z"}
 {"level":"info","message":"Found 2 orders in the database","timestamp":"2025-04-08T15:08:15.679Z"}
+{"level":"info","message":"Database connection established","timestamp":"2025-04-09 12:14:09:149"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-09 12:14:09:149"}
+{"level":"info","message":"Health check available at http://localhost:8080/health","timestamp":"2025-04-09 12:14:09:149"}
+{"level":"http","message":"::1 - - [09/Apr/2025:11:14:52 +0000] \"GET /health HTTP/1.1\" 200 89 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-09 12:14:52:1452"}
+{"level":"http","message":"::1 - - [09/Apr/2025:11:14:52 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-09 12:14:52:1452"}
+{"level":"http","message":"::1 - - [09/Apr/2025:11:17:42 +0000] \"GET /api-docs HTTP/1.1\" 404 147 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-09 12:17:42:1742"}
+{"level":"http","message":"::1 - - [09/Apr/2025:11:33:05 +0000] \"GET /auth HTTP/1.1\" 404 143 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-09 12:33:05:335"}
+{"level":"warn","message":"Route not found: GET /api/auth","timestamp":"2025-04-09 12:33:14:3314"}
+{"level":"http","message":"::1 - - [09/Apr/2025:11:33:14 +0000] \"GET /api/auth HTTP/1.1\" 404 51 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-09 12:33:14:3314"}
+{"level":"http","message":"::1 - - [09/Apr/2025:11:33:24 +0000] \"GET /api HTTP/1.1\" 404 142 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-09 12:33:24:3324"}
+{"level":"http","message":"::1 - - [09/Apr/2025:11:33:34 +0000] \"GET /health HTTP/1.1\" 200 89 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-09 12:33:34:3334"}

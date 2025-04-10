@@ -20,6 +20,6 @@
     "emitDecoratorMetadata": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*", "typeorm.config.ts"],
+  "include": ["src/**/*", "typeorm.config.ts", "express.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

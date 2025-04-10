@@ -74,7 +74,9 @@ function hasRole(user: User): user is UserWithRole {
 /**
  * Middleware to restrict access to certain roles
  */
-export const restrictTo = (...roles: string[]) => {
+export const restrictTo = (
+  ...roles: string[]
+): ((req: AuthenticatedRequest, res: Response, next: NextFunction) => void) => {
   return (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
     // First check if user exists on the request
     if (!req.user) {

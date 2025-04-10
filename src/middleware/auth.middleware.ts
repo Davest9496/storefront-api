@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import { AppError } from './error.middleware';
 import { userRepository } from '../repositories/user.repository';
 import logger from '../utils/logger';
-import { User } from '../entities/user.entity';
+import { User, UserRole } from '../entities/user.entity';
 
 // Define a custom interface that extends Express Request
 interface AuthenticatedRequest extends Request {
@@ -58,34 +58,15 @@ export const protect = async (
 };
 
 /**
- * Interface for user with role
- */
-interface UserWithRole extends User {
-  role: string;
-}
-
-/**
- * Type guard to check if user has a role property
- */
-function hasRole(user: User): user is UserWithRole {
-  return 'role' in user && typeof (user as UserWithRole).role === 'string';
-}
-
-/**
  * Middleware to restrict access to certain roles
  */
 export const restrictTo = (
-  ...roles: string[]
+  ...roles: UserRole[]
 ): ((req: AuthenticatedRequest, res: Response, next: NextFunction) => void) => {
   return (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
     // First check if user exists on the request
     if (!req.user) {
       return next(new AppError('You are not logged in. Please log in to get access.', 401));
-    }
-
-    // Check if user has a role property
-    if (!hasRole(req.user)) {
-      return next(new AppError('User role is not defined', 403));
     }
 
     // Check if user has required role

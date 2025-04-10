@@ -9,6 +9,11 @@ import {
 } from 'typeorm';
 import { Order } from './order.entity';
 
+export enum UserRole {
+  CUSTOMER = 'customer',
+  ADMIN = 'admin',
+}
+
 @Entity({ name: 'users' })
 export class User {
   @PrimaryGeneratedColumn()
@@ -26,6 +31,19 @@ export class User {
 
   @Column({ name: 'password_digest', length: 250, select: false })
   passwordDigest!: string;
+
+  @Column({
+    type: 'enum',
+    enum: UserRole,
+    default: UserRole.CUSTOMER,
+  })
+  role!: UserRole;
+
+  @Column({ nullable: true })
+  resetPasswordToken?: string;
+
+  @Column({ type: 'timestamp', nullable: true })
+  resetPasswordExpires?: Date;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt!: Date;

@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { protect, restrictTo } from '../../middleware/auth.middleware';
 import { userRepository } from '../../repositories/user.repository';
-import { User } from '../../entities/user.entity';
+import { User, UserRole } from '../../entities/user.entity';
 
 // Mock dependencies
 jest.mock('jsonwebtoken');
@@ -44,6 +44,7 @@ describe('Auth Middleware', () => {
       lastName: 'User',
       email: 'test@example.com',
       passwordDigest: 'hashedpassword',
+      role: UserRole.CUSTOMER,
       createdAt: new Date(),
       updatedAt: new Date(),
     } as User;
@@ -162,7 +163,7 @@ describe('Auth Middleware', () => {
   describe('restrictTo middleware', () => {
     it('should call next with 401 error if user is not logged in', () => {
       // Arrange & Act
-      const restrictToMiddleware = restrictTo('admin');
+      const restrictToMiddleware = restrictTo(UserRole.ADMIN);
       restrictToMiddleware(mockRequest as Request, mockResponse as Response, mockNext);
 
       // Assert
@@ -174,29 +175,12 @@ describe('Auth Middleware', () => {
       );
     });
 
-    it('should call next with 403 error if user role is not defined', () => {
-      // Arrange
-      mockRequest.user = mockUser;
-
-      // Act
-      const restrictToMiddleware = restrictTo('admin');
-      restrictToMiddleware(mockRequest as Request, mockResponse as Response, mockNext);
-
-      // Assert
-      expect(mockNext).toHaveBeenCalledWith(
-        expect.objectContaining({
-          statusCode: 403,
-          message: 'User role is not defined',
-        }),
-      );
-    });
-
     it('should call next with 403 error if user does not have required role', () => {
       // Arrange
-      mockRequest.user = { ...mockUser, role: 'user' } as User & { role: string };
+      mockRequest.user = { ...mockUser, role: UserRole.CUSTOMER };
 
       // Act
-      const restrictToMiddleware = restrictTo('admin');
+      const restrictToMiddleware = restrictTo(UserRole.ADMIN);
       restrictToMiddleware(mockRequest as Request, mockResponse as Response, mockNext);
 
       // Assert
@@ -210,10 +194,10 @@ describe('Auth Middleware', () => {
 
     it('should call next if user has required role', () => {
       // Arrange
-      mockRequest.user = { ...mockUser, role: 'admin' } as User & { role: string };
+      mockRequest.user = { ...mockUser, role: UserRole.ADMIN };
 
       // Act
-      const restrictToMiddleware = restrictTo('admin');
+      const restrictToMiddleware = restrictTo(UserRole.ADMIN);
       restrictToMiddleware(mockRequest as Request, mockResponse as Response, mockNext);
 
       // Assert

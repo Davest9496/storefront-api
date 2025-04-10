@@ -1,13 +1,22 @@
 import { Router } from 'express';
 import authRoutes from './auth.routes';
+import userRoutes from './user.routes';
 import healthRoutes from './health.routes';
-// Import other route modules as they are created
 
 const router = Router();
 
-// Register route modules
-router.use('/auth', authRoutes);
+// Health check routes
 router.use('/health', healthRoutes);
-// Register other route modules as they are created
+
+// Auth routes
+router.use('/auth', authRoutes);
+
+// User routes
+router.use('/users', userRoutes);
+
+// Add more routes here as they are implemented
+// router.use('/products', productRoutes);
+// router.use('/orders', orderRoutes);
+// router.use('/payments', paymentRoutes);
 
 export default router;

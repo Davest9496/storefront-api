@@ -3,13 +3,14 @@ import logger from '../utils/logger';
 
 async function runMigrations(): Promise<void> {
   try {
-    // Initialize connection
-    logger.info('Database connection initialized');
-    logger.info('Database connection initialized');
+    // Initialize DataSource
+    logger.info('Initializing database connection...');
+    await AppDataSource.initialize();
+    logger.info('Database connection initialized successfully');
 
     // Run migrations
     logger.info('Running migrations...');
-    const migrations = await AppDataSource.runMigrations();
+    const migrations = await AppDataSource.runMigrations({ transaction: 'all' });
 
     if (migrations.length === 0) {
       logger.info('No migrations to run. Database is up to date.');
@@ -20,12 +21,14 @@ async function runMigrations(): Promise<void> {
       });
     }
   } catch (error) {
-    console.error('Error running migrations:', error);
-    process.exit(1);
+    logger.error('Error running migrations:', error);
+    throw error;
   } finally {
-    // Close connection
-    await AppDataSource.destroy();
-    logger.info('Database connection closed');
+    // Close connection if it was initialized
+    if (AppDataSource.isInitialized) {
+      await AppDataSource.destroy();
+      logger.info('Database connection closed');
+    }
   }
 }
 
@@ -34,7 +37,9 @@ if (require.main === module) {
   runMigrations()
     .then(() => process.exit(0))
     .catch((error) => {
-      console.error(error);
+      console.error('Unhandled error:', error);
       process.exit(1);
     });
 }
+
+export default runMigrations;

@@ -55,97 +55,90 @@ const sendErrorProd = (err: AppError, res: Response): void => {
   }
 };
 
-/**
- * Interface for database errors
- */
+// Custom interface for errors with code property
 interface DatabaseError extends Error {
-  code: string;
+  code?: string | number;
   detail?: string;
   keyValue?: Record<string, unknown>;
 }
 
-/**
- * Interface for validation errors
- */
+// Interface for validation errors
 interface ValidationError extends Error {
-  errors: Record<string, { message: string }>;
-}
-
-/**
- * Type guard for DatabaseError
- */
-function isDatabaseError(error: Error): error is DatabaseError {
-  return 'code' in error;
-}
-
-/**
- * Type guard for ValidationError
- */
-function isValidationError(error: Error): error is ValidationError {
-  return error.name === 'ValidationError' && 'errors' in error;
+  errors?: Record<string, { message: string }>;
 }
 
 /**
  * Global error handling middleware
  */
-const errorMiddleware = (err: Error, req: Request, res: Response, _next: NextFunction): void => {
-  let customError: AppError;
-
-  if (err instanceof AppError) {
-    customError = err;
-  } else {
-    customError = new AppError(err.message || 'Something went wrong', 500);
-  }
+const errorMiddleware = (
+  err: Error | DatabaseError | ValidationError,
+  req: Request,
+  res: Response,
+  _next: NextFunction,
+): void => {
+  const customError = err as AppError;
+  customError.statusCode = customError.statusCode || 500;
+  customError.status = customError.status || 'error';
 
   // Log the error
   logger.error(
     `${customError.statusCode} - ${customError.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`,
   );
 
-  if (err.stack) {
-    logger.debug(err.stack);
+  if (customError.stack) {
+    logger.debug(customError.stack);
   }
 
   // Different error handling based on environment
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(customError, res);
   } else {
+    let error = { ...customError } as AppError;
+    error.message = customError.message;
+    error.status = customError.status;
+    error.statusCode = customError.statusCode;
+
     // Handle specific error types
+    const dbError = err as DatabaseError;
 
     // Duplicate key error (MongoDB)
-    if (isDatabaseError(err) && err.code === '11000' && err.keyValue) {
-      const field = Object.keys(err.keyValue)[0];
-      const message = `Duplicate field value: ${field}. Please use another value!`;
-      customError = new AppError(message, 400);
+    if (dbError.code === 11000) {
+      const message = `Email already in use`;
+      error = new AppError(message, 400);
     }
 
     // PostgreSQL unique constraint error
-    if (isDatabaseError(err) && err.code === '23505') {
-      const field = err.detail?.match(/Key \((.*?)\)=/)?.[1] || 'field';
-      const message = `Duplicate field value: ${field}. Please use another value!`;
-      customError = new AppError(message, 400);
+    if (dbError.code === '23505') {
+      const message = `Email already in use`;
+      error = new AppError(message, 400);
     }
 
     // JWT expired error
     if (err.name === 'TokenExpiredError') {
       const message = 'Your token has expired! Please log in again.';
-      customError = new AppError(message, 401);
+      error = new AppError(message, 401);
     }
 
     // JWT error
     if (err.name === 'JsonWebTokenError') {
       const message = 'Invalid token. Please log in again!';
-      customError = new AppError(message, 401);
+      error = new AppError(message, 401);
     }
 
-    // Validation errors
-    if (isValidationError(err)) {
-      const errors = Object.values(err.errors).map((el) => el.message);
-      const message = `Invalid input data. ${errors.join('. ')}`;
-      customError = new AppError(message, 400);
+    // Validation errors (from Zod or express-validator)
+    if (err.name === 'ValidationError' || err.name === 'ZodError') {
+      let message = 'Invalid input data';
+      const validationError = err as ValidationError;
+      if (validationError.errors) {
+        const errorMessages = Object.values(validationError.errors)
+          .map((el) => el.message)
+          .join('. ');
+        message = `${message}. ${errorMessages}`;
+      }
+      error = new AppError(message, 400);
     }
 
-    sendErrorProd(customError, res);
+    sendErrorProd(error, res);
   }
 };
 

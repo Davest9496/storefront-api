@@ -1,55 +1,34 @@
 import { Router } from 'express';
-import {
-  signup,
-  login,
-  logout,
-  getCurrentUser,
-  updatePassword,
-} from '../controllers/auth.controller';
+import { authController } from '../controllers/auth.controller';
 import { protect } from '../middleware/auth.middleware';
 import { validateRequest } from '../middleware/validation.middleware';
 import { authValidation } from '../validations/auth.validation';
+import rateLimit from 'express-rate-limit';
 
 const router = Router();
 
-/**
- * @route   POST /api/auth/signup
- * @desc    Register a new user
- * @access  Public
- */
-router.post('/signup', validateRequest(authValidation.signup), signup);
+// Rate limiting for auth endpoints
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // limit each IP to 5 login attempts per window
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: 'Too many login attempts. Please try again after 15 minutes.',
+});
 
-/**
- * @route   POST /api/auth/login
- * @desc    Login user
- * @access  Public
- */
-router.post('/login', validateRequest(authValidation.login), login);
+// Public routes
+router.post('/signup', validateRequest(authValidation.signup), authController.signup);
 
-/**
- * @route   POST /api/auth/logout
- * @desc    Logout user
- * @access  Private
- */
-router.post('/logout', protect, logout);
-
-/**
- * @route   GET /api/auth/me
- * @desc    Get current user profile
- * @access  Private
- */
-router.get('/me', protect, getCurrentUser);
-
-/**
- * @route   PATCH /api/auth/update-password
- * @desc    Update password
- * @access  Private
- */
-router.patch(
-  '/update-password',
-  protect,
-  validateRequest(authValidation.updatePassword),
-  updatePassword,
+router.post(
+  '/login',
+  authLimiter, // Apply rate limiting to login route
+  validateRequest(authValidation.login),
+  authController.login,
 );
+
+router.post('/logout', authController.logout);
+
+// Protected routes
+router.get('/me', protect, authController.getMe);
 
 export default router;

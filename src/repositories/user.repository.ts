@@ -1,5 +1,5 @@
 import { Repository } from 'typeorm';
-import { User } from '../entities/user.entity';
+import { User, UserRole } from '../entities/user.entity';
 import AppDataSource from '../config/database';
 
 export class UserRepository extends Repository<User> {
@@ -16,6 +16,19 @@ export class UserRepository extends Repository<User> {
       .addSelect('user.passwordDigest')
       .where('user.email = :email', { email })
       .getOne();
+  }
+
+  async findByResetToken(token: string): Promise<User | null> {
+    return this.findOne({
+      where: {
+        resetPasswordToken: token,
+        resetPasswordExpires: new Date(Date.now()),
+      },
+    });
+  }
+
+  async findByRole(role: UserRole): Promise<User[]> {
+    return this.find({ where: { role } });
   }
 }
 

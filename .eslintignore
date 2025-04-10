@@ -1,1 +1,6 @@
 lint-staged.config.js
+node_modules/
+coverage/
+dist/
+*.js.map
+*.d.ts

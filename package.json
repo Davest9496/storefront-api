@@ -16,6 +16,7 @@
     "migration:revert": "npm run typeorm migration:revert -- -d typeorm.config.ts",
     "db:seed": "ts-node src/scripts/seed-database.ts",
     "db:setup": "ts-node src/scripts/setup-database.ts",
+    "test:setup": "ts-node src/scripts/setup-test-db.ts",
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --coverage",
@@ -24,7 +25,8 @@
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "test:ci": "npm run test:setup && jest --ci --coverage",
     "pretest:integration": "ts-node src/scripts/setup-test-db.ts",
-    "test:db": "ts-node src/scripts/test-db-connection.ts"
+    "test:db": "ts-node src/scripts/test-db-connection.ts",
+    "docs:generate": "ts-node src/scripts/generate-docs.ts"
   },
   "repository": {
     "type": "git",
@@ -50,6 +52,8 @@
     "morgan": "^1.10.0",
     "pg": "^8.14.1",
     "reflect-metadata": "^0.2.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "typeorm": "^0.3.20",
     "winston": "^3.12.0",
     "zod": "^3.22.4"
@@ -65,6 +69,8 @@
     "@types/node": "^20.11.30",
     "@types/pg": "^8.11.2",
     "@types/supertest": "^6.0.2",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
     "cross-env": "^7.0.3",

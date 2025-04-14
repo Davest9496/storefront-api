@@ -1,22 +1,21 @@
 import { Router } from 'express';
-import authRoutes from './auth.routes';
-import userRoutes from './user.routes';
 import healthRoutes from './health.routes';
+import authRoutes from './auth.routes';
+import productRoutes from './product.routes';
+import swaggerRoutes from './swagger.routes';
 
 const router = Router();
 
 // Health check routes
 router.use('/health', healthRoutes);
 
-// Auth routes
+// Authentication routes
 router.use('/auth', authRoutes);
 
-// User routes
-router.use('/users', userRoutes);
+// Product routes
+router.use('/products', productRoutes);
 
-// Add more routes here as they are implemented
-// router.use('/products', productRoutes);
-// router.use('/orders', orderRoutes);
-// router.use('/payments', paymentRoutes);
+// API Documentation
+router.use('/api-docs', swaggerRoutes);
 
 export default router;

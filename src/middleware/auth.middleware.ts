@@ -6,7 +6,7 @@ import logger from '../utils/logger';
 import { User, UserRole } from '../entities/user.entity';
 
 // Define a custom interface that extends Express Request
-interface AuthenticatedRequest extends Request {
+export interface AuthenticatedRequest extends Request {
   user?: User;
 }
 
@@ -59,9 +59,10 @@ export const protect = async (
 
 /**
  * Middleware to restrict access to certain roles
+ * Accepts either enum values or string representations of roles
  */
 export const restrictTo = (
-  ...roles: UserRole[]
+  ...roles: (UserRole | string)[]
 ): ((req: AuthenticatedRequest, res: Response, next: NextFunction) => void) => {
   return (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
     // First check if user exists on the request
@@ -69,8 +70,14 @@ export const restrictTo = (
       return next(new AppError('You are not logged in. Please log in to get access.', 401));
     }
 
-    // Check if user has required role
-    if (!roles.includes(req.user.role)) {
+    // Check if user role is included in the allowed roles
+    const roleMatches = roles.some(
+      (role) =>
+        // Handle both enum values and string representations
+        req.user?.role === role || req.user?.role === UserRole[role as keyof typeof UserRole],
+    );
+
+    if (!roleMatches) {
       return next(new AppError('You do not have permission to perform this action', 403));
     }
 

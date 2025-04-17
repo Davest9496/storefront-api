@@ -1,5 +1,13 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*", "jest.setup.js", "jest.config.js", "tests/**/*.ts", "*.js", "*.ts"],
+  "include": [
+    "src/**/*",
+    "jest.setup.js",
+    "jest.config.js",
+    "tests/**/*.ts",
+    "*.js",
+    "*.ts",
+    "typeorm.config.js"
+  ],
   "exclude": ["node_modules", "coverage", "dist"]
 }

@@ -89,4 +89,17 @@ process.on('uncaughtException', (error) => {
   process.exit(1);
 });
 
+// Lambda Logging Config
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
+  // When running in Lambda, log to console only
+  // CloudWatch will capture console output
+  logger.configure({
+    transports: [
+      new winston.transports.Console({
+        format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
+      }),
+    ],
+  });
+}
+
 export default logger;

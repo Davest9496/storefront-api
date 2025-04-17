@@ -1,0 +1,73 @@
+name: Deploy to AWS
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+      - completed
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install Serverless Framework
+        run: npm install -g serverless
+      
+      - name: Set deployment stage
+        id: stage
+        run: |
+          if [[ $GITHUB_REF == 'refs/heads/main' ]]; then
+            echo "STAGE=prod" >> $GITHUB_ENV
+          else
+            echo "STAGE=dev" >> $GITHUB_ENV
+          fi
+      
+      - name: Deploy to AWS
+        run: serverless deploy --stage ${{ env.STAGE }} --verbose
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      
+      - name: Run database migrations
+        run: npm run migrate
+        env:
+          NODE_ENV: ${{ env.STAGE }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+      
+      - name: Notify deployment status
+        if: always()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: deployments
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_TITLE: "Storefront API Deployment to ${{ env.STAGE }}"
+          SLACK_MESSAGE: ${{ job.status == 'success' && 'Successfully deployed to AWS!' || 'Deployment failed!' }}
+          SLACK_FOOTER: "GitHub Actions"

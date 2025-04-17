@@ -12,8 +12,10 @@ async function setupDatabase(): Promise<void> {
     user: process.env.DB_USERNAME || 'postgres',
     password: process.env.DB_PASSWORD || 'postgres',
     database: process.env.DB_DATABASE || 'storefront',
+    ssl: {
+      rejectUnauthorized: false, // Important for connecting to RDS
+    },
   });
-
   try {
     // Connect to the database
     logger.info('Connecting to database...');

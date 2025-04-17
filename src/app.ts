@@ -6,6 +6,7 @@ import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import { config } from 'dotenv';
 import logger, { logStream } from './utils/logger';
+import AppDataSource from './config/data-source';
 
 // Load environment variables
 config();
@@ -26,11 +27,22 @@ app.use(morgan('combined', { stream: logStream })); // HTTP request logging
 app.use(express.json({ limit: '10kb' })); // Parse JSON requests with size limit
 app.use(express.urlencoded({ extended: true }));
 
-// CORS configuration
+// CORS configuration with multiple origin support
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || '*', // Allow requests from the frontend URL
-    credentials: true, // Allow cookies
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        process.env.FRONTEND_URL || 'https://storefront-virid.vercel.app',
+        'http://localhost:4200',
+      ];
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
   }),
 );
 
@@ -46,6 +58,15 @@ const limiter = rateLimit({
 // Apply rate limiting to auth routes
 app.use(`${API_PREFIX}/auth`, limiter);
 
+// Root endpoint
+app.get('/', (_req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'Welcome to the E-commerce API',
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // Health check endpoint
 app.get('/health', (_req: Request, res: Response) => {
   res.status(200).json({
@@ -59,9 +80,51 @@ app.get('/health', (_req: Request, res: Response) => {
 app.get('/', (_req: Request, res: Response) => {
   res.status(200).json({
     status: 'success',
-    message: 'Welcome to the E-commerce API',
+    message: 'Welcome to the storefront E-commerce API',
     documentation: '/api-docs',
   });
+});
+
+app.get('/debug/db', async (req, res) => {
+  try {
+    const isInitialized = AppDataSource.isInitialized;
+
+    if (isInitialized) {
+      // Try a simple query
+      const result = await AppDataSource.query('SELECT 1 as connection_test');
+
+      res.json({
+        status: 'success',
+        initialized: isInitialized,
+        queryTest: result,
+        config: {
+          host: process.env.DB_HOST,
+          port: process.env.DB_PORT,
+          database: process.env.DB_DATABASE,
+          hasUsername: !!process.env.DB_USERNAME,
+          hasPassword: !!process.env.DB_PASSWORD,
+        },
+      });
+    } else {
+      res.json({
+        status: 'not_initialized',
+        config: {
+          host: process.env.DB_HOST,
+          port: process.env.DB_PORT,
+          database: process.env.DB_DATABASE,
+          hasUsername: !!process.env.DB_USERNAME,
+          hasPassword: !!process.env.DB_PASSWORD,
+        },
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      status: 'error',
+      message: error instanceof Error ? error.message : 'An unknown error occurred',
+      stack:
+        process.env.NODE_ENV === 'development' && error instanceof Error ? error.stack : undefined,
+    });
+  }
 });
 
 // Initialize routes

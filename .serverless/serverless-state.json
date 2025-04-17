@@ -1,0 +1,701 @@
+{
+  "service": {
+    "service": "storefront-api",
+    "serviceObject": {
+      "name": "storefront-api"
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs20.x",
+      "stage": "dev",
+      "region": "eu-west-2",
+      "memorySize": 1024,
+      "timeout": 29,
+      "environment": {
+        "NODE_ENV": "dev",
+        "DATABASE_URL": "postgres://dave:storefront@database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432/storefront",
+        "DB_HOST": "database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com",
+        "DB_PORT": "5432",
+        "DB_USERNAME": "dave",
+        "DB_PASSWORD": "mophir3digit",
+        "DB_DATABASE": "storefront",
+        "JWT_SECRET": "YOUR_JWT_SECRET=very-long-and-secure-secret-key",
+        "FRONTEND_URL": "https://storefront-virid.vercel.app",
+        "USE_FALLBACK_DATA": "true"
+      },
+      "iam": {
+        "role": {
+          "statements": [
+            {
+              "Effect": "Allow",
+              "Action": ["ssm:GetParameter", "ssm:GetParameters"],
+              "Resource": "arn:aws:ssm:eu-west-2:*:parameter/storefront/dev/*"
+            }
+          ]
+        }
+      },
+      "apiGateway": {
+        "binaryMediaTypes": ["image/jpeg", "image/png", "application/octet-stream"]
+      },
+      "versionFunctions": true,
+      "compiledCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "ApiLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/storefront-api-dev-api"
+            }
+          },
+          "TestLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/storefront-api-dev-test"
+            }
+          },
+          "IamRoleLambdaExecution": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": ["lambda.amazonaws.com"]
+                    },
+                    "Action": ["sts:AssumeRole"]
+                  }
+                ]
+              },
+              "Policies": [
+                {
+                  "PolicyName": {
+                    "Fn::Join": ["-", ["storefront-api", "dev", "lambda"]]
+                  },
+                  "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:CreateLogStream",
+                          "logs:CreateLogGroup",
+                          "logs:TagResource"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/storefront-api-dev*:*"
+                          }
+                        ]
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": ["logs:PutLogEvents"],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/storefront-api-dev*:*:*"
+                          }
+                        ]
+                      },
+                      {
+                        "$ref": "$[\"service\"][\"provider\"][\"iam\"][\"role\"][\"statements\"][0]"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "Path": "/",
+              "RoleName": {
+                "Fn::Join": [
+                  "-",
+                  [
+                    "storefront-api",
+                    "dev",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "lambdaRole"
+                  ]
+                ]
+              }
+            }
+          },
+          "ApiLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
+                "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+              },
+              "Handler": "dist/lambda.handler",
+              "Runtime": "nodejs20.x",
+              "FunctionName": "storefront-api-dev-api",
+              "MemorySize": 1024,
+              "Timeout": 29,
+              "Environment": {
+                "Variables": {
+                  "NODE_ENV": "dev",
+                  "DATABASE_URL": "postgres://dave:storefront@database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432/storefront",
+                  "DB_HOST": "database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com",
+                  "DB_PORT": "5432",
+                  "DB_USERNAME": "dave",
+                  "DB_PASSWORD": "mophir3digit",
+                  "DB_DATABASE": "storefront",
+                  "JWT_SECRET": "YOUR_JWT_SECRET=very-long-and-secure-secret-key",
+                  "FRONTEND_URL": "https://storefront-virid.vercel.app",
+                  "USE_FALLBACK_DATA": "true"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
+              }
+            },
+            "DependsOn": ["ApiLogGroup"]
+          },
+          "TestLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
+                "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+              },
+              "Handler": "dist/simple-lambda.handler",
+              "Runtime": "nodejs20.x",
+              "FunctionName": "storefront-api-dev-test",
+              "MemorySize": 1024,
+              "Timeout": 29,
+              "Environment": {
+                "Variables": {
+                  "NODE_ENV": "dev",
+                  "DATABASE_URL": "postgres://dave:storefront@database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432/storefront",
+                  "DB_HOST": "database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com",
+                  "DB_PORT": "5432",
+                  "DB_USERNAME": "dave",
+                  "DB_PASSWORD": "mophir3digit",
+                  "DB_DATABASE": "storefront",
+                  "JWT_SECRET": "YOUR_JWT_SECRET=very-long-and-secure-secret-key",
+                  "FRONTEND_URL": "https://storefront-virid.vercel.app",
+                  "USE_FALLBACK_DATA": "true"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
+              }
+            },
+            "DependsOn": ["TestLogGroup"]
+          },
+          "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "ApiLambdaFunction"
+              },
+              "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+            }
+          },
+          "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "TestLambdaFunction"
+              },
+              "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+            }
+          },
+          "ApiGatewayRestApi": {
+            "Type": "AWS::ApiGateway::RestApi",
+            "Properties": {
+              "Name": "dev-storefront-api",
+              "BinaryMediaTypes": ["image/jpeg", "image/png", "application/octet-stream"],
+              "EndpointConfiguration": {
+                "Types": ["EDGE"]
+              },
+              "Policy": ""
+            }
+          },
+          "ApiGatewayResourceProxyVar": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
+              },
+              "PathPart": "{proxy+}",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceTest": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
+              },
+              "PathPart": "test",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE,GET,HEAD,PATCH,POST,PUT'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodProxyVarOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE,GET,HEAD,PATCH,POST,PUT'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceProxyVar"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodAny": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "ANY",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": ["ApiLambdaFunction", "Arn"]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": ["ApiLambdaPermissionApiGateway"]
+          },
+          "ApiGatewayMethodProxyVarAny": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "ANY",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceProxyVar"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": ["ApiLambdaFunction", "Arn"]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": ["ApiLambdaPermissionApiGateway"]
+          },
+          "ApiGatewayMethodTestGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceTest"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": ["TestLambdaFunction", "Arn"]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": ["TestLambdaPermissionApiGateway"]
+          },
+          "ApiGatewayDeployment1744820196946": {
+            "Type": "AWS::ApiGateway::Deployment",
+            "Properties": {
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "StageName": "dev"
+            },
+            "DependsOn": [
+              "ApiGatewayMethodOptions",
+              "ApiGatewayMethodProxyVarOptions",
+              "ApiGatewayMethodAny",
+              "ApiGatewayMethodProxyVarAny",
+              "ApiGatewayMethodTestGet"
+            ]
+          },
+          "ApiLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": ["ApiLambdaFunction", "Arn"]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "TestLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": ["TestLambdaFunction", "Arn"]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
+            "Export": {
+              "Name": "sls-storefront-api-dev-ServerlessDeploymentBucketName"
+            }
+          },
+          "ApiLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY"
+            },
+            "Export": {
+              "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
+            }
+          },
+          "TestLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0"
+            },
+            "Export": {
+              "Name": "sls-storefront-api-dev-TestLambdaFunctionQualifiedArn"
+            }
+          },
+          "ServiceEndpoint": {
+            "Description": "URL of the service endpoint",
+            "Value": {
+              "Fn::Join": [
+                "",
+                [
+                  "https://",
+                  {
+                    "Ref": "ApiGatewayRestApi"
+                  },
+                  ".execute-api.",
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  ".",
+                  {
+                    "Ref": "AWS::URLSuffix"
+                  },
+                  "/dev"
+                ]
+              ]
+            },
+            "Export": {
+              "Name": "sls-storefront-api-dev-ServiceEndpoint"
+            }
+          }
+        }
+      },
+      "vpc": {}
+    },
+    "pluginsData": {},
+    "functions": {
+      "api": {
+        "handler": "dist/lambda.handler",
+        "events": [
+          {
+            "http": {
+              "path": "",
+              "method": "any",
+              "cors": {
+                "origin": "*",
+                "methods": ["OPTIONS", "ANY"],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent",
+                  "X-Amzn-Trace-Id"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          },
+          {
+            "http": {
+              "path": "{proxy+}",
+              "method": "any",
+              "cors": {
+                "origin": "*",
+                "methods": ["OPTIONS", "ANY"],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent",
+                  "X-Amzn-Trace-Id"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "storefront-api-dev-api",
+        "package": {},
+        "memory": 1024,
+        "timeout": 29,
+        "runtime": "nodejs20.x",
+        "vpc": {},
+        "versionLogicalId": "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY"
+      },
+      "test": {
+        "handler": "dist/simple-lambda.handler",
+        "events": [
+          {
+            "http": {
+              "path": "test",
+              "method": "get",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "storefront-api-dev-test",
+        "package": {},
+        "memory": 1024,
+        "timeout": 29,
+        "runtime": "nodejs20.x",
+        "vpc": {},
+        "versionLogicalId": "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0"
+      }
+    },
+    "configValidationMode": "warn",
+    "serviceFilename": "serverless",
+    "initialServerlessConfig": {
+      "service": "storefront-api",
+      "frameworkVersion": "4",
+      "provider": {
+        "$ref": "$[\"service\"][\"provider\"]"
+      },
+      "functions": {
+        "$ref": "$[\"service\"][\"functions\"]"
+      },
+      "package": {
+        "patterns": ["dist/**", "node_modules/**", "!node_modules/.bin/**", "!.git/**", "!test/**"],
+        "artifactsS3KeyDirname": "serverless/storefront-api/dev/code-artifacts",
+        "deploymentBucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
+        "artifact": "/Users/davest/Desktop/storefront-api/.serverless/storefront-api.zip",
+        "artifactDirectoryName": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z"
+      }
+    },
+    "appId": null,
+    "orgId": null,
+    "layers": {},
+    "artifact": "/Users/davest/Desktop/storefront-api/.serverless/storefront-api.zip"
+  },
+  "package": {
+    "artifactDirectoryName": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z",
+    "artifact": "storefront-api.zip"
+  }
+}

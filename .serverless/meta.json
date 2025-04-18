@@ -1,6 +1,6 @@
 {
   "/Users/davest/Desktop/storefront-api/serverless.yml": {
-    "versionFramework": "4.13.0",
+    "versionFramework": "4.14.0",
     "servicePath": "/Users/davest/Desktop/storefront-api/serverless.yml",
     "serviceConfigFileName": "serverless.yml",
     "service": {
@@ -131,7 +131,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                  "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+                  "S3Key": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z/storefront-api.zip"
                 },
                 "Handler": "dist/lambda.handler",
                 "Runtime": "nodejs20.x",
@@ -163,7 +163,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                  "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+                  "S3Key": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z/storefront-api.zip"
                 },
                 "Handler": "dist/simple-lambda.handler",
                 "Runtime": "nodejs20.x",
@@ -190,24 +190,24 @@
               },
               "DependsOn": ["TestLogGroup"]
             },
-            "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY": {
+            "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "ApiLambdaFunction"
                 },
-                "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+                "CodeSha256": "/ngPjcrtItzrf5QMW/UqFBwMm+stgJPmsOo8Rk/siV8="
               }
             },
-            "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0": {
+            "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "TestLambdaFunction"
                 },
-                "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+                "CodeSha256": "/ngPjcrtItzrf5QMW/UqFBwMm+stgJPmsOo8Rk/siV8="
               }
             },
             "ApiGatewayRestApi": {
@@ -458,7 +458,7 @@
               },
               "DependsOn": ["TestLambdaPermissionApiGateway"]
             },
-            "ApiGatewayDeployment1744820196946": {
+            "ApiGatewayDeployment1744981011101": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -553,7 +553,7 @@
             "ApiLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY"
+                "Ref": "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os"
               },
               "Export": {
                 "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -562,7 +562,7 @@
             "TestLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0"
+                "Ref": "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8"
               },
               "Export": {
                 "Name": "sls-storefront-api-dev-TestLambdaFunctionQualifiedArn"
@@ -651,7 +651,7 @@
           "timeout": 29,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY"
+          "versionLogicalId": "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os"
         },
         "test": {
           "handler": "dist/simple-lambda.handler",
@@ -670,7 +670,7 @@
           "timeout": 29,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0"
+          "versionLogicalId": "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8"
         }
       },
       "package": {
@@ -678,7 +678,7 @@
         "artifactsS3KeyDirname": "serverless/storefront-api/dev/code-artifacts",
         "deploymentBucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
         "artifact": "/Users/davest/Desktop/storefront-api/.serverless/storefront-api.zip",
-        "artifactDirectoryName": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z"
+        "artifactDirectoryName": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z"
       }
     },
     "provider": {
@@ -806,7 +806,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+                "S3Key": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z/storefront-api.zip"
               },
               "Handler": "dist/lambda.handler",
               "Runtime": "nodejs20.x",
@@ -838,7 +838,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+                "S3Key": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z/storefront-api.zip"
               },
               "Handler": "dist/simple-lambda.handler",
               "Runtime": "nodejs20.x",
@@ -865,24 +865,24 @@
             },
             "DependsOn": ["TestLogGroup"]
           },
-          "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY": {
+          "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+              "CodeSha256": "/ngPjcrtItzrf5QMW/UqFBwMm+stgJPmsOo8Rk/siV8="
             }
           },
-          "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0": {
+          "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "TestLambdaFunction"
               },
-              "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+              "CodeSha256": "/ngPjcrtItzrf5QMW/UqFBwMm+stgJPmsOo8Rk/siV8="
             }
           },
           "ApiGatewayRestApi": {
@@ -1133,7 +1133,7 @@
             },
             "DependsOn": ["TestLambdaPermissionApiGateway"]
           },
-          "ApiGatewayDeployment1744820196946": {
+          "ApiGatewayDeployment1744981011101": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1228,7 +1228,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY"
+              "Ref": "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os"
             },
             "Export": {
               "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -1237,7 +1237,7 @@
           "TestLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0"
+              "Ref": "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8"
             },
             "Export": {
               "Name": "sls-storefront-api-dev-TestLambdaFunctionQualifiedArn"
@@ -1282,7 +1282,7 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "serviceRawFile": "service: storefront-api\n\nframeworkVersion: '4'\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  stage: ${opt:stage, 'dev'}\n  region: eu-west-2\n  memorySize: 1024  # Increase memory for better performance\n  timeout: 29\n  environment:\n    NODE_ENV: ${opt:stage, 'dev'}\n    DATABASE_URL: ${ssm:/storefront/${opt:stage, 'dev'}/DATABASE_URL}\n    DB_HOST: ${ssm:/storefront/${opt:stage, 'dev'}/DB_HOST}\n    DB_PORT: ${ssm:/storefront/${opt:stage, 'dev'}/DB_PORT}\n    DB_USERNAME: ${ssm:/storefront/${opt:stage, 'dev'}/DB_USERNAME}\n    DB_PASSWORD: ${ssm:/storefront/${opt:stage, 'dev'}/DB_PASSWORD}\n    DB_DATABASE: ${ssm:/storefront/${opt:stage, 'dev'}/DB_DATABASE}\n    JWT_SECRET: ${ssm:/storefront/${opt:stage, 'dev'}/JWT_SECRET}\n    FRONTEND_URL: ${ssm:/storefront/${opt:stage, 'dev'}/FRONTEND_URL}\n    USE_FALLBACK_DATA: 'true'  # Add this flag for using fallback data\n  iam:\n    role:\n      statements:\n        - Effect: Allow\n          Action:\n            - ssm:GetParameter\n            - ssm:GetParameters\n          Resource: \n            - arn:aws:ssm:${self:provider.region}:*:parameter/storefront/${self:provider.stage}/*\n  apiGateway:\n    binaryMediaTypes:\n      - 'image/jpeg'\n      - 'image/png'\n      - 'application/octet-stream'\n\nfunctions:\n  api:\n    handler: dist/lambda.handler\n    events:\n      - http:\n          path: /\n          method: ANY\n          cors: true\n      - http:\n          path: /{proxy+}\n          method: ANY\n          cors: true\n\n  test:\n    handler: dist/simple-lambda.handler\n    events:\n      - http:\n          path: /test\n          method: get\n\npackage:\n  patterns:\n    - 'dist/**'\n    - 'node_modules/**'\n    - '!node_modules/.bin/**'\n    - '!.git/**'\n    - '!test/**'",
+    "serviceRawFile": "service: storefront-api\n\nframeworkVersion: '4'\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  stage: ${opt:stage, 'dev'}\n  region: eu-west-2\n  memorySize: 1024  # Increase memory for better performance\n  timeout: 29\n  environment:\n    NODE_ENV: ${opt:stage, 'dev'}\n    DATABASE_URL: ${ssm:/storefront/${opt:stage, 'dev'}/DATABASE_URL}\n    DB_HOST: ${ssm:/storefront/${opt:stage, 'dev'}/DB_HOST}\n    DB_PORT: ${ssm:/storefront/${opt:stage, 'dev'}/DB_PORT}\n    DB_USERNAME: ${ssm:/storefront/${opt:stage, 'dev'}/DB_USERNAME}\n    DB_PASSWORD: ${ssm:/storefront/${opt:stage, 'dev'}/DB_PASSWORD}\n    DB_DATABASE: ${ssm:/storefront/${opt:stage, 'dev'}/DB_DATABASE}\n    JWT_SECRET: ${ssm:/storefront/${opt:stage, 'dev'}/JWT_SECRET}\n    FRONTEND_URL: ${ssm:/storefront/${opt:stage, 'dev'}/FRONTEND_URL}\n    USE_FALLBACK_DATA: 'true'  # Added this flag for using fallback data\n  iam:\n    role:\n      statements:\n        - Effect: Allow\n          Action:\n            - ssm:GetParameter\n            - ssm:GetParameters\n          Resource: \n            - arn:aws:ssm:${self:provider.region}:*:parameter/storefront/${self:provider.stage}/*\n  apiGateway:\n    binaryMediaTypes:\n      - 'image/jpeg'\n      - 'image/png'\n      - 'application/octet-stream'\n\nfunctions:\n  api:\n    handler: dist/lambda.handler\n    events:\n      - http:\n          path: /\n          method: ANY\n          cors: true\n      - http:\n          path: /{proxy+}\n          method: ANY\n          cors: true\n\n  test:\n    handler: dist/simple-lambda.handler\n    events:\n      - http:\n          path: /test\n          method: get\n\npackage:\n  patterns:\n    - 'dist/**'\n    - 'node_modules/**'\n    - '!node_modules/.bin/**'\n    - '!.git/**'\n    - '!test/**'",
     "command": ["deploy"],
     "options": {},
     "orgId": "006cea91-e273-49b5-a751-760109a409f0",
@@ -1293,18 +1293,18 @@
     "serviceProviderAwsCfStackName": "storefront-api-dev",
     "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-west-2:058264347310:stack/storefront-api-dev/00526380-1aa9-11f0-9fcf-0a11655aa05d",
     "serviceProviderAwsCfStackCreated": "2025-04-16T09:56:00.912Z",
-    "serviceProviderAwsCfStackUpdated": "2025-04-16T15:13:44.555Z",
+    "serviceProviderAwsCfStackUpdated": "2025-04-18T11:56:11.690Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "TestLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-2:058264347310:function:storefront-api-dev-test:4",
+        "OutputValue": "arn:aws:lambda:eu-west-2:058264347310:function:storefront-api-dev-test:8",
         "Description": "Current Lambda function version",
         "ExportName": "sls-storefront-api-dev-TestLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ApiLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-2:058264347310:function:storefront-api-dev-api:11",
+        "OutputValue": "arn:aws:lambda:eu-west-2:058264347310:function:storefront-api-dev-api:15",
         "Description": "Current Lambda function version",
         "ExportName": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
       },
@@ -1407,7 +1407,7 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-              "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+              "S3Key": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z/storefront-api.zip"
             },
             "Handler": "dist/lambda.handler",
             "Runtime": "nodejs20.x",
@@ -1439,7 +1439,7 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-              "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+              "S3Key": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z/storefront-api.zip"
             },
             "Handler": "dist/simple-lambda.handler",
             "Runtime": "nodejs20.x",
@@ -1466,24 +1466,24 @@
           },
           "DependsOn": ["TestLogGroup"]
         },
-        "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY": {
+        "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "ApiLambdaFunction"
             },
-            "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+            "CodeSha256": "/ngPjcrtItzrf5QMW/UqFBwMm+stgJPmsOo8Rk/siV8="
           }
         },
-        "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0": {
+        "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "TestLambdaFunction"
             },
-            "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+            "CodeSha256": "/ngPjcrtItzrf5QMW/UqFBwMm+stgJPmsOo8Rk/siV8="
           }
         },
         "ApiGatewayRestApi": {
@@ -1734,7 +1734,7 @@
           },
           "DependsOn": ["TestLambdaPermissionApiGateway"]
         },
-        "ApiGatewayDeployment1744820196946": {
+        "ApiGatewayDeployment1744981011101": {
           "Type": "AWS::ApiGateway::Deployment",
           "Properties": {
             "RestApiId": {
@@ -1829,7 +1829,7 @@
         "ApiLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY"
+            "Ref": "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os"
           },
           "Export": {
             "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -1838,7 +1838,7 @@
         "TestLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0"
+            "Ref": "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8"
           },
           "Export": {
             "Name": "sls-storefront-api-dev-TestLambdaFunctionQualifiedArn"

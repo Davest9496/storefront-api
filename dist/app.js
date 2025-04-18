@@ -59,10 +59,22 @@ app.use((0, compression_1.default)()); // Compress responses
 app.use((0, morgan_1.default)('combined', { stream: logger_1.logStream })); // HTTP request logging
 app.use(express_1.default.json({ limit: '10kb' })); // Parse JSON requests with size limit
 app.use(express_1.default.urlencoded({ extended: true }));
-// CORS configuration
+// CORS configuration with multiple origin support
 app.use((0, cors_1.default)({
-    origin: process.env.FRONTEND_URL || '*', // Allow requests from the frontend URL
-    credentials: true, // Allow cookies
+    origin: (origin, callback) => {
+        const allowedOrigins = [
+            process.env.FRONTEND_URL || 'https://storefront-virid.vercel.app',
+            'http://localhost:4200',
+        ];
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        }
+        else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
 }));
 // Rate limiting
 const limiter = (0, express_rate_limit_1.default)({
@@ -82,19 +94,11 @@ app.get('/', (_req, res) => {
         timestamp: new Date().toISOString(),
     });
 });
-// Health check endpoint
-app.get('/health', (_req, res) => {
-    res.status(200).json({
-        status: 'success',
-        message: 'Server is healthy',
-        timestamp: new Date().toISOString(),
-    });
-});
 // Root endpoint
 app.get('/', (_req, res) => {
     res.status(200).json({
         status: 'success',
-        message: 'Welcome to the E-commerce API',
+        message: 'Welcome to the storefront E-commerce API',
         documentation: '/api-docs',
     });
 });

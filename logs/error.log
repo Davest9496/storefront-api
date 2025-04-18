@@ -362,3 +362,32 @@
 {"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 10:27:03:273"}
 {"level":"error","message":"500 - Not allowed by CORS - /api/products/category/speakers - GET - ::ffff:127.0.0.1","timestamp":"2025-04-17 10:27:03:273"}
 {"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 10:27:03:273"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/speakers - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:18:53:1853"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:18:53:1853"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/speakers - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:18:53:1853"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:18:53:1853"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/speakers - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:19:2519"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:19:2519"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/speakers - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:19:2519"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:19:2519"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/headphones - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:45:2545"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:45:2545"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/headphones - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:45:2545"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:45:2545"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/headphones - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:49:2549"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:49:2549"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/headphones - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:49:2549"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:49:2549"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/headphones - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:50:2550"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:50:2550"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/headphones - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:50:2550"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:50:2550"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/speakers - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:58:2558"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:58:2558"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/speakers - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:25:58:2558"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:25:58:2558"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/speakers - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:46:19:4619"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:46:19:4619"}
+{"level":"error","message":"500 - Not allowed by CORS - /api/products/category/speakers - OPTIONS - ::ffff:127.0.0.1","timestamp":"2025-04-17 11:46:19:4619"}
+{"level":"error","message":"ERROR 💥 Not allowed by CORS","status":"error","statusCode":500,"timestamp":"2025-04-17 11:46:19:4619"}
+{"code":"28000","file":"auth.c","length":159,"level":"error","line":"533","message":"Error during database initialization: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","name":"error","routine":"ClientAuthentication","severity":"FATAL","stack":"error: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption\n    at Parser.parseErrorMessage (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:368:69)\n    at Parser.handlePacket (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:187:21)\n    at Parser.parse (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:102:30)\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/index.ts:7:48)\n    at Socket.emit (node:events:518:28)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)\n    at Socket.Readable.push (node:internal/streams/readable:390:5)\n    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)","timestamp":"2025-04-18 13:48:10:4810"}

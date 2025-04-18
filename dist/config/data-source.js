@@ -70,7 +70,7 @@ else {
         migrationsTableName: 'migrations',
         url: process.env.DATABASE_URL ||
             `postgres://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`,
-        ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+        ssl: { rejectUnauthorized: false },
     };
 }
 // Create the AppDataSource (this doesn't connect yet, just configures)

@@ -127,7 +127,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+                "S3Key": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z/storefront-api.zip"
               },
               "Handler": "dist/lambda.handler",
               "Runtime": "nodejs20.x",
@@ -159,7 +159,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                "S3Key": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z/storefront-api.zip"
+                "S3Key": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z/storefront-api.zip"
               },
               "Handler": "dist/simple-lambda.handler",
               "Runtime": "nodejs20.x",
@@ -186,24 +186,24 @@
             },
             "DependsOn": ["TestLogGroup"]
           },
-          "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY": {
+          "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+              "CodeSha256": "/ngPjcrtItzrf5QMW/UqFBwMm+stgJPmsOo8Rk/siV8="
             }
           },
-          "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0": {
+          "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "TestLambdaFunction"
               },
-              "CodeSha256": "xQXEAH0A/RFJnuMKCHKeI3cpUqIITxuObFUeV1Mc+78="
+              "CodeSha256": "/ngPjcrtItzrf5QMW/UqFBwMm+stgJPmsOo8Rk/siV8="
             }
           },
           "ApiGatewayRestApi": {
@@ -454,7 +454,7 @@
             },
             "DependsOn": ["TestLambdaPermissionApiGateway"]
           },
-          "ApiGatewayDeployment1744820196946": {
+          "ApiGatewayDeployment1744981011101": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -549,7 +549,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY"
+              "Ref": "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os"
             },
             "Export": {
               "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -558,7 +558,7 @@
           "TestLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0"
+              "Ref": "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8"
             },
             "Export": {
               "Name": "sls-storefront-api-dev-TestLambdaFunctionQualifiedArn"
@@ -648,7 +648,7 @@
         "timeout": 29,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersionUGuKIKrQiBjWxQ392z8u9fCkG5yk6q4oubMH4gNcyY"
+        "versionLogicalId": "ApiLambdaVersionEylay4cXjj5Jo9IBFkvUCwkmBtT34y500Kaqq0A4Os"
       },
       "test": {
         "handler": "dist/simple-lambda.handler",
@@ -667,7 +667,7 @@
         "timeout": 29,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "TestLambdaVersionpTy5rRBjNZ71auAU25oE44OGC48DDCX61aLILcmNr0"
+        "versionLogicalId": "TestLambdaVersionwof5OrZQek0576vdWwcM2FlwTJUKHTdfEwHBN1Ug8"
       }
     },
     "configValidationMode": "warn",
@@ -686,7 +686,7 @@
         "artifactsS3KeyDirname": "serverless/storefront-api/dev/code-artifacts",
         "deploymentBucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
         "artifact": "/Users/davest/Desktop/storefront-api/.serverless/storefront-api.zip",
-        "artifactDirectoryName": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z"
+        "artifactDirectoryName": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z"
       }
     },
     "appId": null,
@@ -695,7 +695,7 @@
     "artifact": "/Users/davest/Desktop/storefront-api/.serverless/storefront-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/storefront-api/dev/1744820210966-2025-04-16T16:16:50.966Z",
+    "artifactDirectoryName": "serverless/storefront-api/dev/1744981028777-2025-04-18T12:57:08.777Z",
     "artifact": "storefront-api.zip"
   }
 }

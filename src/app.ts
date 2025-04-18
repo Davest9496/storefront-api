@@ -67,15 +67,6 @@ app.get('/', (_req: Request, res: Response) => {
   });
 });
 
-// Health check endpoint
-app.get('/health', (_req: Request, res: Response) => {
-  res.status(200).json({
-    status: 'success',
-    message: 'Server is healthy',
-    timestamp: new Date().toISOString(),
-  });
-});
-
 // Root endpoint
 app.get('/', (_req: Request, res: Response) => {
   res.status(200).json({

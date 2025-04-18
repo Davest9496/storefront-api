@@ -7,18 +7,27 @@ import logger from '../utils/logger';
  * @route   GET /health
  * @access  Public
  */
+// In src/controllers/health.controller.ts
 export const healthCheck = async (req: Request, res: Response): Promise<void> => {
   try {
     const healthcheck = {
-      uptime: process.uptime(),
-      message: 'OK',
-      timestamp: Date.now(),
-      database: 'Disconnected',
+      status: 'ok',
+      message: 'Service is healthy',
+      timestamp: new Date().toISOString(),
+      path: req.path,
+      dbConnected: AppDataSource.isInitialized,
     };
 
     // Check database connection
     if (AppDataSource.isInitialized) {
-      healthcheck.database = 'Connected';
+      try {
+        // Run a simple query to verify the connection is working
+        await AppDataSource.query('SELECT 1');
+        healthcheck.dbConnected = true;
+      } catch (dbError) {
+        logger.error('Database ping failed despite initialized connection:', dbError);
+        healthcheck.dbConnected = false;
+      }
     }
 
     logger.info(`Health check successful: ${JSON.stringify(healthcheck)}`);
@@ -26,9 +35,10 @@ export const healthCheck = async (req: Request, res: Response): Promise<void> =>
   } catch (error) {
     logger.error('Health check failed:', error);
     res.status(503).json({
-      uptime: process.uptime(),
+      status: 'error',
       message: 'Service Unavailable',
-      timestamp: Date.now(),
+      timestamp: new Date().toISOString(),
+      dbConnected: false,
     });
   }
 };

@@ -2,6 +2,7 @@ import { userRepository } from '../repositories/user.repository';
 import { User, UserRole } from '../entities/user.entity';
 import { AppError } from '../middleware/error.middleware';
 import { hashPassword, comparePassword } from '../utils/password.utils';
+import logger from '../utils/logger';
 import { generateToken } from '../utils/jwt.utils';
 
 export interface SignupData {
@@ -51,24 +52,43 @@ export class AuthService {
    * Login a user
    */
   async login(email: string, password: string): Promise<AuthResult> {
-    // Find user by email and include password
-    const user = await userRepository.findByEmailWithPassword(email);
+    try {
+      logger.info(`Attempting login for user: ${email}`);
 
-    if (!user) {
-      throw new AppError('Incorrect email or password', 401);
+      // Find user by email and include password
+      const user = await userRepository.findByEmailWithPassword(email);
+
+      if (!user) {
+        logger.info(`User not found: ${email}`);
+        throw new AppError('Incorrect email or password', 401);
+      }
+
+      logger.info(`User found, checking password...`);
+      logger.debug(`Stored password hash: ${user.passwordDigest.substring(0, 10)}...`);
+
+      // Check if password is correct
+      const isPasswordValid = await comparePassword(password, user.passwordDigest);
+
+      logger.info(`Password valid: ${isPasswordValid}`);
+
+      if (!isPasswordValid) {
+        throw new AppError('Incorrect email or password', 401);
+      }
+
+      // Generate JWT token
+      const token = generateToken(user);
+
+      return { user, token };
+    } catch (error) {
+      logger.error('Error during login:', error);
+
+      // Rethrow AppError instances, wrap other errors
+      if (error instanceof AppError) {
+        throw error;
+      }
+
+      throw new AppError('Authentication failed', 500);
     }
-
-    // Check if password is correct
-    const isPasswordValid = await comparePassword(password, user.passwordDigest);
-
-    if (!isPasswordValid) {
-      throw new AppError('Incorrect email or password', 401);
-    }
-
-    // Generate JWT token
-    const token = generateToken(user);
-
-    return { user, token };
   }
 }
 

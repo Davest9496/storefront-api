@@ -1,6 +1,7 @@
 import { Repository } from 'typeorm';
 import { User, UserRole } from '../entities/user.entity';
 import AppDataSource from '../config/database';
+import logger from '../utils/logger'; // Adjust the path based on your project structure
 
 export class UserRepository extends Repository<User> {
   constructor() {
@@ -12,10 +13,22 @@ export class UserRepository extends Repository<User> {
   }
 
   async findByEmailWithPassword(email: string): Promise<User | null> {
-    return this.createQueryBuilder('user')
-      .addSelect('user.passwordDigest')
-      .where('user.email = :email', { email })
-      .getOne();
+    try {
+      return this.createQueryBuilder('user')
+        .select([
+          'user.id',
+          'user.firstName',
+          'user.lastName',
+          'user.email',
+          'user.passwordDigest',
+          'user.role',
+        ])
+        .where('user.email = :email', { email })
+        .getOne();
+    } catch (error) {
+      logger.error('Error in findByEmailWithPassword:', error);
+      throw error;
+    }
   }
 
   async findByResetToken(token: string): Promise<User | null> {

@@ -1679,3 +1679,277 @@
 {"level":"debug","message":"QueryFailedError: column user.resetPasswordToken does not exist\n    at PostgresQueryRunner.query (/Users/davest/Desktop/storefront-api/src/driver/postgres/PostgresQueryRunner.ts:328:19)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at SelectQueryBuilder.loadRawResults (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:3801:25)\n    at SelectQueryBuilder.executeEntitiesAndRawResults (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:3547:26)\n    at SelectQueryBuilder.getRawAndEntities (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:1671:29)\n    at SelectQueryBuilder.getOne (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:1698:25)\n    at AuthService.login (/Users/davest/Desktop/storefront-api/src/services/auth.service.ts:55:18)\n    at login (/Users/davest/Desktop/storefront-api/src/controllers/auth.controller.ts:51:31)","timestamp":"2025-04-21 16:14:27:1427"}
 {"code":"42703","driverError":{"code":"42703","file":"parse_relation.c","length":122,"line":"3716","name":"error","position":"178","routine":"errorMissingColumn","severity":"ERROR"},"file":"parse_relation.c","length":122,"level":"error","line":"3716","message":"ERROR 💥 column user.resetPasswordToken does not exist","parameters":["john.doe@example.com"],"position":"178","query":"SELECT \"user\".\"id\" AS \"user_id\", \"user\".\"first_name\" AS \"user_first_name\", \"user\".\"last_name\" AS \"user_last_name\", \"user\".\"email\" AS \"user_email\", \"user\".\"role\" AS \"user_role\", \"user\".\"resetPasswordToken\" AS \"user_resetPasswordToken\", \"user\".\"resetPasswordExpires\" AS \"user_resetPasswordExpires\", \"user\".\"created_at\" AS \"user_created_at\", \"user\".\"updated_at\" AS \"user_updated_at\", \"user\".\"password_digest\" AS \"user_password_digest\", \"user\".\"password_digest\" FROM \"users\" \"user\" WHERE \"user\".\"email\" = $1","routine":"errorMissingColumn","severity":"ERROR","status":"error","statusCode":500,"timestamp":"2025-04-21 16:14:27:1427"}
 {"level":"http","message":"::1 - - [21/Apr/2025:15:14:27 +0000] \"POST /api/auth/login HTTP/1.1\" 500 51 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 16:14:27:1427"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:20:25:2025"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:20:25:2025","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:20:26:2026"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:20:26:2026"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:20:26:2026"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:20:26:2026"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:23:22:2322"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:23:23:2323","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:23:23:2323"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:23:23:2323"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:23:23:2323"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:23:23:2323"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:23:57:2357"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:23:57:2357","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:23:58:2358"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:23:58:2358"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:23:58:2358"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:23:58:2358"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:24:06:246"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:24:07:247","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:24:07:247"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:24:08:248"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:24:08:248"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:24:08:248"}
+{"level":"info","message":"Connecting to database...","timestamp":"2025-04-21 16:24:20:2420"}
+{"level":"info","message":"Database connection closed","timestamp":"2025-04-21 16:24:20:2420"}
+{"level":"info","message":"Connecting to database...","timestamp":"2025-04-21 16:24:28:2428"}
+{"level":"info","message":"Database connection closed","timestamp":"2025-04-21 16:24:28:2428"}
+{"database":"storefront","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":5432,"ssl":true,"timestamp":"2025-04-21 16:32:08:328","user":"dave"}
+{"level":"info","message":"Connecting to database with SSL...","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"Checking if user_role enum type exists...","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"user_role enum type already exists","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"Checking if role column exists...","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"role column already exists","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"Checking if reset_password_token column exists...","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"Adding reset_password_token column...","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"reset_password_token column added successfully","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"Checking if reset_password_expires column exists...","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"Adding reset_password_expires column...","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"reset_password_expires column added successfully","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"Setting admin role for first user...","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"✅ Database schema updates completed successfully","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"info","message":"Database connection closed","timestamp":"2025-04-21 16:32:08:328"}
+{"level":"error","message":"401 - Incorrect email or password - /api/auth/login - POST - ::1","timestamp":"2025-04-21 16:32:47:3247"}
+{"level":"debug","message":"Error: Incorrect email or password\n    at AuthService.login (/Users/davest/Desktop/storefront-api/src/services/auth.service.ts:65:13)\n    at login (/Users/davest/Desktop/storefront-api/src/controllers/auth.controller.ts:51:31)","timestamp":"2025-04-21 16:32:47:3247"}
+{"level":"http","message":"::1 - - [21/Apr/2025:15:32:47 +0000] \"POST /api/auth/login HTTP/1.1\" 401 57 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 16:32:47:3247"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:35:10:3510"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:35:24:3524","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:35:25:3525"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:35:25:3525"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:35:25:3525"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:35:25:3525"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:35:32:3532"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:35:44:3544","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:35:44:3544"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:35:44:3544"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:35:44:3544"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:35:44:3544"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:36:12:3612"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:37:04:374","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:37:04:374"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:37:05:375"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:37:05:375"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:37:05:375"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:37:06:376"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:37:13:3713","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:37:13:3713"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:37:13:3713"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:37:13:3713"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:37:13:3713"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:37:18:3718"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:37:42:3742","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:37:43:3743"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:37:43:3743"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:37:43:3743"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:37:43:3743"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:38:13:3813"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:38:14:3814","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:38:14:3814"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:38:14:3814"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:38:14:3814"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:38:14:3814"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:38:26:3826"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:38:26:3826","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:38:26:3826"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:38:26:3826"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:38:26:3826"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:38:26:3826"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:38:32:3832"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:38:32:3832","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:38:33:3833"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:38:33:3833"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:38:33:3833"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:38:33:3833"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:38:40:3840"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:38:40:3840","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:38:41:3841"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:38:41:3841"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:38:41:3841"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:38:41:3841"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:38:49:3849"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:38:50:3850","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:38:50:3850"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:38:50:3850"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:38:50:3850"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:38:50:3850"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:38:52:3852"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:38:53:3853","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:38:53:3853"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:38:53:3853"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:38:53:3853"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:38:53:3853"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:38:55:3855"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:38:56:3856","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:38:56:3856"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:38:56:3856"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:38:56:3856"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:38:56:3856"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:38:59:3859"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:38:59:3859","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:38:59:3859"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:38:59:3859"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:38:59:3859"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:38:59:3859"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:01:391"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:01:391","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:02:392"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:02:392"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:02:392"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:02:392"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:06:396"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:06:396","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:06:396"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:07:397"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:07:397"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:07:397"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:08:398"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:08:398","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:09:399"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:09:399"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:09:399"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:09:399"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:10:3910"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:11:3911","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:11:3911"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:11:3911"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:11:3911"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:11:3911"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:15:3915"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:15:3915","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:15:3915"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:16:3916"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:16:3916"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:16:3916"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:20:3920"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:21:3921","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:21:3921"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:21:3921"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:21:3921"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:21:3921"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:26:3926"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:27:3927","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:27:3927"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:27:3927"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:27:3927"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:27:3927"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:32:3932"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:32:3932","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:32:3932"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:33:3933"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:33:3933"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:33:3933"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:38:3938"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:38:3938","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:38:3938"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:38:3938"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:38:3938"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:38:3938"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:40:3940"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:41:3941","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:41:3941"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:41:3941"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:41:3941"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:41:3941"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:44:3944"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:44:3944","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:44:3944"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:44:3944"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:44:3944"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:44:3944"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:48:3948"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:49:3949","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:49:3949"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:49:3949"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:49:3949"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:49:3949"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:39:57:3957"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:39:57:3957","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:39:57:3957"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:39:57:3957"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:39:57:3957"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:39:57:3957"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:40:00:400"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:40:00:400","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:40:00:400"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:40:00:400"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:40:00:400"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:40:00:400"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:40:03:403"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:40:04:404","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:40:04:404"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:40:04:404"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:40:04:404"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:40:04:404"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:40:25:4025"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:40:28:4028","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:40:29:4029"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:40:29:4029"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:40:29:4029"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:40:29:4029"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:42:27:4227"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:42:27:4227","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:42:27:4227"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:42:28:4228"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:42:28:4228"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:42:28:4228"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:43:29:4329"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:43:29:4329","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:43:30:4330"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:43:30:4330"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:43:30:4330"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:43:30:4330"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 16:43:30:4330"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 16:43:31:4331","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 16:43:31:4331"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 16:43:31:4331"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 16:43:31:4331"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 16:43:31:4331"}
+{"level":"info","message":"Connecting to database...","timestamp":"2025-04-21 16:45:20:4520"}
+{"level":"info","message":"Connected to database","timestamp":"2025-04-21 16:45:20:4520"}
+{"level":"info","message":"Retrieved stored hash: $2b$10$xPPQQUB4gRTJK9BLON5e7.f6jpZBu0WJQAqJ0VLrDsQHnHrB8KDtC","timestamp":"2025-04-21 16:45:20:4520"}
+{"level":"info","message":"Password \"password123\" matches with bcryptjs: false","timestamp":"2025-04-21 16:45:20:4520"}
+{"level":"info","message":"Created new hash with bcryptjs: $2b$10$R2uoDGhWhf9EV5TFeVmeAOcy8QLunSLeURm1AsX4zndOE62v3E0kC","timestamp":"2025-04-21 16:45:21:4521"}
+{"level":"info","message":"Updated password for john.doe@example.com","timestamp":"2025-04-21 16:45:21:4521"}
+{"level":"info","message":"Verification with new hash: true","timestamp":"2025-04-21 16:45:21:4521"}
+{"level":"info","message":"Database connection closed","timestamp":"2025-04-21 16:45:21:4521"}
+{"level":"info","message":"Attempting login for user: john.doe@example.com","timestamp":"2025-04-21 16:45:45:4545"}
+{"level":"info","message":"User found, checking password...","timestamp":"2025-04-21 16:45:45:4545"}
+{"level":"debug","message":"Stored password hash: $2b$10$R2u...","timestamp":"2025-04-21 16:45:45:4545"}
+{"level":"info","message":"Password valid: true","timestamp":"2025-04-21 16:45:45:4545"}
+{"level":"http","message":"::1 - - [21/Apr/2025:15:45:45 +0000] \"POST /api/auth/login HTTP/1.1\" 200 317 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 16:45:45:4545"}
+{"level":"http","message":"::1 - - [21/Apr/2025:15:47:54 +0000] \"POST /api/auth/signup HTTP/1.1\" 201 326 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 16:47:54:4754"}
+{"level":"http","message":"::1 - - [21/Apr/2025:15:50:54 +0000] \"GET /api/auth/me HTTP/1.1\" 200 134 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 16:50:54:5054"}
+{"level":"warn","message":"Route not found: POST /api/orders","timestamp":"2025-04-21 16:53:46:5346"}
+{"level":"http","message":"::1 - - [21/Apr/2025:15:53:46 +0000] \"POST /api/orders HTTP/1.1\" 404 54 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 16:53:46:5346"}
+{"level":"info","message":"Attempting login for user: john.doe@example.com","timestamp":"2025-04-21 16:55:28:5528"}
+{"level":"info","message":"User found, checking password...","timestamp":"2025-04-21 16:55:28:5528"}
+{"level":"debug","message":"Stored password hash: $2b$10$R2u...","timestamp":"2025-04-21 16:55:28:5528"}
+{"level":"info","message":"Password valid: true","timestamp":"2025-04-21 16:55:29:5529"}
+{"level":"http","message":"::1 - - [21/Apr/2025:15:55:29 +0000] \"POST /api/auth/login HTTP/1.1\" 200 317 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 16:55:29:5529"}
+{"level":"http","message":"::1 - - [21/Apr/2025:15:57:40 +0000] \"POST /api/products HTTP/1.1\" 201 761 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 16:57:40:5740"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [21/Apr/2025:15:59:26 +0000] \"GET /api/products HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-21 16:59:26:5926"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [21/Apr/2025:16:00:54 +0000] \"GET /api/products HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-21 17:00:54:054"}
+{"level":"http","message":"::1 - - [21/Apr/2025:16:02:23 +0000] \"DELETE /api/products/xm5-wireless HTTP/1.1\" 204 - \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 17:02:23:223"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [21/Apr/2025:16:02:28 +0000] \"GET /api/products HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-21 17:02:28:228"}
+{"database":"storefront_test","env":"test","host":"localhost","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 17:34:31:3431","username":"postgres"}
+{"database":"storefront_test","env":"test","host":"localhost","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 17:34:32:3432","username":"postgres"}
+{"database":"storefront_test","env":"test","host":"localhost","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 17:34:33:3433","username":"postgres"}
+{"database":"storefront_test","env":"test","host":"localhost","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 17:34:34:3434","username":"postgres"}
+{"level":"error","message":"Failed to initialize test database: The server does not support SSL connections","stack":"Error: The server does not support SSL connections\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/connection.js:76:37)\n    at Object.onceWrapper (node:events:633:26)\n    at Socket.emit (node:events:518:28)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)\n    at Socket.Readable.push (node:internal/streams/readable:390:5)\n    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)","timestamp":"2025-04-21 17:34:34:3434"}
+{"level":"error","message":"Failed to initialize test database: The server does not support SSL connections","stack":"Error: The server does not support SSL connections\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/connection.js:76:37)\n    at Object.onceWrapper (node:events:633:26)\n    at Socket.emit (node:events:518:28)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)\n    at Socket.Readable.push (node:internal/streams/readable:390:5)\n    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)","timestamp":"2025-04-21 17:34:34:3434"}
+{"level":"error","message":"Failed to delete test user test@example.com: The server does not support SSL connections","stack":"Error: The server does not support SSL connections\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/connection.js:76:37)\n    at Object.onceWrapper (node:events:633:26)\n    at Socket.emit (node:events:518:28)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)\n    at Socket.Readable.push (node:internal/streams/readable:390:5)\n    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)","timestamp":"2025-04-21 17:34:34:3434"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-21 18:32:49:3249"}

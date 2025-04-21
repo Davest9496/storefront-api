@@ -39,10 +39,10 @@ export class User {
   })
   role!: UserRole;
 
-  @Column({ nullable: true })
+  @Column({ name: 'reset_password_token', nullable: true })
   resetPasswordToken?: string;
 
-  @Column({ type: 'timestamp', nullable: true })
+  @Column({ name: 'reset_password_expires', type: 'timestamp', nullable: true })
   resetPasswordExpires?: Date;
 
   @CreateDateColumn({ name: 'created_at' })

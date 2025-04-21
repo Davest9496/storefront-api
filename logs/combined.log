@@ -1475,3 +1475,207 @@
 {"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-18 13:55:58:5558"}
 {"level":"info","message":"Health check available at http://localhost:8080/health","timestamp":"2025-04-18 13:55:58:5558"}
 {"level":"http","message":"::ffff:127.0.0.1 - - [18/Apr/2025:12:56:26 +0000] \"GET /api/products HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-18 13:56:26:5626"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-18 14:08:51:851"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-18 18:31:58:3158","username":"dave"}
+{"level":"info","message":"Database connection established","timestamp":"2025-04-18 18:31:59:3159"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-18 18:31:59:3159"}
+{"level":"info","message":"Health check available at http://localhost:8080/health","timestamp":"2025-04-18 18:31:59:3159"}
+{"level":"http","message":"::1 - - [18/Apr/2025:17:32:05 +0000] \"GET /health HTTP/1.1\" 404 145 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Safari/605.1.15\"","timestamp":"2025-04-18 18:32:05:325"}
+{"level":"info","message":"Health check successful: {\"status\":\"ok\",\"message\":\"Service is healthy\",\"timestamp\":\"2025-04-18T17:32:27.218Z\",\"path\":\"/\",\"dbConnected\":true}","timestamp":"2025-04-18 18:32:27:3227"}
+{"level":"http","message":"::1 - - [18/Apr/2025:17:32:27 +0000] \"GET /api/health HTTP/1.1\" 200 115 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Safari/605.1.15\"","timestamp":"2025-04-18 18:32:27:3227"}
+{"level":"http","message":"::1 - - [18/Apr/2025:17:38:14 +0000] \"GET /debug/db' HTTP/1.1\" 404 152 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Safari/605.1.15\"","timestamp":"2025-04-18 18:38:14:3814"}
+{"level":"warn","message":"Route not found: GET /api/debug/db'","timestamp":"2025-04-18 18:38:26:3826"}
+{"level":"http","message":"::1 - - [18/Apr/2025:17:38:26 +0000] \"GET /api/debug/db' HTTP/1.1\" 404 56 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Safari/605.1.15\"","timestamp":"2025-04-18 18:38:26:3826"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-21 07:53:39:5339"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 13:20:14:2014","username":"dave"}
+{"code":"SELF_SIGNED_CERT_IN_CHAIN","level":"error","message":"Error during database initialization: self-signed certificate in certificate chain","stack":"Error: self-signed certificate in certificate chain\n    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)\n    at TLSSocket.emit (node:events:518:28)\n    at TLSSocket._finishInit (node:_tls_wrap:1085:8)\n    at TLSWrap.ssl.onhandshakedone (node:_tls_wrap:871:12)","timestamp":"2025-04-21 13:20:14:2014"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 13:20:44:2044","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:20:44:2044"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:20:44:2044"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-21 13:20:44:2044"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:20:47:2047"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:20:47:2047"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-21 13:20:47:2047"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:20:50:2050"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:20:50:2050"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-21 13:20:50:2050"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:20:53:2053"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:20:53:2053"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-21 13:20:53:2053"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:20:56:2056"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:20:56:2056"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-21 13:20:56:2056"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:20:59:2059"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:20:59:2059"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 13:22:51:2251","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:22:52:2252"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:22:52:2252"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-21 13:22:52:2252"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:22:55:2255"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:22:55:2255"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-21 13:22:55:2255"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:22:58:2258"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:22:58:2258"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-21 13:22:58:2258"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:23:01:231"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:23:01:231"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-21 13:23:01:231"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:23:04:234"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:23:04:234"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-21 13:23:04:234"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:23:07:237"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-21 13:23:07:237"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 13:24:05:245","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:24:06:246"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 13:24:06:246"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 13:24:06:246"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 13:24:06:246"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-21 13:26:13:2613"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 13:26:33:2633","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:26:34:2634"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 13:26:34:2634"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 13:26:34:2634"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 13:26:34:2634"}
+{"level":"info","message":"Connecting to AWS RDS database...","timestamp":"2025-04-21 13:26:45:2645"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, Port: 5432, Database: storefront","timestamp":"2025-04-21 13:26:45:2645"}
+{"code":"28000","file":"auth.c","length":159,"level":"error","line":"533","message":"❌ RDS connection test failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","name":"error","routine":"ClientAuthentication","severity":"FATAL","stack":"error: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption\n    at Parser.parseErrorMessage (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:368:69)\n    at Parser.handlePacket (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:187:21)\n    at Parser.parse (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:102:30)\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/index.ts:7:48)\n    at Socket.emit (node:events:518:28)\n    at Socket.emit (node:domain:488:12)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)\n    at Socket.Readable.push (node:internal/streams/readable:390:5)\n    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)","timestamp":"2025-04-21 13:26:45:2645"}
+{"level":"error","message":"Error details:","timestamp":"2025-04-21 13:26:45:2645"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 13:31:14:3114","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:31:14:3114"}
+{"level":"info","message":"Database connection initialized successfully","timestamp":"2025-04-21 13:31:15:3115"}
+{"level":"info","message":"Running migrations...","timestamp":"2025-04-21 13:31:15:3115"}
+{"level":"info","message":"Successfully ran 1 migrations:","timestamp":"2025-04-21 13:31:15:3115"}
+{"level":"info","message":"Connecting to database...","timestamp":"2025-04-21 13:32:58:3258"}
+{"level":"info","message":"Connected to database","timestamp":"2025-04-21 13:32:58:3258"}
+{"level":"info","message":"Setting up database schema...","timestamp":"2025-04-21 13:32:58:3258"}
+{"level":"info","message":"Seeding database with initial data...","timestamp":"2025-04-21 13:32:58:3258"}
+{"level":"info","message":"✅ Database setup and seeding completed successfully","timestamp":"2025-04-21 13:32:59:3259"}
+{"level":"info","message":"Database connection closed","timestamp":"2025-04-21 13:32:59:3259"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-21 13:36:54:3654"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 13:37:03:373","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 13:37:03:373"}
+{"level":"info","message":"Database connection initialized successfully","timestamp":"2025-04-21 13:37:04:374"}
+{"level":"info","message":"Running migrations...","timestamp":"2025-04-21 13:37:04:374"}
+{"level":"info","message":"No migrations to run. Database is up to date.","timestamp":"2025-04-21 13:37:04:374"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 13:37:16:3716","username":"dave"}
+{"level":"info","message":"Connecting to AWS RDS database...","timestamp":"2025-04-21 13:42:07:427"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, Port: 5432, Database: storefront","timestamp":"2025-04-21 13:42:07:427"}
+{"code":"28000","file":"auth.c","length":159,"level":"error","line":"533","message":"❌ RDS connection test failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","name":"error","routine":"ClientAuthentication","severity":"FATAL","stack":"error: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption\n    at Parser.parseErrorMessage (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:368:69)\n    at Parser.handlePacket (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:187:21)\n    at Parser.parse (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:102:30)\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/index.ts:7:48)\n    at Socket.emit (node:events:518:28)\n    at Socket.emit (node:domain:488:12)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)\n    at Socket.Readable.push (node:internal/streams/readable:390:5)\n    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)","timestamp":"2025-04-21 13:42:07:427"}
+{"level":"error","message":"Error details:","timestamp":"2025-04-21 13:42:07:427"}
+{"level":"info","message":"=============================================","timestamp":"2025-04-21 14:37:59:3759"}
+{"level":"info","message":"🔍 AWS RDS POSTGRESQL CONNECTION TROUBLESHOOTER","timestamp":"2025-04-21 14:37:59:3759"}
+{"level":"info","message":"=============================================\n","timestamp":"2025-04-21 14:37:59:3759"}
+{"level":"info","message":"Environment Information:","timestamp":"2025-04-21 14:37:59:3759"}
+{"level":"info","message":"NODE_ENV: dev","timestamp":"2025-04-21 14:37:59:3759"}
+{"level":"info","message":"Your public IP address: 149.14.76.173","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"⚠️ Make sure this IP is allowed in your RDS security group!","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"Resolving hostname: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"✅ Hostname resolved to IPv4 address: 13.43.36.185","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"Reverse DNS: ec2-13-43-36-185.eu-west-2.compute.amazonaws.com","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"Attempting TCP connection to database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432...","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"✅ TCP connection to database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432 successful","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"\n🔄 TCP connection successful. Testing database connections...","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"\n🔄 Trying connection with: Default configuration","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, User: dave, Database: storefront, SSL: disabled","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"error","message":"❌ Connection failed with: Default configuration","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"error","message":"Error: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"\n🔄 Trying connection with: With SSL enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, User: dave, Database: storefront, SSL: enabled","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"✅ Successfully connected with: With SSL enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"✅ Query successful. Connected to database: storefront","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"\n✅ Connection successful with: With SSL enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:38:00:380"}
+{"level":"info","message":"Connecting to AWS RDS database...","timestamp":"2025-04-21 14:39:55:3955"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, Port: 5432, Database: storefront","timestamp":"2025-04-21 14:39:55:3955"}
+{"code":"28000","file":"auth.c","length":159,"level":"error","line":"533","message":"❌ RDS connection test failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","name":"error","routine":"ClientAuthentication","severity":"FATAL","stack":"error: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption\n    at Parser.parseErrorMessage (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:368:69)\n    at Parser.handlePacket (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:187:21)\n    at Parser.parse (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/parser.ts:102:30)\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg-protocol/src/index.ts:7:48)\n    at Socket.emit (node:events:518:28)\n    at Socket.emit (node:domain:488:12)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)\n    at Socket.Readable.push (node:internal/streams/readable:390:5)\n    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)","timestamp":"2025-04-21 14:39:55:3955"}
+{"level":"error","message":"Error details:","timestamp":"2025-04-21 14:39:55:3955"}
+{"level":"info","message":"=============================================","timestamp":"2025-04-21 14:41:11:4111"}
+{"level":"info","message":"🔍 AWS RDS POSTGRESQL CONNECTION TROUBLESHOOTER","timestamp":"2025-04-21 14:41:11:4111"}
+{"level":"info","message":"=============================================\n","timestamp":"2025-04-21 14:41:11:4111"}
+{"level":"info","message":"Environment Information:","timestamp":"2025-04-21 14:41:11:4111"}
+{"level":"info","message":"NODE_ENV: dev","timestamp":"2025-04-21 14:41:11:4111"}
+{"level":"info","message":"Your public IP address: 149.14.76.173","timestamp":"2025-04-21 14:41:11:4111"}
+{"level":"info","message":"⚠️ Make sure this IP is allowed in your RDS security group!","timestamp":"2025-04-21 14:41:11:4111"}
+{"level":"info","message":"Resolving hostname: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","timestamp":"2025-04-21 14:41:11:4111"}
+{"level":"info","message":"✅ Hostname resolved to IPv4 address: 13.43.36.185","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"Reverse DNS: ec2-13-43-36-185.eu-west-2.compute.amazonaws.com","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"Attempting TCP connection to database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432...","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"✅ TCP connection to database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432 successful","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"\n🔄 TCP connection successful. Testing database connections...","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"\n🔄 Trying connection with: Default configuration","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, User: dave, Database: storefront, SSL: disabled","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"error","message":"❌ Connection failed with: Default configuration","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"error","message":"Error: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"\n🔄 Trying connection with: With SSL enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, User: dave, Database: storefront, SSL: enabled","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"✅ Successfully connected with: With SSL enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"✅ Query successful. Connected to database: storefront","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"\n✅ Connection successful with: With SSL enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:41:12:4112"}
+{"level":"info","message":"Connecting to AWS RDS database...","timestamp":"2025-04-21 14:42:35:4235"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, Port: 5432, Database: storefront","timestamp":"2025-04-21 14:42:35:4235"}
+{"level":"info","message":"Using SSL: enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:42:35:4235"}
+{"level":"info","message":"✅ Successfully connected to AWS RDS","timestamp":"2025-04-21 14:42:36:4236"}
+{"database":"storefront","level":"info","message":"Query result:","time":"2025-04-21T13:42:36.332Z","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"PostgreSQL version:","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"Found 6 tables in database:","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"  1. migrations","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"  2. order_products","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"  3. orders","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"  4. payments","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"  5. products","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"  6. users","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"RDS PostgreSQL settings:","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"  effective_cache_size: 47625","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"  max_connections: 81","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"  shared_buffers: 23812","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"Database connection closed","timestamp":"2025-04-21 14:42:36:4236"}
+{"level":"info","message":"=============================================","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"🔍 AWS RDS POSTGRESQL CONNECTION TROUBLESHOOTER","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"=============================================\n","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"Environment Information:","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"NODE_ENV: dev","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"Your public IP address: 149.14.76.173","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"⚠️ Make sure this IP is allowed in your RDS security group!","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"Resolving hostname: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"✅ Hostname resolved to IPv4 address: 13.43.36.185","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"Reverse DNS: ec2-13-43-36-185.eu-west-2.compute.amazonaws.com","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"Attempting TCP connection to database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432...","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"✅ TCP connection to database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432 successful","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"\n🔄 TCP connection successful. Testing database connections...","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"\n🔄 Trying connection with: Default configuration","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, User: dave, Database: storefront, SSL: disabled","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"error","message":"❌ Connection failed with: Default configuration","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"error","message":"Error: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"\n🔄 Trying connection with: With SSL enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, User: dave, Database: storefront, SSL: enabled","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"✅ Successfully connected with: With SSL enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:43:00:430"}
+{"level":"info","message":"✅ Query successful. Connected to database: storefront","timestamp":"2025-04-21 14:43:01:431"}
+{"level":"info","message":"\n✅ Connection successful with: With SSL enabled (rejectUnauthorized: false)","timestamp":"2025-04-21 14:43:01:431"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 14:44:00:440","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 14:44:00:440"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 14:44:00:440"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 14:44:00:440"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 14:44:00:440"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-21 14:44:06:446"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 14:56:14:5614","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 14:56:15:5615"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 14:56:15:5615"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 14:56:15:5615"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 14:56:15:5615"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-21 14:56:19:5619"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-21 15:43:09:439","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-21 15:43:10:4310"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-21 15:43:10:4310"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-21 15:43:10:4310"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-21 15:43:10:4310"}
+{"level":"error","message":"500 - column user.role does not exist - /api/auth/login - POST - ::1","timestamp":"2025-04-21 15:44:15:4415"}
+{"level":"debug","message":"QueryFailedError: column user.role does not exist\n    at PostgresQueryRunner.query (/Users/davest/Desktop/storefront-api/src/driver/postgres/PostgresQueryRunner.ts:328:19)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at SelectQueryBuilder.loadRawResults (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:3801:25)\n    at SelectQueryBuilder.executeEntitiesAndRawResults (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:3547:26)\n    at SelectQueryBuilder.getRawAndEntities (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:1671:29)\n    at SelectQueryBuilder.getOne (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:1698:25)\n    at AuthService.login (/Users/davest/Desktop/storefront-api/src/services/auth.service.ts:55:18)\n    at login (/Users/davest/Desktop/storefront-api/src/controllers/auth.controller.ts:51:31)","timestamp":"2025-04-21 15:44:15:4415"}
+{"code":"42703","driverError":{"code":"42703","file":"parse_relation.c","length":108,"line":"3716","name":"error","position":"148","routine":"errorMissingColumn","severity":"ERROR"},"file":"parse_relation.c","length":108,"level":"error","line":"3716","message":"ERROR 💥 column user.role does not exist","parameters":["test@example.com"],"position":"148","query":"SELECT \"user\".\"id\" AS \"user_id\", \"user\".\"first_name\" AS \"user_first_name\", \"user\".\"last_name\" AS \"user_last_name\", \"user\".\"email\" AS \"user_email\", \"user\".\"role\" AS \"user_role\", \"user\".\"resetPasswordToken\" AS \"user_resetPasswordToken\", \"user\".\"resetPasswordExpires\" AS \"user_resetPasswordExpires\", \"user\".\"created_at\" AS \"user_created_at\", \"user\".\"updated_at\" AS \"user_updated_at\", \"user\".\"password_digest\" AS \"user_password_digest\", \"user\".\"password_digest\" FROM \"users\" \"user\" WHERE \"user\".\"email\" = $1","routine":"errorMissingColumn","severity":"ERROR","status":"error","statusCode":500,"timestamp":"2025-04-21 15:44:15:4415"}
+{"level":"http","message":"::1 - - [21/Apr/2025:14:44:15 +0000] \"POST /api/auth/login HTTP/1.1\" 500 51 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 15:44:15:4415"}
+{"level":"error","message":"500 - column user.role does not exist - /api/auth/login - POST - ::1","timestamp":"2025-04-21 15:51:56:5156"}
+{"level":"debug","message":"QueryFailedError: column user.role does not exist\n    at PostgresQueryRunner.query (/Users/davest/Desktop/storefront-api/src/driver/postgres/PostgresQueryRunner.ts:328:19)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at SelectQueryBuilder.loadRawResults (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:3801:25)\n    at SelectQueryBuilder.executeEntitiesAndRawResults (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:3547:26)\n    at SelectQueryBuilder.getRawAndEntities (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:1671:29)\n    at SelectQueryBuilder.getOne (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:1698:25)\n    at AuthService.login (/Users/davest/Desktop/storefront-api/src/services/auth.service.ts:55:18)\n    at login (/Users/davest/Desktop/storefront-api/src/controllers/auth.controller.ts:51:31)","timestamp":"2025-04-21 15:51:56:5156"}
+{"code":"42703","driverError":{"code":"42703","file":"parse_relation.c","length":108,"line":"3716","name":"error","position":"148","routine":"errorMissingColumn","severity":"ERROR"},"file":"parse_relation.c","length":108,"level":"error","line":"3716","message":"ERROR 💥 column user.role does not exist","parameters":["john.doe@example.com"],"position":"148","query":"SELECT \"user\".\"id\" AS \"user_id\", \"user\".\"first_name\" AS \"user_first_name\", \"user\".\"last_name\" AS \"user_last_name\", \"user\".\"email\" AS \"user_email\", \"user\".\"role\" AS \"user_role\", \"user\".\"resetPasswordToken\" AS \"user_resetPasswordToken\", \"user\".\"resetPasswordExpires\" AS \"user_resetPasswordExpires\", \"user\".\"created_at\" AS \"user_created_at\", \"user\".\"updated_at\" AS \"user_updated_at\", \"user\".\"password_digest\" AS \"user_password_digest\", \"user\".\"password_digest\" FROM \"users\" \"user\" WHERE \"user\".\"email\" = $1","routine":"errorMissingColumn","severity":"ERROR","status":"error","statusCode":500,"timestamp":"2025-04-21 15:51:56:5156"}
+{"level":"http","message":"::1 - - [21/Apr/2025:14:51:56 +0000] \"POST /api/auth/login HTTP/1.1\" 500 51 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 15:51:56:5156"}
+{"level":"error","message":"500 - column user.resetPasswordToken does not exist - /api/auth/login - POST - ::1","timestamp":"2025-04-21 16:14:27:1427"}
+{"level":"debug","message":"QueryFailedError: column user.resetPasswordToken does not exist\n    at PostgresQueryRunner.query (/Users/davest/Desktop/storefront-api/src/driver/postgres/PostgresQueryRunner.ts:328:19)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at SelectQueryBuilder.loadRawResults (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:3801:25)\n    at SelectQueryBuilder.executeEntitiesAndRawResults (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:3547:26)\n    at SelectQueryBuilder.getRawAndEntities (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:1671:29)\n    at SelectQueryBuilder.getOne (/Users/davest/Desktop/storefront-api/src/query-builder/SelectQueryBuilder.ts:1698:25)\n    at AuthService.login (/Users/davest/Desktop/storefront-api/src/services/auth.service.ts:55:18)\n    at login (/Users/davest/Desktop/storefront-api/src/controllers/auth.controller.ts:51:31)","timestamp":"2025-04-21 16:14:27:1427"}
+{"code":"42703","driverError":{"code":"42703","file":"parse_relation.c","length":122,"line":"3716","name":"error","position":"178","routine":"errorMissingColumn","severity":"ERROR"},"file":"parse_relation.c","length":122,"level":"error","line":"3716","message":"ERROR 💥 column user.resetPasswordToken does not exist","parameters":["john.doe@example.com"],"position":"178","query":"SELECT \"user\".\"id\" AS \"user_id\", \"user\".\"first_name\" AS \"user_first_name\", \"user\".\"last_name\" AS \"user_last_name\", \"user\".\"email\" AS \"user_email\", \"user\".\"role\" AS \"user_role\", \"user\".\"resetPasswordToken\" AS \"user_resetPasswordToken\", \"user\".\"resetPasswordExpires\" AS \"user_resetPasswordExpires\", \"user\".\"created_at\" AS \"user_created_at\", \"user\".\"updated_at\" AS \"user_updated_at\", \"user\".\"password_digest\" AS \"user_password_digest\", \"user\".\"password_digest\" FROM \"users\" \"user\" WHERE \"user\".\"email\" = $1","routine":"errorMissingColumn","severity":"ERROR","status":"error","statusCode":500,"timestamp":"2025-04-21 16:14:27:1427"}
+{"level":"http","message":"::1 - - [21/Apr/2025:15:14:27 +0000] \"POST /api/auth/login HTTP/1.1\" 500 51 \"-\" \"curl/8.7.1\"","timestamp":"2025-04-21 16:14:27:1427"}

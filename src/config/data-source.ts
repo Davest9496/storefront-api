@@ -14,14 +14,13 @@ import 'reflect-metadata';
 // Load appropriate environment variables based on NODE_ENV
 config({ path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env' });
 
-// Log database connection parameters (without password)
+// Log database connection parameters (without sensitive data)
 logger.info('Database configuration:', {
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   database: process.env.DB_DATABASE,
   username: process.env.DB_USERNAME,
   env: process.env.NODE_ENV,
-  url: process.env.DATABASE_URL ? '[REDACTED]' : undefined,
 });
 
 // Base connection options shared across all environments
@@ -31,21 +30,29 @@ const baseOptions: DataSourceOptions = {
   port: parseInt(process.env.DB_PORT || '5432', 10),
   username: process.env.DB_USERNAME || 'postgres',
   password: process.env.DB_PASSWORD || 'postgres',
+  database: process.env.DB_DATABASE || 'storefront',
   // Explicitly enumerate entities to avoid glob pattern issues
   entities: [User, Product, Order, OrderProduct, Payment],
-  synchronize: false, // Should be true only in development
+  synchronize: false, // Should be false in production
   logging: process.env.NODE_ENV === 'development' ? ['query', 'error'] : ['error'],
-  // Add connection timeout settings
-  connectTimeoutMS: 5000, // 5 second timeout
+  // Enable SSL for all environments to connect to AWS RDS
+  ssl: { rejectUnauthorized: false },
+  // AWS RDS specific settings
   extra: {
-    // Maximum number of connections in the pool
-    max: 5,
-    // Minimum number of connections in the pool
-    min: 1,
-    // Maximum time (in milliseconds) that a connection can be idle before being released
-    idleTimeoutMillis: 10000,
-    // Maximum time (in milliseconds) to wait for a connection from the pool
-    connectionTimeoutMillis: 2000,
+    // Connection pool settings optimized for AWS RDS t2.micro (free tier)
+    max: 10, // Maximum number of connections in the pool
+    min: 2, // Minimum number of connections
+    // Idle connection settings (important for AWS RDS cost optimization)
+    idleTimeoutMillis: 30000, // Close idle connections after 30 seconds
+    // Connection acquisition settings
+    connectionTimeoutMillis: 5000, // 5 second connection timeout
+    // Retry logic for AWS RDS transient connection issues
+    retry: {
+      maxRetryTime: 10000, // Maximum time to retry (10 seconds)
+      retryWait: 200, // Base wait time between retries (200ms)
+      maxRetries: 5, // Maximum number of retries
+    },
+    statement_timeout: 30000, // 30 second statement timeout
   },
 };
 
@@ -59,22 +66,55 @@ if (process.env.NODE_ENV === 'test') {
     synchronize: true,
     dropSchema: true,
     logging: false,
+    // Keep SSL enabled for test environment too for consistency
+    ssl: { rejectUnauthorized: false },
   };
-} else {
+} else if (process.env.NODE_ENV === 'development') {
   dataSourceOptions = {
     ...baseOptions,
-    database: process.env.DB_DATABASE || 'storefront',
     migrations: [path.join(__dirname, '../migrations/**/*.{js,ts}')],
     migrationsTableName: 'migrations',
-    url:
-      process.env.DATABASE_URL ||
-      `postgres://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`,
-    ssl: { rejectUnauthorized: false },
+    logging: ['query', 'error', 'schema'],
+  };
+} else {
+  // Production environment (including staging)
+  dataSourceOptions = {
+    ...baseOptions,
+    // Use connection string if provided (common in AWS deployment)
+    url: process.env.DATABASE_URL,
+    migrations: [path.join(__dirname, '../migrations/**/*.{js,ts}')],
+    migrationsTableName: 'migrations',
+    logging: ['error'], // Only log errors in production
   };
 }
 
 // Create the AppDataSource (this doesn't connect yet, just configures)
 export const AppDataSource = new DataSource(dataSourceOptions);
+
+// Initialize database with retry logic (especially important for AWS RDS)
+export async function initializeDatabase(retries = 5, delay = 3000): Promise<DataSource> {
+  try {
+    if (!AppDataSource.isInitialized) {
+      logger.info('Initializing database connection...');
+      await AppDataSource.initialize();
+      logger.info('Database connection established successfully');
+    }
+    return AppDataSource;
+  } catch (error) {
+    logger.error(
+      `Database connection failed: ${error instanceof Error ? error.message : String(error)}`,
+    );
+
+    if (retries > 0) {
+      logger.info(`Retrying database connection in ${delay}ms... (${retries} attempts left)`);
+      await new Promise((resolve) => setTimeout(resolve, delay));
+      return initializeDatabase(retries - 1, delay);
+    }
+
+    logger.error('Failed to connect to database after multiple attempts');
+    throw error;
+  }
+}
 
 // For easier testing, we'll provide a specific function to reset the connection
 export async function resetDatabase(): Promise<void> {

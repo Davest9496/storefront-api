@@ -19,16 +19,42 @@ provider:
     DB_DATABASE: ${ssm:/storefront/${opt:stage, 'dev'}/DB_DATABASE}
     JWT_SECRET: ${ssm:/storefront/${opt:stage, 'dev'}/JWT_SECRET}
     FRONTEND_URL: ${ssm:/storefront/${opt:stage, 'dev'}/FRONTEND_URL}
-    USE_FALLBACK_DATA: 'true'  # Added this flag for using fallback data
+    USE_FALLBACK_DATA: 'false'  # Added this flag for using fallback data
+    # Add this to explicitly enable SSL for all database connections
+    DB_USE_SSL: 'true'
+  vpc:
+    securityGroupIds:
+      - sg-059642d97326cb72f  # Ensure this security group can access your RDS security group
+    subnetIds:
+      - subnet-0ef8327e8c86f38c5  # These should be in private subnets with NAT gateway 
+      - subnet-02048d123728927ea  # or in the same subnet as your RDS instance
+      - subnet-02433fd3ced24f68e
   iam:
     role:
       statements:
+        # Parameter Store permissions
         - Effect: Allow
           Action:
             - ssm:GetParameter
             - ssm:GetParameters
           Resource: 
             - arn:aws:ssm:${self:provider.region}:*:parameter/storefront/${self:provider.stage}/*
+        
+        # VPC permissions required for Lambda to connect to RDS
+        - Effect: Allow
+          Action:
+            - ec2:CreateNetworkInterface
+            - ec2:DescribeNetworkInterfaces
+            - ec2:DeleteNetworkInterface
+            - ec2:AssignPrivateIpAddresses
+            - ec2:UnassignPrivateIpAddresses
+          Resource: '*'
+        
+        # Explicitly add RDS permissions
+        - Effect: Allow
+          Action:
+            - rds-db:connect
+          Resource: '*'
   apiGateway:
     binaryMediaTypes:
       - 'image/jpeg'
@@ -47,13 +73,19 @@ functions:
           path: /{proxy+}
           method: ANY
           cors: true
+    # Longer timeout for database connections
+    timeout: 29
 
-  test:
-    handler: dist/simple-lambda.handler
+  # Add a separate health check function with faster cold start
+  health:
+    handler: dist/health.handler
     events:
       - http:
-          path: /test
+          path: /health
           method: get
+          cors: true
+    memorySize: 512
+    timeout: 10
 
 package:
   patterns:
@@ -62,3 +94,11 @@ package:
     - '!node_modules/.bin/**'
     - '!.git/**'
     - '!test/**'
+
+# Add CloudWatch log configuration for better debugging
+custom:
+  logs:
+    restApi: true
+  prune:
+    automatic: true
+    number: 3

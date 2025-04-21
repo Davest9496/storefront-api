@@ -26,6 +26,8 @@
     "test:ci": "npm run test:setup && jest --ci --coverage",
     "pretest:integration": "ts-node src/scripts/setup-test-db.ts",
     "test:db": "ts-node src/scripts/test-db-connection.ts",
+    "test:rds": "ts-node src/scripts/test-rds-connection.ts",
+    "db:troubleshoot": "ts-node src/scripts/troubleshoot-rds.ts",
     "docs:generate": "ts-node src/scripts/generate-docs.ts",
     "predeploy": "npm run build",
     "deploy": "npm run build && serverless deploy",

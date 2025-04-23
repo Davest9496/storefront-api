@@ -50,11 +50,11 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "role", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ name: 'reset_password_token', nullable: true }),
     __metadata("design:type", String)
 ], User.prototype, "resetPasswordToken", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'timestamp', nullable: true }),
+    (0, typeorm_1.Column)({ name: 'reset_password_expires', type: 'timestamp', nullable: true }),
     __metadata("design:type", Date)
 ], User.prototype, "resetPasswordExpires", void 0);
 __decorate([

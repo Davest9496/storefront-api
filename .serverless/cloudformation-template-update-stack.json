@@ -115,7 +115,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-          "S3Key": "serverless/storefront-api/dev/1745245895101-2025-04-21T14:31:35.101Z/storefront-api.zip"
+          "S3Key": "serverless/storefront-api/dev/1745418762772-2025-04-23T14:32:42.772Z/storefront-api.zip"
         },
         "Handler": "dist/lambda.handler",
         "Runtime": "nodejs20.x",
@@ -156,7 +156,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-          "S3Key": "serverless/storefront-api/dev/1745245895101-2025-04-21T14:31:35.101Z/storefront-api.zip"
+          "S3Key": "serverless/storefront-api/dev/1745418762772-2025-04-23T14:32:42.772Z/storefront-api.zip"
         },
         "Handler": "dist/health.handler",
         "Runtime": "nodejs20.x",
@@ -192,24 +192,24 @@
       },
       "DependsOn": ["HealthLogGroup"]
     },
-    "ApiLambdaVersionLtKi3p8v1t1TiTlIiDIUU0qoUC7L3AQhw73kQyB3fU": {
+    "ApiLambdaVersionjvoJkdZCqxKRRzFycNGYq2XBovLAWDvYGmmiku37wk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "TKSzCeN/fqKvPZgszRxnvgq4YDiKb+qc35moaYDR96A="
+        "CodeSha256": "HfHiG/Mi1qFfJKYgVszIHPZfonHKCFT5Cxs71ExCvL8="
       }
     },
-    "HealthLambdaVersion2bzp8GGKq9blyeGzLtyKzuxliA2NlQiFPG4GGdx344": {
+    "HealthLambdaVersionW1LlqzmRAXNak1bBjhzSvOMOEFhAPiq3xSOuk2mULw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HealthLambdaFunction"
         },
-        "CodeSha256": "TKSzCeN/fqKvPZgszRxnvgq4YDiKb+qc35moaYDR96A="
+        "CodeSha256": "HfHiG/Mi1qFfJKYgVszIHPZfonHKCFT5Cxs71ExCvL8="
       }
     },
     "ApiGatewayRestApi": {
@@ -505,7 +505,7 @@
       },
       "DependsOn": ["HealthLambdaPermissionApiGateway"]
     },
-    "ApiGatewayDeployment1745245876272": {
+    "ApiGatewayDeployment1745418747812": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -601,7 +601,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionLtKi3p8v1t1TiTlIiDIUU0qoUC7L3AQhw73kQyB3fU"
+        "Ref": "ApiLambdaVersionjvoJkdZCqxKRRzFycNGYq2XBovLAWDvYGmmiku37wk"
       },
       "Export": {
         "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -610,7 +610,7 @@
     "HealthLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HealthLambdaVersion2bzp8GGKq9blyeGzLtyKzuxliA2NlQiFPG4GGdx344"
+        "Ref": "HealthLambdaVersionW1LlqzmRAXNak1bBjhzSvOMOEFhAPiq3xSOuk2mULw"
       },
       "Export": {
         "Name": "sls-storefront-api-dev-HealthLambdaFunctionQualifiedArn"

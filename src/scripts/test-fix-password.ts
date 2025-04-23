@@ -1,12 +1,12 @@
 import bcryptjs from 'bcryptjs';
-import logger from '../utils/logger';
 import { Client } from 'pg';
 import { config } from 'dotenv';
+import logger from '../utils/logger';
 
 // Load environment variables
 config();
 
-async function testPasswordVerification(): Promise<void> {
+async function updateAlexPassword(): Promise<void> {
   const client = new Client({
     host: process.env.DB_HOST || 'localhost',
     port: parseInt(process.env.DB_PORT || '5432', 10),
@@ -22,63 +22,34 @@ async function testPasswordVerification(): Promise<void> {
     await client.connect();
     logger.info('Connected to database');
 
-    // Get the stored hash for John Doe
-    const result = await client.query(
-      "SELECT password_digest FROM users WHERE email = 'john.doe@example.com'",
+    // Create a new password hash
+    const plainPassword = 'password123';
+    const hashedPassword = await bcryptjs.hash(plainPassword, 10);
+
+    logger.info(`Generated new hash for "${plainPassword}": ${hashedPassword}`);
+
+    // Update Alex's password
+    await client.query(
+      "UPDATE users SET password_digest = $1 WHERE email = 'alex.smith@example.com'",
+      [hashedPassword],
     );
 
-    if (result.rows.length === 0) {
-      logger.error('User not found');
-      return;
-    }
-
-    const storedHash = result.rows[0].password_digest;
-    logger.info(`Retrieved stored hash: ${storedHash}`);
-
-    // Test with the password that should work
-    const testPassword = 'password123';
-    const isMatchCorrect = await bcryptjs.compare(testPassword, storedHash);
-    logger.info(`Password "password123" matches with bcryptjs: ${isMatchCorrect}`);
-
-    // If no match, create a new hash with bcryptjs and update the database
-    if (!isMatchCorrect) {
-      const newHash = await bcryptjs.hash('password123', 10);
-      logger.info(`Created new hash with bcryptjs: ${newHash}`);
-
-      // Update the password in the database
-      await client.query(
-        "UPDATE users SET password_digest = $1 WHERE email = 'john.doe@example.com'",
-        [newHash],
-      );
-
-      logger.info(`Updated password for john.doe@example.com`);
-
-      // Verify the new hash works
-      const updatedResult = await client.query(
-        "SELECT password_digest FROM users WHERE email = 'john.doe@example.com'",
-      );
-
-      const updatedHash = updatedResult.rows[0].password_digest;
-      const verifyMatch = await bcryptjs.compare(testPassword, updatedHash);
-
-      logger.info(`Verification with new hash: ${verifyMatch}`);
-    }
+    logger.info(`Password updated for alex.smith@example.com`);
   } catch (error) {
-    logger.error('Error testing password verification:', error);
+    logger.error('Error updating password:', error);
   } finally {
     await client.end();
     logger.info('Database connection closed');
   }
 }
 
-// Run the test if this file is executed directly
-if (require.main === module) {
-  testPasswordVerification()
-    .then(() => {
-      process.exit(0);
-    })
-    .catch((error) => {
-      console.error('Unhandled error:', error);
-      process.exit(1);
-    });
-}
+// Run the script
+updateAlexPassword()
+  .then(() => {
+    logger.info('Password update completed');
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error('Unhandled error:', error);
+    process.exit(1);
+  });

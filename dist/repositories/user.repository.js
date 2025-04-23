@@ -7,6 +7,7 @@ exports.userRepository = exports.UserRepository = void 0;
 const typeorm_1 = require("typeorm");
 const user_entity_1 = require("../entities/user.entity");
 const database_1 = __importDefault(require("../config/database"));
+const logger_1 = __importDefault(require("../utils/logger")); // Adjust the path based on your project structure
 class UserRepository extends typeorm_1.Repository {
     constructor() {
         super(user_entity_1.User, database_1.default.manager);
@@ -15,10 +16,23 @@ class UserRepository extends typeorm_1.Repository {
         return this.findOne({ where: { email } });
     }
     async findByEmailWithPassword(email) {
-        return this.createQueryBuilder('user')
-            .addSelect('user.passwordDigest')
-            .where('user.email = :email', { email })
-            .getOne();
+        try {
+            return this.createQueryBuilder('user')
+                .select([
+                'user.id',
+                'user.firstName',
+                'user.lastName',
+                'user.email',
+                'user.passwordDigest',
+                'user.role',
+            ])
+                .where('user.email = :email', { email })
+                .getOne();
+        }
+        catch (error) {
+            logger_1.default.error('Error in findByEmailWithPassword:', error);
+            throw error;
+        }
     }
     async findByResetToken(token) {
         return this.findOne({

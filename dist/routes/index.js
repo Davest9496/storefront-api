@@ -8,6 +8,7 @@ const health_routes_1 = __importDefault(require("./health.routes"));
 const auth_routes_1 = __importDefault(require("./auth.routes"));
 const product_routes_1 = __importDefault(require("./product.routes"));
 const swagger_routes_1 = __importDefault(require("./swagger.routes"));
+const order_routes_1 = __importDefault(require("./order.routes"));
 const router = (0, express_1.Router)();
 // Health check routes
 router.use('/health', health_routes_1.default);
@@ -15,6 +16,8 @@ router.use('/health', health_routes_1.default);
 router.use('/auth', auth_routes_1.default);
 // Product routes
 router.use('/products', product_routes_1.default);
+// Order Routes
+router.use('/orders', order_routes_1.default);
 // API Documentation
 router.use('/api-docs', swagger_routes_1.default);
 exports.default = router;

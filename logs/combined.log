@@ -2155,3 +2155,245 @@
 {"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:14:19:53 +0000] \"OPTIONS /api/auth/me HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 15:19:53:1953"}
 {"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:14:19:53 +0000] \"GET /api/auth/me HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 15:19:53:1953"}
 {"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-23 16:05:22:522"}
+{"level":"info","message":"Connecting to AWS RDS database...","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"Host: database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com, Port: 5432, Database: storefront","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"Using SSL: enabled (rejectUnauthorized: false)","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"✅ Successfully connected to AWS RDS","timestamp":"2025-04-23 16:36:04:364"}
+{"database":"storefront","level":"info","message":"Query result:","time":"2025-04-23T15:36:04.310Z","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"PostgreSQL version:","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"Found 6 tables in database:","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"  1. migrations","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"  2. order_products","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"  3. orders","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"  4. payments","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"  5. products","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"  6. users","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"RDS PostgreSQL settings:","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"  effective_cache_size: 47625","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"  max_connections: 81","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"  shared_buffers: 23812","timestamp":"2025-04-23 16:36:04:364"}
+{"level":"info","message":"Database connection closed","timestamp":"2025-04-23 16:36:04:364"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 16:42:13:4213","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 16:42:13:4213"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 16:42:14:4214"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 16:42:14:4214"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 16:42:14:4214"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-23 16:50:17:5017"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":true,"timestamp":"2025-04-23 16:57:30:5730","username":"set"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 16:57:31:5731"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 16:57:31:5731"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-23 16:57:31:5731"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 16:57:34:5734"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 16:57:34:5734"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-23 16:57:34:5734"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 16:57:37:5737"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 16:57:37:5737"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-23 16:57:37:5737"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 16:57:40:5740"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 16:57:40:5740"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-23 16:57:40:5740"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 16:57:43:5743"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 16:57:43:5743"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-23 16:57:43:5743"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 16:57:46:5746"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 16:57:46:5746"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":true,"timestamp":"2025-04-23 17:01:46:146","username":"set"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:01:46:146"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 17:01:47:147"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-23 17:01:47:147"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:01:50:150"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 17:01:50:150"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-23 17:01:50:150"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":true,"timestamp":"2025-04-23 17:01:52:152","username":"set"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:01:52:152"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 17:01:52:152"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-23 17:01:52:152"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:01:55:155"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 17:01:56:156"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-23 17:01:56:156"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":true,"timestamp":"2025-04-23 17:01:58:158","username":"set"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:01:58:158"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 17:01:58:158"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-23 17:01:58:158"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":true,"timestamp":"2025-04-23 17:02:01:21","username":"set"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:02:01:21"}
+{"level":"error","message":"Database connection failed: self-signed certificate in certificate chain","timestamp":"2025-04-23 17:02:01:21"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-23 17:02:01:21"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:02:03:23","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:02:03:23"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:02:03:23"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:02:03:23"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:02:03:23"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:04:17:417"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:04:17:417","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:04:18:418"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:04:18:418"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:04:18:418"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:04:18:418"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:04:25:425"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:04:26:426","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:04:26:426"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:04:26:426"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:04:26:426"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:04:26:426"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:04:28:428"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:04:28:428","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:04:28:428"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:04:28:428"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:04:28:428"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:04:28:428"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:05:32:532"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:05:33:533","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:05:33:533"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:05:34:534"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:05:34:534"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:05:34:534"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:05:52:552"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:05:52:552","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:05:53:553"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:05:53:553"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:05:53:553"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:05:53:553"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:06:18:618"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:06:18:618","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:06:19:619"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:06:19:619"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:06:19:619"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:06:19:619"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:06:20:620"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:06:21:621","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:06:21:621"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:06:21:621"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:06:21:621"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:06:21:621"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:08:42 +0000] \"OPTIONS /api/auth/me HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:08:42:842"}
+{"expiredAt":"2025-04-23T15:06:45.000Z","level":"error","message":"JWT verification error: jwt expired","name":"TokenExpiredError","stack":"TokenExpiredError: jwt expired\n    at /Users/davest/Desktop/storefront-api/node_modules/jsonwebtoken/verify.js:190:21\n    at getSecret (/Users/davest/Desktop/storefront-api/node_modules/jsonwebtoken/verify.js:97:14)\n    at Object.module.exports [as verify] (/Users/davest/Desktop/storefront-api/node_modules/jsonwebtoken/verify.js:101:10)\n    at protect (/Users/davest/Desktop/storefront-api/src/middleware/auth.middleware.ts:38:27)\n    at Layer.handle [as handle_request] (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/davest/Desktop/storefront-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-04-23 17:08:42:842"}
+{"level":"error","message":"401 - Invalid token. Please log in again. - /api/auth/me - GET - ::ffff:127.0.0.1","timestamp":"2025-04-23 17:08:42:842"}
+{"level":"debug","message":"Error: Invalid token. Please log in again.\n    at protect (/Users/davest/Desktop/storefront-api/src/middleware/auth.middleware.ts:53:19)\n    at Layer.handle [as handle_request] (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/davest/Desktop/storefront-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/index.js:47:12)","timestamp":"2025-04-23 17:08:42:842"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:08:42 +0000] \"GET /api/auth/me HTTP/1.1\" 401 65 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:08:42:842"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:08:42 +0000] \"OPTIONS /api/auth/logout HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:08:42:842"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:08:42 +0000] \"POST /api/auth/logout HTTP/1.1\" 200 56 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:08:42:842"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:09:07 +0000] \"OPTIONS /api/auth/login HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:09:07:97"}
+{"level":"info","message":"Login attempt for: evergreendave1@gmail.com","timestamp":"2025-04-23 17:09:07:97"}
+{"level":"info","message":"User found, verifying password for: evergreendave1@gmail.com","timestamp":"2025-04-23 17:09:07:97"}
+{"level":"info","message":"Login successful for: evergreendave1@gmail.com","timestamp":"2025-04-23 17:09:07:97"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:09:07 +0000] \"POST /api/auth/login HTTP/1.1\" 200 329 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:09:07:97"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:09:18 +0000] \"OPTIONS /api/products/category/earphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:09:18:918"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:09:18 +0000] \"GET /api/products/category/earphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:09:18:918"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:09:22 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:09:22:922"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:09:22 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:09:22:922"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:17:14:1714"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:17:15:1715","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:17:15:1715"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:17:16:1716","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:17:16:1716"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:17:16:1716"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:17:16:1716"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:17:16:1716"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:26:52:2652"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:27:41:2741","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:27:41:2741"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:27:42:2742"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:27:42:2742"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:27:42:2742"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:28:25:2825"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:28:25:2825","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:28:25:2825"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:28:26:2826"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:28:26:2826"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:28:26:2826"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:28:52:2852"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:28:53:2853","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:28:53:2853"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:28:53:2853"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:28:53:2853"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:28:53:2853"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:30:20:3020"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:30:21:3021","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:30:21:3021"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:30:21:3021"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:30:21:3021"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:30:21:3021"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-23 17:30:22:3022"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-23 17:30:22:3022","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-23 17:30:22:3022"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-23 17:30:22:3022"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-23 17:30:22:3022"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-23 17:30:22:3022"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:32:16 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:32:16:3216"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:16:32:17 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 17:32:17:3217"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:17:35:42 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 18:35:42:3542"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [23/Apr/2025:17:35:43 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-23 18:35:43:3543"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:07:06:33 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 08:06:33:633"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:07:06:34 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 08:06:34:634"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:07:14:49 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 08:14:49:1449"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:07:14:49 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 08:14:49:1449"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:07:37:28 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 08:37:28:3728"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:07:37:28 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 08:37:28:3728"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:07:54:25 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 08:54:25:5425"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:07:54:25 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 08:54:25:5425"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:08:08:18 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 09:08:18:818"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:08:08:18 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 09:08:18:818"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:08:40:33 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 09:40:33:4033"}
+{"cause":{},"level":"error","message":"Error getting products by category from database: Connection terminated due to connection timeout","stack":"Error: Connection terminated due to connection timeout\n    at Client._connectionCallback (/Users/davest/Desktop/storefront-api/node_modules/pg-pool/index.js:251:17)\n    at Connection.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/client.js:149:18)\n    at Object.onceWrapper (node:events:632:28)\n    at Connection.emit (node:events:518:28)\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/connection.js:62:12)\n    at Socket.emit (node:events:518:28)\n    at TCP.<anonymous> (node:net:337:12)","timestamp":"2025-04-24 09:40:38:4038"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:08:40:38 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 200 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 09:40:38:4038"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 10:17:59:1759"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-24 10:18:06:186","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 10:18:07:187"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 10:18:07:187"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 10:18:07:187"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 10:18:07:187"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 10:22:00:220"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-24 10:22:01:221","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 10:22:01:221"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 10:22:02:222"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 10:22:02:222"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 10:22:02:222"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 10:22:05:225"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-24 10:22:05:225","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 10:22:05:225"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 10:22:05:225"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 10:22:05:225"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 10:22:05:225"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 10:22:12:2212"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-24 10:22:12:2212","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 10:22:12:2212"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 10:22:12:2212"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 10:22:12:2212"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 10:22:12:2212"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 10:23:05:235"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-24 10:23:06:236","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 10:23:06:236"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 10:23:07:237"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 10:23:07:237"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 10:23:07:237"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 10:23:50:2350"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","timestamp":"2025-04-24 10:23:50:2350","username":"dave"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 10:23:51:2351"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 10:23:51:2351"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 10:23:51:2351"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 10:23:51:2351"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 10:24:41:2441"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-24 10:24:41:2441","username":"dave"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 10:24:41:2441"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 10:24:41:2441"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-24 10:24:42:2442"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 10:24:42:2442"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 10:24:42:2442"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 10:24:42:2442"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:29:58 +0000] \"OPTIONS /api/auth/logout HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:29:58:2958"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:29:58 +0000] \"POST /api/auth/logout HTTP/1.1\" 200 56 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:29:58:2958"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:30:25 +0000] \"OPTIONS /api/auth/login HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:30:25:3025"}
+{"level":"info","message":"Login attempt for: evergreendave1@gmail.com","timestamp":"2025-04-24 10:30:25:3025"}
+{"level":"info","message":"User found, verifying password for: evergreendave1@gmail.com","timestamp":"2025-04-24 10:30:25:3025"}
+{"level":"info","message":"Login successful for: evergreendave1@gmail.com","timestamp":"2025-04-24 10:30:25:3025"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:30:25 +0000] \"POST /api/auth/login HTTP/1.1\" 200 329 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:30:25:3025"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:30:44 +0000] \"OPTIONS /api/orders HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:30:44:3044"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:30:44 +0000] \"GET /api/orders HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:30:44:3044"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:31:13 +0000] \"OPTIONS /api/orders HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:31:13:3113"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:31:13 +0000] \"GET /api/orders HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:31:13:3113"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:31:22 +0000] \"OPTIONS /api/products/category/earphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:31:22:3122"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:31:22 +0000] \"GET /api/products/category/earphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:31:22:3122"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:31:24 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:31:24:3124"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:31:24 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 200 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:31:24:3124"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-24 10:32:18:3218"}

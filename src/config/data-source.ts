@@ -1,3 +1,4 @@
+// src/config/data-source.ts
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { config } from 'dotenv';
 import path from 'path';
@@ -21,6 +22,7 @@ logger.info('Database configuration:', {
   database: process.env.DB_DATABASE,
   username: process.env.DB_USERNAME,
   env: process.env.NODE_ENV,
+  ssl: 'enabled with rejectUnauthorized: false', // Log SSL configuration
 });
 
 // Base connection options shared across all environments
@@ -35,7 +37,7 @@ const baseOptions: DataSourceOptions = {
   entities: [User, Product, Order, OrderProduct, Payment],
   synchronize: false, // Should be false in production
   logging: process.env.NODE_ENV === 'development' ? ['query', 'error'] : ['error'],
-  // Enable SSL for all environments to connect to AWS RDS
+  // UPDATED: SSL configuration always enabled with rejectUnauthorized false
   ssl: { rejectUnauthorized: false },
   // AWS RDS specific settings
   extra: {
@@ -46,6 +48,11 @@ const baseOptions: DataSourceOptions = {
     idleTimeoutMillis: 30000, // Close idle connections after 30 seconds
     // Connection acquisition settings
     connectionTimeoutMillis: 5000, // 5 second connection timeout
+    // UPDATED: Explicit SSL configuration in extra for pg driver
+    ssl: {
+      rejectUnauthorized: false,
+      sslmode: 'require',
+    },
     // Retry logic for AWS RDS transient connection issues
     retry: {
       maxRetryTime: 10000, // Maximum time to retry (10 seconds)
@@ -93,10 +100,22 @@ export const AppDataSource = new DataSource(dataSourceOptions);
 
 // Initialize database with retry logic (especially important for AWS RDS)
 export async function initializeDatabase(retries = 5, delay = 3000): Promise<DataSource> {
+  // Log SSL configuration for debugging
+  logger.info('SSL Configuration:', {
+    sslConfig: JSON.stringify({ rejectUnauthorized: false, sslmode: 'require' }),
+    nodeEnv: process.env.NODE_ENV,
+    databaseUrl: process.env.DATABASE_URL ? 'provided' : 'not provided',
+  });
+
   try {
     if (!AppDataSource.isInitialized) {
       logger.info('Initializing database connection...');
       await AppDataSource.initialize();
+
+      // Run a test query to verify connection is truly working
+      const testResult = await AppDataSource.query('SELECT 1 as connection_test');
+      logger.info('Database connection verified with test query:', testResult);
+
       logger.info('Database connection established successfully');
     }
     return AppDataSource;

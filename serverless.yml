@@ -87,6 +87,16 @@ functions:
     memorySize: 512
     timeout: 10
 
+  debug-db:
+    handler: dist/debug-db.handler
+    events:
+      - http:
+          path: /debug-db
+          method: get
+          cors: true
+    memorySize: 512
+    timeout: 10
+
 package:
   patterns:
     - 'dist/**'

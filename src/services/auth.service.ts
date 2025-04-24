@@ -4,6 +4,7 @@ import { AppError } from '../middleware/error.middleware';
 import { hashPassword, comparePassword } from '../utils/password.utils';
 import logger from '../utils/logger';
 import { generateToken } from '../utils/jwt.utils';
+import { AppDataSource } from '../config/data-source';
 
 export interface SignupData {
   firstName: string;
@@ -51,42 +52,47 @@ export class AuthService {
   /**
    * Login a user
    */
+  // src/services/auth.service.ts - Enhance error reporting
   async login(email: string, password: string): Promise<AuthResult> {
     try {
-      logger.info(`Attempting login for user: ${email}`);
+      logger.info(`Login attempt for: ${email}`);
+
+      // Check database connection first
+      if (!AppDataSource.isInitialized) {
+        logger.error('Database not initialized during login attempt');
+        throw new AppError('Service temporarily unavailable', 503);
+      }
 
       // Find user by email and include password
       const user = await userRepository.findByEmailWithPassword(email);
 
       if (!user) {
-        logger.info(`User not found: ${email}`);
+        logger.info(`Login failed: User not found: ${email}`);
         throw new AppError('Incorrect email or password', 401);
       }
 
-      logger.info(`User found, checking password...`);
-      logger.debug(`Stored password hash: ${user.passwordDigest.substring(0, 10)}...`);
+      logger.info(`User found, verifying password for: ${email}`);
 
       // Check if password is correct
       const isPasswordValid = await comparePassword(password, user.passwordDigest);
 
-      logger.info(`Password valid: ${isPasswordValid}`);
-
       if (!isPasswordValid) {
+        logger.info(`Login failed: Invalid password for: ${email}`);
         throw new AppError('Incorrect email or password', 401);
       }
+
+      logger.info(`Login successful for: ${email}`);
 
       // Generate JWT token
       const token = generateToken(user);
 
       return { user, token };
     } catch (error) {
-      logger.error('Error during login:', error);
-
-      // Rethrow AppError instances, wrap other errors
       if (error instanceof AppError) {
         throw error;
       }
 
+      logger.error(`Login error:`, error);
       throw new AppError('Authentication failed', 500);
     }
   }

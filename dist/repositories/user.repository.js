@@ -4,20 +4,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRepository = exports.UserRepository = void 0;
-const typeorm_1 = require("typeorm");
 const user_entity_1 = require("../entities/user.entity");
 const database_1 = __importDefault(require("../config/database"));
-const logger_1 = __importDefault(require("../utils/logger")); // Adjust the path based on your project structure
-class UserRepository extends typeorm_1.Repository {
-    constructor() {
-        super(user_entity_1.User, database_1.default.manager);
+const logger_1 = __importDefault(require("../utils/logger"));
+class UserRepository {
+    getRepository() {
+        if (!database_1.default.isInitialized) {
+            logger_1.default.error('Database not initialized when accessing User repository');
+            throw new Error('Database connection not initialized');
+        }
+        return database_1.default.getRepository(user_entity_1.User);
     }
     async findByEmail(email) {
-        return this.findOne({ where: { email } });
+        return this.getRepository().findOne({ where: { email } });
     }
     async findByEmailWithPassword(email) {
         try {
-            return this.createQueryBuilder('user')
+            return this.getRepository()
+                .createQueryBuilder('user')
                 .select([
                 'user.id',
                 'user.firstName',
@@ -34,8 +38,20 @@ class UserRepository extends typeorm_1.Repository {
             throw error;
         }
     }
+    async findOne(options) {
+        return this.getRepository().findOne(options);
+    }
+    async find(options) {
+        return this.getRepository().find(options);
+    }
+    create(userData) {
+        return this.getRepository().create(userData);
+    }
+    async save(user) {
+        return this.getRepository().save(user);
+    }
     async findByResetToken(token) {
-        return this.findOne({
+        return this.getRepository().findOne({
             where: {
                 resetPasswordToken: token,
                 resetPasswordExpires: new Date(Date.now()),
@@ -43,7 +59,7 @@ class UserRepository extends typeorm_1.Repository {
         });
     }
     async findByRole(role) {
-        return this.find({ where: { role } });
+        return this.getRepository().find({ where: { role } });
     }
 }
 exports.UserRepository = UserRepository;

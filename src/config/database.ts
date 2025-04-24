@@ -1,2 +1,5 @@
-import AppDataSource from './data-source';
+import { AppDataSource, initializeDatabase } from './data-source';
+
+export { initializeDatabase };
+
 export default AppDataSource;

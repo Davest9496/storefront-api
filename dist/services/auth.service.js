@@ -10,6 +10,7 @@ const error_middleware_1 = require("../middleware/error.middleware");
 const password_utils_1 = require("../utils/password.utils");
 const logger_1 = __importDefault(require("../utils/logger"));
 const jwt_utils_1 = require("../utils/jwt.utils");
+const data_source_1 = require("../config/data-source");
 class AuthService {
     /**
      * Register a new user
@@ -37,33 +38,38 @@ class AuthService {
     /**
      * Login a user
      */
+    // src/services/auth.service.ts - Enhance error reporting
     async login(email, password) {
         try {
-            logger_1.default.info(`Attempting login for user: ${email}`);
+            logger_1.default.info(`Login attempt for: ${email}`);
+            // Check database connection first
+            if (!data_source_1.AppDataSource.isInitialized) {
+                logger_1.default.error('Database not initialized during login attempt');
+                throw new error_middleware_1.AppError('Service temporarily unavailable', 503);
+            }
             // Find user by email and include password
             const user = await user_repository_1.userRepository.findByEmailWithPassword(email);
             if (!user) {
-                logger_1.default.info(`User not found: ${email}`);
+                logger_1.default.info(`Login failed: User not found: ${email}`);
                 throw new error_middleware_1.AppError('Incorrect email or password', 401);
             }
-            logger_1.default.info(`User found, checking password...`);
-            logger_1.default.debug(`Stored password hash: ${user.passwordDigest.substring(0, 10)}...`);
+            logger_1.default.info(`User found, verifying password for: ${email}`);
             // Check if password is correct
             const isPasswordValid = await (0, password_utils_1.comparePassword)(password, user.passwordDigest);
-            logger_1.default.info(`Password valid: ${isPasswordValid}`);
             if (!isPasswordValid) {
+                logger_1.default.info(`Login failed: Invalid password for: ${email}`);
                 throw new error_middleware_1.AppError('Incorrect email or password', 401);
             }
+            logger_1.default.info(`Login successful for: ${email}`);
             // Generate JWT token
             const token = (0, jwt_utils_1.generateToken)(user);
             return { user, token };
         }
         catch (error) {
-            logger_1.default.error('Error during login:', error);
-            // Rethrow AppError instances, wrap other errors
             if (error instanceof error_middleware_1.AppError) {
                 throw error;
             }
+            logger_1.default.error(`Login error:`, error);
             throw new error_middleware_1.AppError('Authentication failed', 500);
         }
     }

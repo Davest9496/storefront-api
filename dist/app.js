@@ -51,6 +51,8 @@ const data_source_1 = __importDefault(require("./config/data-source"));
 const error_middleware_1 = __importDefault(require("./middleware/error.middleware"));
 // Create Express app
 const app = (0, express_1.default)();
+// IMPORTANT: Set trust proxy to true to fix the X-Forwarded-For header issue with API Gateway
+app.set('trust proxy', true);
 // Define API prefix
 const API_PREFIX = process.env.API_PREFIX || '/api';
 // Set up middleware
@@ -60,21 +62,29 @@ app.use((0, morgan_1.default)('combined', { stream: logger_1.logStream })); // H
 app.use(express_1.default.json({ limit: '10kb' })); // Parse JSON requests with size limit
 app.use(express_1.default.urlencoded({ extended: true }));
 // CORS configuration with multiple origin support
+// src/app.ts - Ensure CORS is correctly configured
 app.use((0, cors_1.default)({
     origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps, curl, or Postman)
+        if (!origin) {
+            return callback(null, true);
+        }
         const allowedOrigins = [
             process.env.FRONTEND_URL || 'https://storefront-virid.vercel.app',
             'http://localhost:4200',
         ];
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin || allowedOrigins.includes(origin)) {
+        // Check if the origin is allowed
+        if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('vercel.app')) {
             callback(null, true);
         }
         else {
+            logger_1.default.warn(`CORS blocked request from origin: ${origin}`);
             callback(new Error('Not allowed by CORS'));
         }
     },
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 // Rate limiting
 const limiter = (0, express_rate_limit_1.default)({

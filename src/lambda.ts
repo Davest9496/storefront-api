@@ -60,6 +60,7 @@ const connectToDatabase = async (timeoutMs = 5000): Promise<boolean> => {
 const serverlessHandler = serverless(app);
 
 // Lambda handler
+// src/lambda.ts - Add this section to enhance error reporting
 export const handler = async (
   event: APIGatewayProxyEvent,
   context: Context,
@@ -67,83 +68,102 @@ export const handler = async (
   // Enable connection reuse
   context.callbackWaitsForEmptyEventLoop = false;
 
-  // Log the event for debugging (only path and method to avoid excessive logs)
+  // Log request info
   logger.info(`Lambda invoked: ${event.httpMethod} ${event.path}`);
 
   try {
-    // For health check, attempt a quick database connection
-    if (
-      event.path === '/health' ||
-      event.path === '/api/health' ||
-      event.path.endsWith('/health')
-    ) {
+    // For health check endpoint, return detailed connection info
+    if (event.path === '/health' || event.path === '/api/health') {
       let dbConnected = false;
+      let connectionError = null;
+      let connectionStatus = 'not_attempted';
 
-      // Only try to connect if not already connected
-      if (!AppDataSource.isInitialized) {
-        try {
-          // Try to connect with a short timeout for health checks
-          dbConnected = await connectToDatabase(2000);
-        } catch (err) {
-          logger.warn('Health check database connection attempt failed:', err);
-          dbConnected = false;
+      try {
+        if (!AppDataSource.isInitialized) {
+          connectionStatus = 'connecting';
+          await connectToDatabase(3000); // 3 second timeout for health checks
         }
-      } else {
-        // Already connected, run a simple query to verify
-        try {
-          await AppDataSource.query('SELECT 1');
-          dbConnected = true;
-        } catch (err) {
-          logger.error('Database is initialized but query failed:', err);
-          dbConnected = false;
-        }
+
+        // Test the connection with a simple query
+        await AppDataSource.query('SELECT 1 as connection_test');
+        dbConnected = true;
+        connectionStatus = 'connected';
+      } catch (err) {
+        connectionError = err instanceof Error ? err.message : String(err);
+        connectionStatus = 'failed';
+        logger.error('Health check database connection failed:', err);
       }
 
       return {
         statusCode: 200,
-        body: JSON.stringify({
-          status: 'ok',
-          message: 'Service is healthy',
-          timestamp: new Date().toISOString(),
-          path: event.path,
-          dbConnected,
-          region: process.env.AWS_REGION,
-          nodeEnv: process.env.NODE_ENV,
-        }),
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': 'true',
         },
+        body: JSON.stringify({
+          status: 'ok',
+          database: {
+            connected: dbConnected,
+            initialized: AppDataSource.isInitialized,
+            status: connectionStatus,
+            error: connectionError,
+          },
+          environment: {
+            nodeEnv: process.env.NODE_ENV,
+            region: process.env.AWS_REGION,
+            hasDbHost: !!process.env.DB_HOST,
+            hasDbUser: !!process.env.DB_USERNAME,
+            hasDbPassword: !!process.env.DB_PASSWORD,
+            hasDbName: !!process.env.DB_DATABASE,
+          },
+          timestamp: new Date().toISOString(),
+        }),
       };
     }
 
-    // For other API routes, ensure database connection
-    if (event.path.includes('/api/') && !AppDataSource.isInitialized) {
+    // Ensure database is connected for API routes
+    if (event.path.startsWith('/api/') && !AppDataSource.isInitialized) {
       try {
+        logger.info('API route requested, initializing database connection');
         await connectToDatabase();
-      } catch (err) {
-        logger.warn('API route database connection attempt failed, continuing anyway:', err);
+      } catch (error) {
+        logger.error('Failed to connect to database for API route:', error);
+
+        // Return a friendly database connection error
+        return {
+          statusCode: 503,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+          body: JSON.stringify({
+            status: 'error',
+            message: 'Database connection failed',
+            error: error instanceof Error ? error.message : String(error),
+          }),
+        };
       }
     }
 
     // Process the request with Express app
     return (await serverlessHandler(event, context)) as APIGatewayProxyResult;
   } catch (error) {
-    logger.error('Error handling Lambda request:', error);
+    logger.error('Unhandled error in Lambda handler:', error);
 
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        error: 'Internal Server Error',
-        message: error instanceof Error ? error.message : 'Unknown error',
-        path: event.path,
-      }),
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
       },
+      body: JSON.stringify({
+        status: 'error',
+        message: 'Internal server error',
+        error:
+          process.env.NODE_ENV === 'development' && error instanceof Error
+            ? error.message
+            : 'An unexpected error occurred',
+      }),
     };
   }
 };

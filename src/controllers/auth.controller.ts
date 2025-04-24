@@ -1,4 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
+import logger from '../utils/logger';
+import { AppDataSource } from '../config/data-source';
 import { authService } from '../services/auth.service';
 import { AppError } from '../middleware/error.middleware';
 import { User } from '../entities/user.entity';
@@ -15,6 +17,12 @@ export class AuthController {
   async signup(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const { firstName, lastName, email, password } = req.body;
+
+      // Check database connection first
+      if (!AppDataSource.isInitialized) {
+        logger.error('Database not initialized during signup attempt');
+        return next(new AppError('Service temporarily unavailable', 503));
+      }
 
       const { user, token } = await authService.signup({
         firstName,
@@ -37,7 +45,25 @@ export class AuthController {
         },
       });
     } catch (error) {
+      logger.error('Error in signup:', error);
       next(error);
+    }
+  }
+
+  async testAuth(req: Request, res: Response): Promise<void> {
+    try {
+      // Simple no-database test to verify API Gateway and Lambda are working
+      res.status(200).json({
+        status: 'success',
+        message: 'Auth service is available',
+        database: AppDataSource.isInitialized ? 'connected' : 'not connected',
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 'error',
+        message: error instanceof Error ? error.message : 'An unknown error occurred',
+      });
     }
   }
 

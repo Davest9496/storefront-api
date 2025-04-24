@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppDataSource = void 0;
 exports.initializeDatabase = initializeDatabase;
 exports.resetDatabase = resetDatabase;
+// src/config/data-source.ts
 const typeorm_1 = require("typeorm");
 const dotenv_1 = require("dotenv");
 const path_1 = __importDefault(require("path"));
@@ -26,6 +27,7 @@ logger_1.default.info('Database configuration:', {
     database: process.env.DB_DATABASE,
     username: process.env.DB_USERNAME,
     env: process.env.NODE_ENV,
+    ssl: 'enabled with rejectUnauthorized: false', // Log SSL configuration
 });
 // Base connection options shared across all environments
 const baseOptions = {
@@ -39,7 +41,7 @@ const baseOptions = {
     entities: [user_entity_1.User, product_entity_1.Product, order_entity_1.Order, order_product_entity_1.OrderProduct, payment_entity_1.Payment],
     synchronize: false, // Should be false in production
     logging: process.env.NODE_ENV === 'development' ? ['query', 'error'] : ['error'],
-    // Enable SSL for all environments to connect to AWS RDS
+    // UPDATED: SSL configuration always enabled with rejectUnauthorized false
     ssl: { rejectUnauthorized: false },
     // AWS RDS specific settings
     extra: {
@@ -50,6 +52,11 @@ const baseOptions = {
         idleTimeoutMillis: 30000, // Close idle connections after 30 seconds
         // Connection acquisition settings
         connectionTimeoutMillis: 5000, // 5 second connection timeout
+        // UPDATED: Explicit SSL configuration in extra for pg driver
+        ssl: {
+            rejectUnauthorized: false,
+            sslmode: 'require',
+        },
         // Retry logic for AWS RDS transient connection issues
         retry: {
             maxRetryTime: 10000, // Maximum time to retry (10 seconds)
@@ -95,10 +102,19 @@ else {
 exports.AppDataSource = new typeorm_1.DataSource(dataSourceOptions);
 // Initialize database with retry logic (especially important for AWS RDS)
 async function initializeDatabase(retries = 5, delay = 3000) {
+    // Log SSL configuration for debugging
+    logger_1.default.info('SSL Configuration:', {
+        sslConfig: JSON.stringify({ rejectUnauthorized: false, sslmode: 'require' }),
+        nodeEnv: process.env.NODE_ENV,
+        databaseUrl: process.env.DATABASE_URL ? 'provided' : 'not provided',
+    });
     try {
         if (!exports.AppDataSource.isInitialized) {
             logger_1.default.info('Initializing database connection...');
             await exports.AppDataSource.initialize();
+            // Run a test query to verify connection is truly working
+            const testResult = await exports.AppDataSource.query('SELECT 1 as connection_test');
+            logger_1.default.info('Database connection verified with test query:', testResult);
             logger_1.default.info('Database connection established successfully');
         }
         return exports.AppDataSource;

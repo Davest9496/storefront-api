@@ -17,6 +17,9 @@ import errorMiddleware from './middleware/error.middleware';
 // Create Express app
 const app = express();
 
+// IMPORTANT: Set trust proxy to true to fix the X-Forwarded-For header issue with API Gateway
+app.set('trust proxy', true);
+
 // Define API prefix
 const API_PREFIX = process.env.API_PREFIX || '/api';
 
@@ -28,21 +31,31 @@ app.use(express.json({ limit: '10kb' })); // Parse JSON requests with size limit
 app.use(express.urlencoded({ extended: true }));
 
 // CORS configuration with multiple origin support
+// src/app.ts - Ensure CORS is correctly configured
 app.use(
   cors({
     origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl, or Postman)
+      if (!origin) {
+        return callback(null, true);
+      }
+
       const allowedOrigins = [
         process.env.FRONTEND_URL || 'https://storefront-virid.vercel.app',
         'http://localhost:4200',
       ];
-      // Allow requests with no origin (like mobile apps or curl requests)
-      if (!origin || allowedOrigins.includes(origin)) {
+
+      // Check if the origin is allowed
+      if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('vercel.app')) {
         callback(null, true);
       } else {
+        logger.warn(`CORS blocked request from origin: ${origin}`);
         callback(new Error('Not allowed by CORS'));
       }
     },
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   }),
 );
 

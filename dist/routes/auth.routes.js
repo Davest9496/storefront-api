@@ -169,6 +169,7 @@ router.post('/signup', (0, validation_middleware_1.validateRequest)(auth_validat
  */
 router.post('/login', authLimiter, // Apply rate limiting to login route
 (0, validation_middleware_1.validateRequest)(auth_validation_1.authValidation.login), auth_controller_1.authController.login);
+router.get('/test', auth_controller_1.authController.testAuth);
 /**
  * @swagger
  * /api/auth/logout:

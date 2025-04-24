@@ -173,6 +173,7 @@ router.post(
   authController.login,
 );
 
+router.get('/test', authController.testAuth);
 /**
  * @swagger
  * /api/auth/logout:

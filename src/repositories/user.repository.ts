@@ -1,20 +1,25 @@
-import { Repository } from 'typeorm';
+import { Repository, FindOneOptions, FindManyOptions } from 'typeorm';
 import { User, UserRole } from '../entities/user.entity';
 import AppDataSource from '../config/database';
-import logger from '../utils/logger'; // Adjust the path based on your project structure
+import logger from '../utils/logger';
 
-export class UserRepository extends Repository<User> {
-  constructor() {
-    super(User, AppDataSource.manager);
+export class UserRepository {
+  private getRepository(): Repository<User> {
+    if (!AppDataSource.isInitialized) {
+      logger.error('Database not initialized when accessing User repository');
+      throw new Error('Database connection not initialized');
+    }
+    return AppDataSource.getRepository(User);
   }
 
   async findByEmail(email: string): Promise<User | null> {
-    return this.findOne({ where: { email } });
+    return this.getRepository().findOne({ where: { email } });
   }
 
   async findByEmailWithPassword(email: string): Promise<User | null> {
     try {
-      return this.createQueryBuilder('user')
+      return this.getRepository()
+        .createQueryBuilder('user')
         .select([
           'user.id',
           'user.firstName',
@@ -31,8 +36,24 @@ export class UserRepository extends Repository<User> {
     }
   }
 
+  async findOne(options: FindOneOptions<User>): Promise<User | null> {
+    return this.getRepository().findOne(options);
+  }
+
+  async find(options?: FindManyOptions<User> | undefined): Promise<User[]> {
+    return this.getRepository().find(options);
+  }
+
+  create(userData: Partial<User>): User {
+    return this.getRepository().create(userData);
+  }
+
+  async save(user: User): Promise<User> {
+    return this.getRepository().save(user);
+  }
+
   async findByResetToken(token: string): Promise<User | null> {
-    return this.findOne({
+    return this.getRepository().findOne({
       where: {
         resetPasswordToken: token,
         resetPasswordExpires: new Date(Date.now()),
@@ -41,7 +62,7 @@ export class UserRepository extends Repository<User> {
   }
 
   async findByRole(role: UserRole): Promise<User[]> {
-    return this.find({ where: { role } });
+    return this.getRepository().find({ where: { role } });
   }
 }
 

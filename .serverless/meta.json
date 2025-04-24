@@ -81,6 +81,12 @@
                 "LogGroupName": "/aws/lambda/storefront-api-dev-health"
               }
             },
+            "DebugDashdbLogGroup": {
+              "Type": "AWS::Logs::LogGroup",
+              "Properties": {
+                "LogGroupName": "/aws/lambda/storefront-api-dev-debug-db"
+              }
+            },
             "IamRoleLambdaExecution": {
               "Type": "AWS::IAM::Role",
               "Properties": {
@@ -186,7 +192,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                  "S3Key": "serverless/storefront-api/dev/1745418762772-2025-04-23T14:32:42.772Z/storefront-api.zip"
+                  "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
                 },
                 "Handler": "dist/lambda.handler",
                 "Runtime": "nodejs20.x",
@@ -227,7 +233,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                  "S3Key": "serverless/storefront-api/dev/1745418762772-2025-04-23T14:32:42.772Z/storefront-api.zip"
+                  "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
                 },
                 "Handler": "dist/health.handler",
                 "Runtime": "nodejs20.x",
@@ -263,24 +269,75 @@
               },
               "DependsOn": ["HealthLogGroup"]
             },
-            "ApiLambdaVersionjvoJkdZCqxKRRzFycNGYq2XBovLAWDvYGmmiku37wk": {
+            "DebugDashdbLambdaFunction": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                  "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
+                  "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
+                },
+                "Handler": "dist/debug-db.handler",
+                "Runtime": "nodejs20.x",
+                "FunctionName": "storefront-api-dev-debug-db",
+                "MemorySize": 512,
+                "Timeout": 10,
+                "Environment": {
+                  "Variables": {
+                    "NODE_ENV": "dev",
+                    "DATABASE_URL": "postgres://dave:mophir3digit@database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432/storefront?sslmode=require",
+                    "DB_HOST": "database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com",
+                    "DB_PORT": "5432",
+                    "DB_USERNAME": "dave",
+                    "DB_PASSWORD": "<REDACTED>",
+                    "DB_DATABASE": "storefront",
+                    "JWT_SECRET": "<REDACTED>",
+                    "FRONTEND_URL": "https://storefront-virid.vercel.app",
+                    "USE_FALLBACK_DATA": "false",
+                    "DB_USE_SSL": "true"
+                  }
+                },
+                "Role": {
+                  "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
+                },
+                "VpcConfig": {
+                  "SecurityGroupIds": ["sg-059642d97326cb72f"],
+                  "SubnetIds": [
+                    "subnet-0ef8327e8c86f38c5",
+                    "subnet-02048d123728927ea",
+                    "subnet-02433fd3ced24f68e"
+                  ]
+                }
+              },
+              "DependsOn": ["DebugDashdbLogGroup"]
+            },
+            "ApiLambdaVersionDUY8asTZG9v98uvFGfxjkAjHAyiDGl1ndLDUMxfDAWg": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "ApiLambdaFunction"
                 },
-                "CodeSha256": "HfHiG/Mi1qFfJKYgVszIHPZfonHKCFT5Cxs71ExCvL8="
+                "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
               }
             },
-            "HealthLambdaVersionW1LlqzmRAXNak1bBjhzSvOMOEFhAPiq3xSOuk2mULw": {
+            "HealthLambdaVersioneW2InatS3dzwhZW1dTqeCKxr9xMaopSbmhUsiEUY3fM": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "HealthLambdaFunction"
                 },
-                "CodeSha256": "HfHiG/Mi1qFfJKYgVszIHPZfonHKCFT5Cxs71ExCvL8="
+                "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
+              }
+            },
+            "DebugDashdbLambdaVersionoC7ZX8aqF3iHZUu955UsOVASCbfyMOmgcHkPmY4b0w": {
+              "Type": "AWS::Lambda::Version",
+              "DeletionPolicy": "Retain",
+              "Properties": {
+                "FunctionName": {
+                  "Ref": "DebugDashdbLambdaFunction"
+                },
+                "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
               }
             },
             "ApiGatewayRestApi": {
@@ -313,6 +370,18 @@
                   "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
                 },
                 "PathPart": "health",
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                }
+              }
+            },
+            "ApiGatewayResourceDebugDashdb": {
+              "Type": "AWS::ApiGateway::Resource",
+              "Properties": {
+                "ParentId": {
+                  "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
+                },
+                "PathPart": "debug-db",
                 "RestApiId": {
                   "Ref": "ApiGatewayRestApi"
                 }
@@ -453,6 +522,51 @@
                 }
               }
             },
+            "ApiGatewayMethodDebugDashdbOptions": {
+              "Type": "AWS::ApiGateway::Method",
+              "Properties": {
+                "AuthorizationType": "NONE",
+                "HttpMethod": "OPTIONS",
+                "MethodResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": true,
+                      "method.response.header.Access-Control-Allow-Headers": true,
+                      "method.response.header.Access-Control-Allow-Methods": true
+                    },
+                    "ResponseModels": {}
+                  }
+                ],
+                "RequestParameters": {},
+                "Integration": {
+                  "Type": "MOCK",
+                  "RequestTemplates": {
+                    "application/json": "{statusCode:200}"
+                  },
+                  "ContentHandling": "CONVERT_TO_TEXT",
+                  "IntegrationResponses": [
+                    {
+                      "StatusCode": "200",
+                      "ResponseParameters": {
+                        "method.response.header.Access-Control-Allow-Origin": "'*'",
+                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                      },
+                      "ResponseTemplates": {
+                        "application/json": ""
+                      }
+                    }
+                  ]
+                },
+                "ResourceId": {
+                  "Ref": "ApiGatewayResourceDebugDashdb"
+                },
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                }
+              }
+            },
             "ApiGatewayMethodAny": {
               "Type": "AWS::ApiGateway::Method",
               "Properties": {
@@ -576,7 +690,48 @@
               },
               "DependsOn": ["HealthLambdaPermissionApiGateway"]
             },
-            "ApiGatewayDeployment1745418747812": {
+            "ApiGatewayMethodDebugDashdbGet": {
+              "Type": "AWS::ApiGateway::Method",
+              "Properties": {
+                "HttpMethod": "GET",
+                "RequestParameters": {},
+                "ResourceId": {
+                  "Ref": "ApiGatewayResourceDebugDashdb"
+                },
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                },
+                "ApiKeyRequired": "<REDACTED>",
+                "AuthorizationType": "NONE",
+                "Integration": {
+                  "IntegrationHttpMethod": "POST",
+                  "Type": "AWS_PROXY",
+                  "Uri": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":apigateway:",
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        ":lambda:path/2015-03-31/functions/",
+                        {
+                          "Fn::GetAtt": ["DebugDashdbLambdaFunction", "Arn"]
+                        },
+                        "/invocations"
+                      ]
+                    ]
+                  }
+                },
+                "MethodResponses": []
+              },
+              "DependsOn": ["DebugDashdbLambdaPermissionApiGateway"]
+            },
+            "ApiGatewayDeployment1745486798246": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -588,9 +743,11 @@
                 "ApiGatewayMethodOptions",
                 "ApiGatewayMethodProxyVarOptions",
                 "ApiGatewayMethodHealthOptions",
+                "ApiGatewayMethodDebugDashdbOptions",
                 "ApiGatewayMethodAny",
                 "ApiGatewayMethodProxyVarAny",
-                "ApiGatewayMethodHealthGet"
+                "ApiGatewayMethodHealthGet",
+                "ApiGatewayMethodDebugDashdbGet"
               ]
             },
             "ApiLambdaPermissionApiGateway": {
@@ -660,6 +817,40 @@
                   ]
                 }
               }
+            },
+            "DebugDashdbLambdaPermissionApiGateway": {
+              "Type": "AWS::Lambda::Permission",
+              "Properties": {
+                "FunctionName": {
+                  "Fn::GetAtt": ["DebugDashdbLambdaFunction", "Arn"]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "ApiGatewayRestApi"
+                      },
+                      "/*/*"
+                    ]
+                  ]
+                }
+              }
             }
           },
           "Outputs": {
@@ -672,7 +863,7 @@
             "ApiLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "ApiLambdaVersionjvoJkdZCqxKRRzFycNGYq2XBovLAWDvYGmmiku37wk"
+                "Ref": "ApiLambdaVersionDUY8asTZG9v98uvFGfxjkAjHAyiDGl1ndLDUMxfDAWg"
               },
               "Export": {
                 "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -681,10 +872,19 @@
             "HealthLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "HealthLambdaVersionW1LlqzmRAXNak1bBjhzSvOMOEFhAPiq3xSOuk2mULw"
+                "Ref": "HealthLambdaVersioneW2InatS3dzwhZW1dTqeCKxr9xMaopSbmhUsiEUY3fM"
               },
               "Export": {
                 "Name": "sls-storefront-api-dev-HealthLambdaFunctionQualifiedArn"
+              }
+            },
+            "DebugDashdbLambdaFunctionQualifiedArn": {
+              "Description": "Current Lambda function version",
+              "Value": {
+                "Ref": "DebugDashdbLambdaVersionoC7ZX8aqF3iHZUu955UsOVASCbfyMOmgcHkPmY4b0w"
+              },
+              "Export": {
+                "Name": "sls-storefront-api-dev-DebugDashdbLambdaFunctionQualifiedArn"
               }
             },
             "ServiceEndpoint": {
@@ -769,7 +969,7 @@
           "memory": 1024,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "ApiLambdaVersionjvoJkdZCqxKRRzFycNGYq2XBovLAWDvYGmmiku37wk"
+          "versionLogicalId": "ApiLambdaVersionDUY8asTZG9v98uvFGfxjkAjHAyiDGl1ndLDUMxfDAWg"
         },
         "health": {
           "handler": "dist/health.handler",
@@ -803,7 +1003,41 @@
           "memory": 512,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "HealthLambdaVersionW1LlqzmRAXNak1bBjhzSvOMOEFhAPiq3xSOuk2mULw"
+          "versionLogicalId": "HealthLambdaVersioneW2InatS3dzwhZW1dTqeCKxr9xMaopSbmhUsiEUY3fM"
+        },
+        "debug-db": {
+          "handler": "dist/debug-db.handler",
+          "events": [
+            {
+              "http": {
+                "path": "debug-db",
+                "method": "get",
+                "cors": {
+                  "origin": "*",
+                  "methods": ["OPTIONS", "GET"],
+                  "headers": [
+                    "Content-Type",
+                    "X-Amz-Date",
+                    "Authorization",
+                    "X-Api-Key",
+                    "X-Amz-Security-Token",
+                    "X-Amz-User-Agent",
+                    "X-Amzn-Trace-Id"
+                  ],
+                  "allowCredentials": "<REDACTED>"
+                },
+                "integration": "AWS_PROXY"
+              }
+            }
+          ],
+          "memorySize": 512,
+          "timeout": 10,
+          "name": "storefront-api-dev-debug-db",
+          "package": {},
+          "memory": 512,
+          "runtime": "nodejs20.x",
+          "vpc": {},
+          "versionLogicalId": "DebugDashdbLambdaVersionoC7ZX8aqF3iHZUu955UsOVASCbfyMOmgcHkPmY4b0w"
         }
       },
       "package": {
@@ -811,7 +1045,7 @@
         "artifactsS3KeyDirname": "serverless/storefront-api/dev/code-artifacts",
         "deploymentBucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
         "artifact": "/Users/davest/Desktop/storefront-api/.serverless/storefront-api.zip",
-        "artifactDirectoryName": "serverless/storefront-api/dev/1745418762772-2025-04-23T14:32:42.772Z"
+        "artifactDirectoryName": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z"
       },
       "custom": {
         "logs": {
@@ -896,6 +1130,12 @@
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
               "LogGroupName": "/aws/lambda/storefront-api-dev-health"
+            }
+          },
+          "DebugDashdbLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/storefront-api-dev-debug-db"
             }
           },
           "IamRoleLambdaExecution": {
@@ -1003,7 +1243,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                "S3Key": "serverless/storefront-api/dev/1745418762772-2025-04-23T14:32:42.772Z/storefront-api.zip"
+                "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
               },
               "Handler": "dist/lambda.handler",
               "Runtime": "nodejs20.x",
@@ -1044,7 +1284,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-                "S3Key": "serverless/storefront-api/dev/1745418762772-2025-04-23T14:32:42.772Z/storefront-api.zip"
+                "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
               },
               "Handler": "dist/health.handler",
               "Runtime": "nodejs20.x",
@@ -1080,24 +1320,75 @@
             },
             "DependsOn": ["HealthLogGroup"]
           },
-          "ApiLambdaVersionjvoJkdZCqxKRRzFycNGYq2XBovLAWDvYGmmiku37wk": {
+          "DebugDashdbLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
+                "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
+              },
+              "Handler": "dist/debug-db.handler",
+              "Runtime": "nodejs20.x",
+              "FunctionName": "storefront-api-dev-debug-db",
+              "MemorySize": 512,
+              "Timeout": 10,
+              "Environment": {
+                "Variables": {
+                  "NODE_ENV": "dev",
+                  "DATABASE_URL": "postgres://dave:mophir3digit@database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432/storefront?sslmode=require",
+                  "DB_HOST": "database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com",
+                  "DB_PORT": "5432",
+                  "DB_USERNAME": "dave",
+                  "DB_PASSWORD": "<REDACTED>",
+                  "DB_DATABASE": "storefront",
+                  "JWT_SECRET": "<REDACTED>",
+                  "FRONTEND_URL": "https://storefront-virid.vercel.app",
+                  "USE_FALLBACK_DATA": "false",
+                  "DB_USE_SSL": "true"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
+              },
+              "VpcConfig": {
+                "SecurityGroupIds": ["sg-059642d97326cb72f"],
+                "SubnetIds": [
+                  "subnet-0ef8327e8c86f38c5",
+                  "subnet-02048d123728927ea",
+                  "subnet-02433fd3ced24f68e"
+                ]
+              }
+            },
+            "DependsOn": ["DebugDashdbLogGroup"]
+          },
+          "ApiLambdaVersionDUY8asTZG9v98uvFGfxjkAjHAyiDGl1ndLDUMxfDAWg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "HfHiG/Mi1qFfJKYgVszIHPZfonHKCFT5Cxs71ExCvL8="
+              "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
             }
           },
-          "HealthLambdaVersionW1LlqzmRAXNak1bBjhzSvOMOEFhAPiq3xSOuk2mULw": {
+          "HealthLambdaVersioneW2InatS3dzwhZW1dTqeCKxr9xMaopSbmhUsiEUY3fM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "HealthLambdaFunction"
               },
-              "CodeSha256": "HfHiG/Mi1qFfJKYgVszIHPZfonHKCFT5Cxs71ExCvL8="
+              "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
+            }
+          },
+          "DebugDashdbLambdaVersionoC7ZX8aqF3iHZUu955UsOVASCbfyMOmgcHkPmY4b0w": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "DebugDashdbLambdaFunction"
+              },
+              "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
             }
           },
           "ApiGatewayRestApi": {
@@ -1130,6 +1421,18 @@
                 "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
               },
               "PathPart": "health",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceDebugDashdb": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
+              },
+              "PathPart": "debug-db",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -1270,6 +1573,51 @@
               }
             }
           },
+          "ApiGatewayMethodDebugDashdbOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceDebugDashdb"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
           "ApiGatewayMethodAny": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
@@ -1393,7 +1741,48 @@
             },
             "DependsOn": ["HealthLambdaPermissionApiGateway"]
           },
-          "ApiGatewayDeployment1745418747812": {
+          "ApiGatewayMethodDebugDashdbGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceDebugDashdb"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": "<REDACTED>",
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": ["DebugDashdbLambdaFunction", "Arn"]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": ["DebugDashdbLambdaPermissionApiGateway"]
+          },
+          "ApiGatewayDeployment1745486798246": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1405,9 +1794,11 @@
               "ApiGatewayMethodOptions",
               "ApiGatewayMethodProxyVarOptions",
               "ApiGatewayMethodHealthOptions",
+              "ApiGatewayMethodDebugDashdbOptions",
               "ApiGatewayMethodAny",
               "ApiGatewayMethodProxyVarAny",
-              "ApiGatewayMethodHealthGet"
+              "ApiGatewayMethodHealthGet",
+              "ApiGatewayMethodDebugDashdbGet"
             ]
           },
           "ApiLambdaPermissionApiGateway": {
@@ -1477,6 +1868,40 @@
                 ]
               }
             }
+          },
+          "DebugDashdbLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": ["DebugDashdbLambdaFunction", "Arn"]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
           }
         },
         "Outputs": {
@@ -1489,7 +1914,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionjvoJkdZCqxKRRzFycNGYq2XBovLAWDvYGmmiku37wk"
+              "Ref": "ApiLambdaVersionDUY8asTZG9v98uvFGfxjkAjHAyiDGl1ndLDUMxfDAWg"
             },
             "Export": {
               "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -1498,10 +1923,19 @@
           "HealthLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "HealthLambdaVersionW1LlqzmRAXNak1bBjhzSvOMOEFhAPiq3xSOuk2mULw"
+              "Ref": "HealthLambdaVersioneW2InatS3dzwhZW1dTqeCKxr9xMaopSbmhUsiEUY3fM"
             },
             "Export": {
               "Name": "sls-storefront-api-dev-HealthLambdaFunctionQualifiedArn"
+            }
+          },
+          "DebugDashdbLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "DebugDashdbLambdaVersionoC7ZX8aqF3iHZUu955UsOVASCbfyMOmgcHkPmY4b0w"
+            },
+            "Export": {
+              "Name": "sls-storefront-api-dev-DebugDashdbLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -1542,7 +1976,7 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "serviceRawFile": "service: storefront-api\n\nframeworkVersion: '4'\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  stage: ${opt:stage, 'dev'}\n  region: eu-west-2\n  memorySize: 1024  # Increase memory for better performance\n  timeout: 29\n  environment:\n    NODE_ENV: ${opt:stage, 'dev'}\n    DATABASE_URL: ${ssm:/storefront/${opt:stage, 'dev'}/DATABASE_URL}\n    DB_HOST: ${ssm:/storefront/${opt:stage, 'dev'}/DB_HOST}\n    DB_PORT: ${ssm:/storefront/${opt:stage, 'dev'}/DB_PORT}\n    DB_USERNAME: ${ssm:/storefront/${opt:stage, 'dev'}/DB_USERNAME}\n    DB_PASSWORD: ${ssm:/storefront/${opt:stage, 'dev'}/DB_PASSWORD}\n    DB_DATABASE: ${ssm:/storefront/${opt:stage, 'dev'}/DB_DATABASE}\n    JWT_SECRET: ${ssm:/storefront/${opt:stage, 'dev'}/JWT_SECRET}\n    FRONTEND_URL: ${ssm:/storefront/${opt:stage, 'dev'}/FRONTEND_URL}\n    USE_FALLBACK_DATA: 'false'  # Added this flag for using fallback data\n    # Add this to explicitly enable SSL for all database connections\n    DB_USE_SSL: 'true'\n  vpc:\n    securityGroupIds:\n      - sg-059642d97326cb72f  # Ensure this security group can access your RDS security group\n    subnetIds:\n      - subnet-0ef8327e8c86f38c5  # These should be in private subnets with NAT gateway \n      - subnet-02048d123728927ea  # or in the same subnet as your RDS instance\n      - subnet-02433fd3ced24f68e\n  iam:\n    role:\n      statements:\n        # Parameter Store permissions\n        - Effect: Allow\n          Action:\n            - ssm:GetParameter\n            - ssm:GetParameters\n          Resource: \n            - arn:aws:ssm:${self:provider.region}:*:parameter/storefront/${self:provider.stage}/*\n        \n        # VPC permissions required for Lambda to connect to RDS\n        - Effect: Allow\n          Action:\n            - ec2:CreateNetworkInterface\n            - ec2:DescribeNetworkInterfaces\n            - ec2:DeleteNetworkInterface\n            - ec2:AssignPrivateIpAddresses\n            - ec2:UnassignPrivateIpAddresses\n          Resource: '*'\n        \n        # Explicitly add RDS permissions\n        - Effect: Allow\n          Action:\n            - rds-db:connect\n          Resource: '*'\n  apiGateway:\n    binaryMediaTypes:\n      - 'image/jpeg'\n      - 'image/png'\n      - 'application/octet-stream'\n\nfunctions:\n  api:\n    handler: dist/lambda.handler\n    events:\n      - http:\n          path: /\n          method: ANY\n          cors: true\n      - http:\n          path: /{proxy+}\n          method: ANY\n          cors: true\n    # Longer timeout for database connections\n    timeout: 29\n\n  # Add a separate health check function with faster cold start\n  health:\n    handler: dist/health.handler\n    events:\n      - http:\n          path: /health\n          method: get\n          cors: true\n    memorySize: 512\n    timeout: 10\n\npackage:\n  patterns:\n    - 'dist/**'\n    - 'node_modules/**'\n    - '!node_modules/.bin/**'\n    - '!.git/**'\n    - '!test/**'\n\n# Add CloudWatch log configuration for better debugging\ncustom:\n  logs:\n    restApi: true\n  prune:\n    automatic: true\n    number: 3",
+    "serviceRawFile": "service: storefront-api\n\nframeworkVersion: '4'\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  stage: ${opt:stage, 'dev'}\n  region: eu-west-2\n  memorySize: 1024  # Increase memory for better performance\n  timeout: 29\n  environment:\n    NODE_ENV: ${opt:stage, 'dev'}\n    DATABASE_URL: ${ssm:/storefront/${opt:stage, 'dev'}/DATABASE_URL}\n    DB_HOST: ${ssm:/storefront/${opt:stage, 'dev'}/DB_HOST}\n    DB_PORT: ${ssm:/storefront/${opt:stage, 'dev'}/DB_PORT}\n    DB_USERNAME: ${ssm:/storefront/${opt:stage, 'dev'}/DB_USERNAME}\n    DB_PASSWORD: ${ssm:/storefront/${opt:stage, 'dev'}/DB_PASSWORD}\n    DB_DATABASE: ${ssm:/storefront/${opt:stage, 'dev'}/DB_DATABASE}\n    JWT_SECRET: ${ssm:/storefront/${opt:stage, 'dev'}/JWT_SECRET}\n    FRONTEND_URL: ${ssm:/storefront/${opt:stage, 'dev'}/FRONTEND_URL}\n    USE_FALLBACK_DATA: 'false'  # Added this flag for using fallback data\n    # Add this to explicitly enable SSL for all database connections\n    DB_USE_SSL: 'true'\n  vpc:\n    securityGroupIds:\n      - sg-059642d97326cb72f  # Ensure this security group can access your RDS security group\n    subnetIds:\n      - subnet-0ef8327e8c86f38c5  # These should be in private subnets with NAT gateway \n      - subnet-02048d123728927ea  # or in the same subnet as your RDS instance\n      - subnet-02433fd3ced24f68e\n  iam:\n    role:\n      statements:\n        # Parameter Store permissions\n        - Effect: Allow\n          Action:\n            - ssm:GetParameter\n            - ssm:GetParameters\n          Resource: \n            - arn:aws:ssm:${self:provider.region}:*:parameter/storefront/${self:provider.stage}/*\n        \n        # VPC permissions required for Lambda to connect to RDS\n        - Effect: Allow\n          Action:\n            - ec2:CreateNetworkInterface\n            - ec2:DescribeNetworkInterfaces\n            - ec2:DeleteNetworkInterface\n            - ec2:AssignPrivateIpAddresses\n            - ec2:UnassignPrivateIpAddresses\n          Resource: '*'\n        \n        # Explicitly add RDS permissions\n        - Effect: Allow\n          Action:\n            - rds-db:connect\n          Resource: '*'\n  apiGateway:\n    binaryMediaTypes:\n      - 'image/jpeg'\n      - 'image/png'\n      - 'application/octet-stream'\n\nfunctions:\n  api:\n    handler: dist/lambda.handler\n    events:\n      - http:\n          path: /\n          method: ANY\n          cors: true\n      - http:\n          path: /{proxy+}\n          method: ANY\n          cors: true\n    # Longer timeout for database connections\n    timeout: 29\n\n  # Add a separate health check function with faster cold start\n  health:\n    handler: dist/health.handler\n    events:\n      - http:\n          path: /health\n          method: get\n          cors: true\n    memorySize: 512\n    timeout: 10\n\n  debug-db:\n    handler: dist/debug-db.handler\n    events:\n      - http:\n          path: /debug-db\n          method: get\n          cors: true\n    memorySize: 512\n    timeout: 10\n\npackage:\n  patterns:\n    - 'dist/**'\n    - 'node_modules/**'\n    - '!node_modules/.bin/**'\n    - '!.git/**'\n    - '!test/**'\n\n# Add CloudWatch log configuration for better debugging\ncustom:\n  logs:\n    restApi: true\n  prune:\n    automatic: true\n    number: 3",
     "command": ["deploy"],
     "options": {},
     "orgId": "006cea91-e273-49b5-a751-760109a409f0",
@@ -1553,18 +1987,24 @@
     "serviceProviderAwsCfStackName": "storefront-api-dev",
     "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-west-2:058264347310:stack/storefront-api-dev/00526380-1aa9-11f0-9fcf-0a11655aa05d",
     "serviceProviderAwsCfStackCreated": "2025-04-16T09:56:00.912Z",
-    "serviceProviderAwsCfStackUpdated": "2025-04-21T14:31:38.859Z",
+    "serviceProviderAwsCfStackUpdated": "2025-04-23T16:11:25.952Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
+        "OutputKey": "DebugDashdbLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:eu-west-2:058264347310:function:storefront-api-dev-debug-db:1",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-storefront-api-dev-DebugDashdbLambdaFunctionQualifiedArn"
+      },
+      {
         "OutputKey": "ApiLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-2:058264347310:function:storefront-api-dev-api:23",
+        "OutputValue": "arn:aws:lambda:eu-west-2:058264347310:function:storefront-api-dev-api:28",
         "Description": "Current Lambda function version",
         "ExportName": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "HealthLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-west-2:058264347310:function:storefront-api-dev-health:5",
+        "OutputValue": "arn:aws:lambda:eu-west-2:058264347310:function:storefront-api-dev-health:10",
         "Description": "Current Lambda function version",
         "ExportName": "sls-storefront-api-dev-HealthLambdaFunctionQualifiedArn"
       },
@@ -1594,6 +2034,12 @@
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
             "LogGroupName": "/aws/lambda/storefront-api-dev-health"
+          }
+        },
+        "DebugDashdbLogGroup": {
+          "Type": "AWS::Logs::LogGroup",
+          "Properties": {
+            "LogGroupName": "/aws/lambda/storefront-api-dev-debug-db"
           }
         },
         "IamRoleLambdaExecution": {
@@ -1697,7 +2143,7 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-              "S3Key": "serverless/storefront-api/dev/1745418762772-2025-04-23T14:32:42.772Z/storefront-api.zip"
+              "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
             },
             "Handler": "dist/lambda.handler",
             "Runtime": "nodejs20.x",
@@ -1738,7 +2184,7 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-              "S3Key": "serverless/storefront-api/dev/1745418762772-2025-04-23T14:32:42.772Z/storefront-api.zip"
+              "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
             },
             "Handler": "dist/health.handler",
             "Runtime": "nodejs20.x",
@@ -1774,24 +2220,75 @@
           },
           "DependsOn": ["HealthLogGroup"]
         },
-        "ApiLambdaVersionjvoJkdZCqxKRRzFycNGYq2XBovLAWDvYGmmiku37wk": {
+        "DebugDashdbLambdaFunction": {
+          "Type": "AWS::Lambda::Function",
+          "Properties": {
+            "Code": {
+              "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
+              "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
+            },
+            "Handler": "dist/debug-db.handler",
+            "Runtime": "nodejs20.x",
+            "FunctionName": "storefront-api-dev-debug-db",
+            "MemorySize": 512,
+            "Timeout": 10,
+            "Environment": {
+              "Variables": {
+                "NODE_ENV": "dev",
+                "DATABASE_URL": "postgres://dave:mophir3digit@database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com:5432/storefront?sslmode=require",
+                "DB_HOST": "database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com",
+                "DB_PORT": "5432",
+                "DB_USERNAME": "dave",
+                "DB_PASSWORD": "<REDACTED>",
+                "DB_DATABASE": "storefront",
+                "JWT_SECRET": "<REDACTED>",
+                "FRONTEND_URL": "https://storefront-virid.vercel.app",
+                "USE_FALLBACK_DATA": "false",
+                "DB_USE_SSL": "true"
+              }
+            },
+            "Role": {
+              "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
+            },
+            "VpcConfig": {
+              "SecurityGroupIds": ["sg-059642d97326cb72f"],
+              "SubnetIds": [
+                "subnet-0ef8327e8c86f38c5",
+                "subnet-02048d123728927ea",
+                "subnet-02433fd3ced24f68e"
+              ]
+            }
+          },
+          "DependsOn": ["DebugDashdbLogGroup"]
+        },
+        "ApiLambdaVersionDUY8asTZG9v98uvFGfxjkAjHAyiDGl1ndLDUMxfDAWg": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "ApiLambdaFunction"
             },
-            "CodeSha256": "HfHiG/Mi1qFfJKYgVszIHPZfonHKCFT5Cxs71ExCvL8="
+            "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
           }
         },
-        "HealthLambdaVersionW1LlqzmRAXNak1bBjhzSvOMOEFhAPiq3xSOuk2mULw": {
+        "HealthLambdaVersioneW2InatS3dzwhZW1dTqeCKxr9xMaopSbmhUsiEUY3fM": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "HealthLambdaFunction"
             },
-            "CodeSha256": "HfHiG/Mi1qFfJKYgVszIHPZfonHKCFT5Cxs71ExCvL8="
+            "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
+          }
+        },
+        "DebugDashdbLambdaVersionoC7ZX8aqF3iHZUu955UsOVASCbfyMOmgcHkPmY4b0w": {
+          "Type": "AWS::Lambda::Version",
+          "DeletionPolicy": "Retain",
+          "Properties": {
+            "FunctionName": {
+              "Ref": "DebugDashdbLambdaFunction"
+            },
+            "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
           }
         },
         "ApiGatewayRestApi": {
@@ -1824,6 +2321,18 @@
               "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
             },
             "PathPart": "health",
+            "RestApiId": {
+              "Ref": "ApiGatewayRestApi"
+            }
+          }
+        },
+        "ApiGatewayResourceDebugDashdb": {
+          "Type": "AWS::ApiGateway::Resource",
+          "Properties": {
+            "ParentId": {
+              "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
+            },
+            "PathPart": "debug-db",
             "RestApiId": {
               "Ref": "ApiGatewayRestApi"
             }
@@ -1964,6 +2473,51 @@
             }
           }
         },
+        "ApiGatewayMethodDebugDashdbOptions": {
+          "Type": "AWS::ApiGateway::Method",
+          "Properties": {
+            "AuthorizationType": "NONE",
+            "HttpMethod": "OPTIONS",
+            "MethodResponses": [
+              {
+                "StatusCode": "200",
+                "ResponseParameters": {
+                  "method.response.header.Access-Control-Allow-Origin": true,
+                  "method.response.header.Access-Control-Allow-Headers": true,
+                  "method.response.header.Access-Control-Allow-Methods": true
+                },
+                "ResponseModels": {}
+              }
+            ],
+            "RequestParameters": {},
+            "Integration": {
+              "Type": "MOCK",
+              "RequestTemplates": {
+                "application/json": "{statusCode:200}"
+              },
+              "ContentHandling": "CONVERT_TO_TEXT",
+              "IntegrationResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": "'*'",
+                    "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                    "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                  },
+                  "ResponseTemplates": {
+                    "application/json": ""
+                  }
+                }
+              ]
+            },
+            "ResourceId": {
+              "Ref": "ApiGatewayResourceDebugDashdb"
+            },
+            "RestApiId": {
+              "Ref": "ApiGatewayRestApi"
+            }
+          }
+        },
         "ApiGatewayMethodAny": {
           "Type": "AWS::ApiGateway::Method",
           "Properties": {
@@ -2087,7 +2641,48 @@
           },
           "DependsOn": ["HealthLambdaPermissionApiGateway"]
         },
-        "ApiGatewayDeployment1745418747812": {
+        "ApiGatewayMethodDebugDashdbGet": {
+          "Type": "AWS::ApiGateway::Method",
+          "Properties": {
+            "HttpMethod": "GET",
+            "RequestParameters": {},
+            "ResourceId": {
+              "Ref": "ApiGatewayResourceDebugDashdb"
+            },
+            "RestApiId": {
+              "Ref": "ApiGatewayRestApi"
+            },
+            "ApiKeyRequired": "<REDACTED>",
+            "AuthorizationType": "NONE",
+            "Integration": {
+              "IntegrationHttpMethod": "POST",
+              "Type": "AWS_PROXY",
+              "Uri": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":apigateway:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":lambda:path/2015-03-31/functions/",
+                    {
+                      "Fn::GetAtt": ["DebugDashdbLambdaFunction", "Arn"]
+                    },
+                    "/invocations"
+                  ]
+                ]
+              }
+            },
+            "MethodResponses": []
+          },
+          "DependsOn": ["DebugDashdbLambdaPermissionApiGateway"]
+        },
+        "ApiGatewayDeployment1745486798246": {
           "Type": "AWS::ApiGateway::Deployment",
           "Properties": {
             "RestApiId": {
@@ -2099,9 +2694,11 @@
             "ApiGatewayMethodOptions",
             "ApiGatewayMethodProxyVarOptions",
             "ApiGatewayMethodHealthOptions",
+            "ApiGatewayMethodDebugDashdbOptions",
             "ApiGatewayMethodAny",
             "ApiGatewayMethodProxyVarAny",
-            "ApiGatewayMethodHealthGet"
+            "ApiGatewayMethodHealthGet",
+            "ApiGatewayMethodDebugDashdbGet"
           ]
         },
         "ApiLambdaPermissionApiGateway": {
@@ -2171,6 +2768,40 @@
               ]
             }
           }
+        },
+        "DebugDashdbLambdaPermissionApiGateway": {
+          "Type": "AWS::Lambda::Permission",
+          "Properties": {
+            "FunctionName": {
+              "Fn::GetAtt": ["DebugDashdbLambdaFunction", "Arn"]
+            },
+            "Action": "lambda:InvokeFunction",
+            "Principal": "apigateway.amazonaws.com",
+            "SourceArn": {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":execute-api:",
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  ":",
+                  {
+                    "Ref": "AWS::AccountId"
+                  },
+                  ":",
+                  {
+                    "Ref": "ApiGatewayRestApi"
+                  },
+                  "/*/*"
+                ]
+              ]
+            }
+          }
         }
       },
       "Outputs": {
@@ -2183,7 +2814,7 @@
         "ApiLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "ApiLambdaVersionjvoJkdZCqxKRRzFycNGYq2XBovLAWDvYGmmiku37wk"
+            "Ref": "ApiLambdaVersionDUY8asTZG9v98uvFGfxjkAjHAyiDGl1ndLDUMxfDAWg"
           },
           "Export": {
             "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -2192,10 +2823,19 @@
         "HealthLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "HealthLambdaVersionW1LlqzmRAXNak1bBjhzSvOMOEFhAPiq3xSOuk2mULw"
+            "Ref": "HealthLambdaVersioneW2InatS3dzwhZW1dTqeCKxr9xMaopSbmhUsiEUY3fM"
           },
           "Export": {
             "Name": "sls-storefront-api-dev-HealthLambdaFunctionQualifiedArn"
+          }
+        },
+        "DebugDashdbLambdaFunctionQualifiedArn": {
+          "Description": "Current Lambda function version",
+          "Value": {
+            "Ref": "DebugDashdbLambdaVersionoC7ZX8aqF3iHZUu955UsOVASCbfyMOmgcHkPmY4b0w"
+          },
+          "Export": {
+            "Name": "sls-storefront-api-dev-DebugDashdbLambdaFunctionQualifiedArn"
           }
         },
         "ServiceEndpoint": {

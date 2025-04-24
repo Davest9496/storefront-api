@@ -17,7 +17,18 @@ const AppDataSource = new DataSource({
   migrationsTableName: 'migrations',
   synchronize: false, // Never true in production
   logging: process.env.NODE_ENV === 'development',
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+  // UPDATED: Always use SSL with rejectUnauthorized: false for RDS connections
+  ssl: { rejectUnauthorized: false },
+  // Add extra settings for better RDS connection handling
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+      sslmode: 'require',
+    },
+    max: 10,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 5000,
+  },
 });
 
 export default AppDataSource;

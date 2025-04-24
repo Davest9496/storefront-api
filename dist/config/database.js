@@ -1,7 +1,6 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const data_source_1 = __importDefault(require("./data-source"));
-exports.default = data_source_1.default;
+exports.initializeDatabase = void 0;
+const data_source_1 = require("./data-source");
+Object.defineProperty(exports, "initializeDatabase", { enumerable: true, get: function () { return data_source_1.initializeDatabase; } });
+exports.default = data_source_1.AppDataSource;

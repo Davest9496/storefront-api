@@ -32,7 +32,8 @@
     "predeploy": "npm run build",
     "deploy": "npm run build && serverless deploy",
     "deploy:prod": "npm run build && serverless deploy --stage prod",
-    "offline": "serverless offline"
+    "offline": "serverless offline",
+    "check-pg-ssl": "ts-node src/scripts/check-pg-ssl.ts"
   },
   "repository": {
     "type": "git",

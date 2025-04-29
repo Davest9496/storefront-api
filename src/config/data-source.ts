@@ -1,7 +1,7 @@
-// src/config/data-source.ts
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { config } from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { User } from '../entities/user.entity';
 import { Product } from '../entities/product.entity';
 import { Order } from '../entities/order.entity';
@@ -15,14 +15,68 @@ import 'reflect-metadata';
 // Load appropriate environment variables based on NODE_ENV
 config({ path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env' });
 
+// Configure SSL based on environment
+const getSslConfig = () => {
+  // In development environment, disable SSL by default
+  if (process.env.NODE_ENV === 'development') {
+    // Unless explicitly enabled with DB_USE_SSL
+    if (process.env.DB_USE_SSL === 'true') {
+      logger.info('Development mode with SSL enabled');
+      // Continue to SSL config
+    } else {
+      logger.info('Development mode: Disabling SSL for local development');
+      return false;
+    }
+  }
+
+  // Production, test with SSL enabled, or development with DB_USE_SSL=true
+  try {
+    // Try multiple certificate paths
+    const possiblePaths = [
+      path.join(process.cwd(), 'certs/eu-west-2-bundle.pem'), // Lambda path
+      path.join(__dirname, '../../certs/eu-west-2-bundle.pem'), // Local dev path
+    ];
+
+    // Find the first path that exists
+    for (const certPath of possiblePaths) {
+      if (fs.existsSync(certPath)) {
+        logger.info(`SSL: Using RDS CA certificate from: ${certPath}`);
+        return {
+          ca: fs.readFileSync(certPath).toString(),
+          rejectUnauthorized: true,
+        };
+      }
+    }
+
+    // Fall back to rejectUnauthorized: false if no cert found
+    logger.warn('SSL: No certificate found, using rejectUnauthorized: false');
+    return { rejectUnauthorized: false };
+  } catch (error) {
+    logger.warn(
+      `SSL: Error loading certificate: ${error instanceof Error ? error.message : String(error)}`,
+    );
+    logger.warn('SSL: Falling back to rejectUnauthorized: false');
+    return { rejectUnauthorized: false };
+  }
+};
+
+// Get SSL configuration
+const sslConfig = getSslConfig();
+
 // Log database connection parameters (without sensitive data)
 logger.info('Database configuration:', {
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   database: process.env.DB_DATABASE,
-  username: process.env.DB_USERNAME,
+  username: process.env.DB_USERNAME ? '✓' : '✗',
   env: process.env.NODE_ENV,
-  ssl: 'enabled with rejectUnauthorized: false', // Log SSL configuration
+  ssl: sslConfig
+    ? typeof sslConfig === 'boolean'
+      ? 'disabled'
+      : sslConfig.ca
+        ? 'enabled with CA certificate'
+        : 'enabled with rejectUnauthorized: false'
+    : 'disabled',
 });
 
 // Base connection options shared across all environments
@@ -37,8 +91,8 @@ const baseOptions: DataSourceOptions = {
   entities: [User, Product, Order, OrderProduct, Payment],
   synchronize: false, // Should be false in production
   logging: process.env.NODE_ENV === 'development' ? ['query', 'error'] : ['error'],
-  // UPDATED: SSL configuration always enabled with rejectUnauthorized false
-  ssl: { rejectUnauthorized: false },
+  // SSL configuration from our function
+  ssl: sslConfig,
   // AWS RDS specific settings
   extra: {
     // Connection pool settings optimized for AWS RDS t2.micro (free tier)
@@ -48,18 +102,6 @@ const baseOptions: DataSourceOptions = {
     idleTimeoutMillis: 30000, // Close idle connections after 30 seconds
     // Connection acquisition settings
     connectionTimeoutMillis: 5000, // 5 second connection timeout
-    // UPDATED: Explicit SSL configuration in extra for pg driver
-    ssl: {
-      rejectUnauthorized: false,
-      sslmode: 'require',
-    },
-    // Retry logic for AWS RDS transient connection issues
-    retry: {
-      maxRetryTime: 10000, // Maximum time to retry (10 seconds)
-      retryWait: 200, // Base wait time between retries (200ms)
-      maxRetries: 5, // Maximum number of retries
-    },
-    statement_timeout: 30000, // 30 second statement timeout
   },
 };
 
@@ -73,8 +115,8 @@ if (process.env.NODE_ENV === 'test') {
     synchronize: true,
     dropSchema: true,
     logging: false,
-    // Keep SSL enabled for test environment too for consistency
-    ssl: { rejectUnauthorized: false },
+    // Explicitly override SSL for test environment
+    ssl: false,
   };
 } else if (process.env.NODE_ENV === 'development') {
   dataSourceOptions = {
@@ -82,13 +124,19 @@ if (process.env.NODE_ENV === 'test') {
     migrations: [path.join(__dirname, '../migrations/**/*.{js,ts}')],
     migrationsTableName: 'migrations',
     logging: ['query', 'error', 'schema'],
+    // Only use SSL in development if explicitly requested
+    ssl: false,
   };
 } else {
   // Production environment (including staging)
   dataSourceOptions = {
     ...baseOptions,
-    // Use connection string if provided (common in AWS deployment)
-    url: process.env.DATABASE_URL,
+    // If DATABASE_URL is provided, use it but WITHOUT its SSL settings
+    ...(process.env.DATABASE_URL
+      ? {
+          url: process.env.DATABASE_URL.split('?')[0], // Remove any query params with SSL config
+        }
+      : {}),
     migrations: [path.join(__dirname, '../migrations/**/*.{js,ts}')],
     migrationsTableName: 'migrations',
     logging: ['error'], // Only log errors in production
@@ -100,13 +148,6 @@ export const AppDataSource = new DataSource(dataSourceOptions);
 
 // Initialize database with retry logic (especially important for AWS RDS)
 export async function initializeDatabase(retries = 5, delay = 3000): Promise<DataSource> {
-  // Log SSL configuration for debugging
-  logger.info('SSL Configuration:', {
-    sslConfig: JSON.stringify({ rejectUnauthorized: false, sslmode: 'require' }),
-    nodeEnv: process.env.NODE_ENV,
-    databaseUrl: process.env.DATABASE_URL ? 'provided' : 'not provided',
-  });
-
   try {
     if (!AppDataSource.isInitialized) {
       logger.info('Initializing database connection...');

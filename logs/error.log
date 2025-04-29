@@ -475,3 +475,105 @@
 {"expiredAt":"2025-04-23T15:06:45.000Z","level":"error","message":"JWT verification error: jwt expired","name":"TokenExpiredError","stack":"TokenExpiredError: jwt expired\n    at /Users/davest/Desktop/storefront-api/node_modules/jsonwebtoken/verify.js:190:21\n    at getSecret (/Users/davest/Desktop/storefront-api/node_modules/jsonwebtoken/verify.js:97:14)\n    at Object.module.exports [as verify] (/Users/davest/Desktop/storefront-api/node_modules/jsonwebtoken/verify.js:101:10)\n    at protect (/Users/davest/Desktop/storefront-api/src/middleware/auth.middleware.ts:38:27)\n    at Layer.handle [as handle_request] (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/davest/Desktop/storefront-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/davest/Desktop/storefront-api/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-04-23 17:08:42:842"}
 {"level":"error","message":"401 - Invalid token. Please log in again. - /api/auth/me - GET - ::ffff:127.0.0.1","timestamp":"2025-04-23 17:08:42:842"}
 {"cause":{},"level":"error","message":"Error getting products by category from database: Connection terminated due to connection timeout","stack":"Error: Connection terminated due to connection timeout\n    at Client._connectionCallback (/Users/davest/Desktop/storefront-api/node_modules/pg-pool/index.js:251:17)\n    at Connection.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/client.js:149:18)\n    at Object.onceWrapper (node:events:632:28)\n    at Connection.emit (node:events:518:28)\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/connection.js:62:12)\n    at Socket.emit (node:events:518:28)\n    at TCP.<anonymous> (node:net:337:12)","timestamp":"2025-04-24 09:40:38:4038"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:08:378"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:11:3711"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:14:3714"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:15:3715"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:18:3718"}
+{"cause":{},"level":"error","message":"Error getting products by category from database: Connection terminated due to connection timeout","stack":"Error: Connection terminated due to connection timeout\n    at Client._connectionCallback (/Users/davest/Desktop/storefront-api/node_modules/pg-pool/index.js:251:17)\n    at Connection.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/client.js:149:18)\n    at Object.onceWrapper (node:events:632:28)\n    at Connection.emit (node:events:518:28)\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/connection.js:62:12)\n    at Socket.emit (node:events:518:28)\n    at TCP.<anonymous> (node:net:337:12)","timestamp":"2025-04-24 19:37:22:3722"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:04:54"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:12:512"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:20:520"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:28:528"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:34:534"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:42:542"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:50:550"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:00:60"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:07:67"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:15:615"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:23:623"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:31:631"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:39:639"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:47:647"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:55:655"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:07:40:740"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:07:48:748"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:07:56:756"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:08:04:84"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:08:12:812"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:08:20:820"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:09:16:916"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:09:37:937"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:09:45:945"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:09:53:953"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:10:01:101"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:10:09:109"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:10:17:1017"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:26:1126"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:34:1134"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:42:1142"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:50:1150"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:58:1158"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:12:06:126"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:13:51:1351"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:13:54:1354"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:13:57:1357"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:14:00:140"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:14:03:143"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:14:06:146"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:36:1636"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:39:1639"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:42:1642"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:45:1645"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:48:1648"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:51:1651"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:56:54:5654"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:56:57:5657"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:57:00:570"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:57:03:573"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:57:06:576"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:57:09:579"}
+{"level":"error","message":"❌ Connection with SSL (rejectUnauthorized: false) failed:","timestamp":"2025-04-24 21:03:18:318"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:28:728"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:31:731"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:34:734"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:37:737"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:40:740"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:43:743"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:32:832"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:35:835"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:38:838"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:41:841"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:44:844"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:47:847"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:34:5834"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:37:5837"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:40:5840"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:43:5843"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:46:5846"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:49:5849"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:33:1033"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:36:1036"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:39:1039"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:42:1042"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:45:1045"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:49:1049"}
+{"level":"error","message":"❌ Connection with SSL (rejectUnauthorized: false) failed:","timestamp":"2025-04-25 16:14:50:1450"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:21:2421"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:24:2424"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:27:2427"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:30:2430"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:33:2433"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:36:2436"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:47:2447"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:50:2450"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:53:2453"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:56:2456"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:59:2459"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:25:02:252"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:42:2642"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:45:2645"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:48:2648"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:51:2651"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:54:2654"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:57:2657"}

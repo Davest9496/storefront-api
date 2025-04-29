@@ -5,7 +5,7 @@ frameworkVersion: '4'
 provider:
   name: aws
   runtime: nodejs20.x
-  stage: ${opt:stage, 'dev'}
+  stage: ${opt:stage, 'production'}
   region: eu-west-2
   memorySize: 1024  # Increase memory for better performance
   timeout: 29
@@ -19,15 +19,14 @@ provider:
     DB_DATABASE: ${ssm:/storefront/${opt:stage, 'dev'}/DB_DATABASE}
     JWT_SECRET: ${ssm:/storefront/${opt:stage, 'dev'}/JWT_SECRET}
     FRONTEND_URL: ${ssm:/storefront/${opt:stage, 'dev'}/FRONTEND_URL}
-    USE_FALLBACK_DATA: 'false'  # Added this flag for using fallback data
-    # Add this to explicitly enable SSL for all database connections
+    USE_FALLBACK_DATA: 'false' 
     DB_USE_SSL: 'true'
   vpc:
     securityGroupIds:
-      - sg-059642d97326cb72f  # Ensure this security group can access your RDS security group
+      - sg-059642d97326cb72f
     subnetIds:
-      - subnet-0ef8327e8c86f38c5  # These should be in private subnets with NAT gateway 
-      - subnet-02048d123728927ea  # or in the same subnet as your RDS instance
+      - subnet-0ef8327e8c86f38c5
+      - subnet-02048d123728927ea
       - subnet-02433fd3ced24f68e
   iam:
     role:

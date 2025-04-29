@@ -2397,3 +2397,465 @@
 {"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:31:24 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:31:24:3124"}
 {"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:09:31:24 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 200 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 10:31:24:3124"}
 {"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-24 10:32:18:3218"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-24 17:13:52:1352","username":"dave"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 17:13:53:1353"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:13:53:1353"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-24 17:13:53:1353"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 17:13:53:1353"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 17:13:53:1353"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 17:13:53:1353"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:20:57 +0000] \"OPTIONS /api/products/category/earphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:20:57:2057"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:20:57 +0000] \"GET /api/products/category/earphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:20:57:2057"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:20:59 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:20:59:2059"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:20:59 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:20:59:2059"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:21:03 +0000] \"OPTIONS /api/products/category/speakers HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:21:03:213"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:21:03 +0000] \"GET /api/products/category/speakers HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:21:03:213"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:34:23 +0000] \"OPTIONS /api/products/category/speakers HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:34:23:3423"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:34:24 +0000] \"GET /api/products/category/speakers HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:34:24:3424"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 17:37:06:376"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"disabled","timestamp":"2025-04-24 17:37:07:377","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:37:07:377"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Connection options:","port":5432,"ssl":"disabled","timestamp":"2025-04-24 17:37:07:377","type":"postgres"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:08:378"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 17:37:08:378"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:37:11:3711"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Connection options:","port":5432,"ssl":"disabled","timestamp":"2025-04-24 17:37:11:3711","type":"postgres"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:11:3711"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 17:37:11:3711"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:37:14:3714"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Connection options:","port":5432,"ssl":"disabled","timestamp":"2025-04-24 17:37:14:3714","type":"postgres"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:14:3714"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 17:37:14:3714"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"disabled","timestamp":"2025-04-24 17:37:14:3714","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:37:15:3715"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Connection options:","port":5432,"ssl":"disabled","timestamp":"2025-04-24 17:37:15:3715","type":"postgres"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:15:3715"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 17:37:15:3715"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:37:18:3718"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Connection options:","port":5432,"ssl":"disabled","timestamp":"2025-04-24 17:37:18:3718","type":"postgres"}
+{"level":"error","message":"Database connection failed: no pg_hba.conf entry for host \"149.14.76.173\", user \"dave\", database \"storefront\", no encryption","timestamp":"2025-04-24 17:37:18:3718"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 17:37:18:3718"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-24 17:37:20:3720","username":"dave"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 17:37:20:3720"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:37:20:3720"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-24 17:37:20:3720"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 17:37:20:3720"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 17:37:20:3720"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 17:37:20:3720"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 17:37:28:3728"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-24 17:37:36:3736","username":"dave"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 17:37:36:3736"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:37:36:3736"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-24 17:37:37:3737"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 17:37:37:3737"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 17:37:37:3737"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 17:37:37:3737"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 17:37:37:3737"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-24 17:37:37:3737","username":"dave"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 17:37:38:3738"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:37:38:3738"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-24 17:37:38:3738"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 17:37:38:3738"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 17:37:38:3738"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 17:37:38:3738"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 17:41:27:4127"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-24 17:41:28:4128","username":"dave"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 17:41:28:4128"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:41:28:4128"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-24 17:41:28:4128"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 17:41:28:4128"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 17:41:28:4128"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 17:41:28:4128"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 17:41:37:4137"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-24 17:41:38:4138","username":"dave"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 17:41:38:4138"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:41:38:4138"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-24 17:41:38:4138"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 17:41:38:4138"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 17:41:38:4138"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 17:41:38:4138"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 17:43:45:4345"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with custom CA certificate","timestamp":"2025-04-24 17:43:45:4345","username":"dave"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":true,\"ca\":\"Custom CA certificate loaded\"}","timestamp":"2025-04-24 17:43:46:4346"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 17:43:46:4346"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-24 17:43:46:4346"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-24 17:43:46:4346"}
+{"level":"info","message":"Server running on port 8080 in dev mode","timestamp":"2025-04-24 17:43:46:4346"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-24 17:43:46:4346"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:50:41 +0000] \"OPTIONS /api/products/category/speakers HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:50:41:5041"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:16:50:41 +0000] \"GET /api/products/category/speakers HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 17:50:41:5041"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:18:37:17 +0000] \"OPTIONS /api/products/category/speakers HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 19:37:17:3717"}
+{"cause":{},"level":"error","message":"Error getting products by category from database: Connection terminated due to connection timeout","stack":"Error: Connection terminated due to connection timeout\n    at Client._connectionCallback (/Users/davest/Desktop/storefront-api/node_modules/pg-pool/index.js:251:17)\n    at Connection.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/client.js:149:18)\n    at Object.onceWrapper (node:events:632:28)\n    at Connection.emit (node:events:518:28)\n    at Socket.<anonymous> (/Users/davest/Desktop/storefront-api/node_modules/pg/lib/connection.js:62:12)\n    at Socket.emit (node:events:518:28)\n    at TCP.<anonymous> (node:net:337:12)","timestamp":"2025-04-24 19:37:22:3722"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [24/Apr/2025:18:37:22 +0000] \"GET /api/products/category/speakers HTTP/1.1\" 200 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-24 19:37:22:3722"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-24 20:04:58:458"}
+{"level":"info","message":"SSL: Using RDS CA certificate from Lambda path: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:04:59:459"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:04:59:459","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:04:59:459"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:04:59:459","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:04:54"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:05:04:54"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:05:07:57"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:05:07:57","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:12:512"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 20:05:12:512"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:05:15:515"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:05:15:515","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:20:520"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 20:05:20:520"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:05:23:523"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:05:23:523","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:28:528"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 20:05:28:528"}
+{"level":"info","message":"SSL: Using RDS CA certificate from Lambda path: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:05:29:529"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:05:29:529","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:05:29:529"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:05:29:529","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:34:534"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:05:34:534"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:05:37:537"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:05:37:537","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:42:542"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 20:05:42:542"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:05:45:545"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:05:45:545","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:05:50:550"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 20:05:50:550"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:05:53:553"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:05:53:553","type":"postgres","url":"not used"}
+{"level":"info","message":"SSL: Using RDS CA certificate from Lambda path: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:05:55:555"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:05:55:555","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:05:55:555"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:05:55:555","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:00:60"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:06:00:60"}
+{"level":"info","message":"SSL: Using RDS CA certificate from Lambda path: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:06:02:62"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:06:02:62","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:06:02:62"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:06:02:62","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:07:67"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:06:07:67"}
+{"level":"info","message":"SSL: Using RDS CA certificate from Lambda path: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:06:10:610"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:06:10:610","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:06:10:610"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:06:10:610","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:15:615"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:06:15:615"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:06:18:618"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:06:18:618","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:23:623"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 20:06:23:623"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:06:26:626"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:06:26:626","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:31:631"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 20:06:31:631"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:06:34:634"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:06:34:634","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:39:639"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 20:06:39:639"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:06:42:642"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:06:42:642","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:47:647"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-24 20:06:47:647"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:06:50:650"}
+{"database":"storefront","entities":"5 entities configured","level":"info","message":"Connection details:","ssl":"configured","timestamp":"2025-04-24 20:06:50:650","type":"postgres","url":"not used"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:06:55:655"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:07:35:735"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:07:35:735","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:07:35:735"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:07:40:740"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:07:40:740"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:07:43:743"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:07:48:748"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 20:07:48:748"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:07:51:751"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:07:56:756"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 20:07:56:756"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:07:59:759"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:08:04:84"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 20:08:04:84"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:08:07:87"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:08:12:812"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-24 20:08:12:812"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:08:15:815"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:08:20:820"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:08:46:846"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:08:46:846","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:08:46:846"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:09:16:916"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:09:16:916"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:09:19:919"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:09:31:931"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:09:31:931","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:09:32:932"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:09:37:937"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:09:37:937"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:09:40:940"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:09:45:945"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 20:09:45:945"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:09:48:948"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:09:53:953"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 20:09:53:953"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:09:56:956"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:10:01:101"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 20:10:01:101"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:10:04:104"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:10:09:109"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-24 20:10:09:109"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:10:12:1012"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:10:17:1017"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:11:21:1121"}
+{"database":"storefront","env":"dev","host":"database-1.cpgm042cq1en.eu-west-2.rds.amazonaws.com","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:11:21:1121","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:11:21:1121"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:26:1126"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:11:26:1126"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:11:29:1129"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:34:1134"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 20:11:34:1134"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:11:37:1137"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:42:1142"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 20:11:42:1142"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:11:45:1145"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:50:1150"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 20:11:50:1150"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:11:53:1153"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:11:58:1158"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-24 20:11:58:1158"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:12:01:121"}
+{"level":"error","message":"Database connection failed: Connection terminated due to connection timeout","timestamp":"2025-04-24 20:12:06:126"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:13:51:1351"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:13:51:1351","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:13:51:1351"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:13:51:1351"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:13:51:1351"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:13:54:1354"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:13:54:1354"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 20:13:54:1354"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:13:57:1357"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:13:57:1357"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 20:13:57:1357"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:14:00:140"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:14:00:140"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 20:14:00:140"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:14:03:143"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:14:03:143"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-24 20:14:03:143"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:14:06:146"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:14:06:146"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:16:35:1635"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:16:35:1635","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:16:36:1636"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:36:1636"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:16:36:1636"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:16:39:1639"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:39:1639"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 20:16:39:1639"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:16:42:1642"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:42:1642"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 20:16:42:1642"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:16:45:1645"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:45:1645"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 20:16:45:1645"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:16:48:1648"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:48:1648"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-24 20:16:48:1648"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:16:51:1651"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:16:51:1651"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-24 20:56:54:5654"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-24 20:56:54:5654","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:56:54:5654"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:56:54:5654"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 20:56:54:5654"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:56:57:5657"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:56:57:5657"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 20:56:57:5657"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:57:00:570"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:57:00:570"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 20:57:00:570"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:57:03:573"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:57:03:573"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 20:57:03:573"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:57:06:576"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:57:06:576"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-24 20:57:06:576"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 20:57:09:579"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 20:57:09:579"}
+{"level":"info","message":"Trying connection without SSL...","timestamp":"2025-04-24 21:03:18:318"}
+{"level":"info","message":"✅ Connection without SSL succeeded:","timestamp":"2025-04-24 21:03:18:318","version":"PostgreSQL 16.8 (Postgres.app) on aarch64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.102), 64-bit"}
+{"level":"info","message":"Trying connection with SSL (rejectUnauthorized: false)...","timestamp":"2025-04-24 21:03:18:318"}
+{"level":"error","message":"❌ Connection with SSL (rejectUnauthorized: false) failed:","timestamp":"2025-04-24 21:03:18:318"}
+{"level":"info","message":"Production mode: Using SSL with rejectUnauthorized: false","timestamp":"2025-04-24 21:07:28:728"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-24 21:07:28:728","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:07:28:728"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:28:728"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 21:07:28:728"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:07:31:731"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:31:731"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 21:07:31:731"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:07:34:734"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:34:734"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 21:07:34:734"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:07:37:737"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:37:737"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 21:07:37:737"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:07:40:740"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:40:740"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-24 21:07:40:740"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:07:43:743"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:07:43:743"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-24 21:08:31:831","username":"postgres"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 21:08:32:832"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:08:32:832"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:32:832"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-24 21:08:32:832"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 21:08:35:835"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:08:35:835"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:35:835"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-24 21:08:35:835"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 21:08:38:838"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:08:38:838"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:38:838"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-24 21:08:38:838"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 21:08:41:841"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:08:41:841"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:41:841"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-24 21:08:41:841"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 21:08:44:844"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:08:44:844"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:44:844"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-24 21:08:44:844"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-24 21:08:47:847"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-24 21:08:47:847"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-24 21:08:47:847"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with rejectUnauthorized: false","timestamp":"2025-04-25 15:58:33:5833","username":"postgres"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-25 15:58:34:5834"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 15:58:34:5834"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:34:5834"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-25 15:58:34:5834"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-25 15:58:37:5837"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 15:58:37:5837"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:37:5837"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-25 15:58:37:5837"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-25 15:58:40:5840"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 15:58:40:5840"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:40:5840"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-25 15:58:40:5840"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-25 15:58:43:5843"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 15:58:43:5843"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:43:5843"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-25 15:58:43:5843"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-25 15:58:46:5846"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 15:58:46:5846"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:46:5846"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-25 15:58:46:5846"}
+{"databaseUrl":"not provided","level":"info","message":"SSL Configuration:","nodeEnv":"dev","sslConfig":"{\"rejectUnauthorized\":false,\"sslmode\":\"require\"}","timestamp":"2025-04-25 15:58:49:5849"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 15:58:49:5849"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 15:58:49:5849"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-25 16:10:33:1033"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled with CA certificate","timestamp":"2025-04-25 16:10:33:1033","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:10:33:1033"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:33:1033"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-25 16:10:33:1033"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:10:36:1036"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:36:1036"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-25 16:10:36:1036"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:10:39:1039"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:39:1039"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-25 16:10:39:1039"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:10:42:1042"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:42:1042"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-25 16:10:42:1042"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:10:45:1045"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:45:1045"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-25 16:10:45:1045"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:10:48:1048"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:10:49:1049"}
+{"level":"info","message":"Trying connection without SSL...","timestamp":"2025-04-25 16:14:50:1450"}
+{"level":"info","message":"✅ Connection without SSL succeeded:","timestamp":"2025-04-25 16:14:50:1450","version":"PostgreSQL 16.8 (Postgres.app) on aarch64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.102), 64-bit"}
+{"level":"info","message":"Trying connection with SSL (rejectUnauthorized: false)...","timestamp":"2025-04-25 16:14:50:1450"}
+{"level":"error","message":"❌ Connection with SSL (rejectUnauthorized: false) failed:","timestamp":"2025-04-25 16:14:50:1450"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-25 16:24:21:2421"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled","timestamp":"2025-04-25 16:24:21:2421","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:21:2421"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:21:2421"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-25 16:24:21:2421"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:24:2424"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:24:2424"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-25 16:24:24:2424"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:27:2427"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:27:2427"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-25 16:24:27:2427"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:30:2430"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:30:2430"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-25 16:24:30:2430"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:33:2433"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:33:2433"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-25 16:24:33:2433"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:36:2436"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:36:2436"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-25 16:24:46:2446"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled","timestamp":"2025-04-25 16:24:46:2446","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:47:2447"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:47:2447"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-25 16:24:47:2447"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:50:2450"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:50:2450"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-25 16:24:50:2450"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:53:2453"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:53:2453"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-25 16:24:53:2453"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:56:2456"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:56:2456"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-25 16:24:56:2456"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:24:59:2459"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:24:59:2459"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-25 16:24:59:2459"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:25:02:252"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:25:02:252"}
+{"level":"info","message":"SSL: Using RDS CA certificate from: /Users/davest/Desktop/storefront-api/certs/eu-west-2-bundle.pem","timestamp":"2025-04-25 16:26:42:2642"}
+{"database":"storefront","env":"dev","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"enabled","timestamp":"2025-04-25 16:26:42:2642","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:26:42:2642"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:42:2642"}
+{"level":"info","message":"Retrying database connection in 3000ms... (5 attempts left)","timestamp":"2025-04-25 16:26:42:2642"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:26:45:2645"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:45:2645"}
+{"level":"info","message":"Retrying database connection in 3000ms... (4 attempts left)","timestamp":"2025-04-25 16:26:45:2645"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:26:48:2648"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:48:2648"}
+{"level":"info","message":"Retrying database connection in 3000ms... (3 attempts left)","timestamp":"2025-04-25 16:26:48:2648"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:26:51:2651"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:51:2651"}
+{"level":"info","message":"Retrying database connection in 3000ms... (2 attempts left)","timestamp":"2025-04-25 16:26:51:2651"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:26:54:2654"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:54:2654"}
+{"level":"info","message":"Retrying database connection in 3000ms... (1 attempts left)","timestamp":"2025-04-25 16:26:54:2654"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:26:57:2657"}
+{"level":"error","message":"Database connection failed: The server does not support SSL connections","timestamp":"2025-04-25 16:26:57:2657"}
+{"level":"info","message":"Development mode: Disabling SSL for local development","timestamp":"2025-04-25 16:29:08:298"}
+{"database":"storefront","env":"development","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"disabled","timestamp":"2025-04-25 16:29:08:298","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:29:09:299"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-25 16:29:09:299"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-25 16:29:09:299"}
+{"level":"info","message":"Server running on port 8080 in development mode","timestamp":"2025-04-25 16:29:09:299"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-25 16:29:09:299"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","timestamp":"2025-04-25 16:29:58:2958"}
+{"level":"info","message":"Development mode: Disabling SSL for local development","timestamp":"2025-04-25 16:29:58:2958"}
+{"database":"storefront","env":"development","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"disabled","timestamp":"2025-04-25 16:29:58:2958","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:29:58:2958"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-25 16:29:58:2958"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-25 16:29:58:2958"}
+{"level":"info","message":"Server running on port 8080 in development mode","timestamp":"2025-04-25 16:29:58:2958"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-25 16:29:58:2958"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-04-25 16:34:15:3415"}
+{"level":"info","message":"Development mode: Disabling SSL for local development","timestamp":"2025-04-25 16:43:29:4329"}
+{"database":"storefront","env":"development","host":"localhost","level":"info","message":"Database configuration:","port":"5432","ssl":"disabled","timestamp":"2025-04-25 16:43:29:4329","username":"✓"}
+{"level":"info","message":"Initializing database connection...","timestamp":"2025-04-25 16:43:29:4329"}
+{"0":{"connection_test":1},"level":"info","message":"Database connection verified with test query:","timestamp":"2025-04-25 16:43:29:4329"}
+{"level":"info","message":"Database connection established successfully","timestamp":"2025-04-25 16:43:29:4329"}
+{"level":"info","message":"Server running on port 8080 in development mode","timestamp":"2025-04-25 16:43:29:4329"}
+{"level":"info","message":"API available at http://localhost:8080/api","timestamp":"2025-04-25 16:43:29:4329"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [25/Apr/2025:15:43:43 +0000] \"OPTIONS /api/products/category/speakers HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-25 16:43:43:4343"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [25/Apr/2025:15:43:43 +0000] \"GET /api/products/category/speakers HTTP/1.1\" 200 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-25 16:43:43:4343"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [25/Apr/2025:15:43:52 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-25 16:43:52:4352"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [25/Apr/2025:15:43:52 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 200 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-25 16:43:52:4352"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [25/Apr/2025:15:47:06 +0000] \"OPTIONS /api/products/category/headphones HTTP/1.1\" 204 0 \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-25 16:47:06:476"}
+{"level":"http","message":"::ffff:127.0.0.1 - - [25/Apr/2025:15:47:06 +0000] \"GET /api/products/category/headphones HTTP/1.1\" 304 - \"http://localhost:4200/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\"","timestamp":"2025-04-25 16:47:06:476"}

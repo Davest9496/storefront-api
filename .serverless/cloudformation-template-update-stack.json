@@ -5,19 +5,19 @@
     "ApiLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/storefront-api-dev-api"
+        "LogGroupName": "/aws/lambda/storefront-api-production-api"
       }
     },
     "HealthLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/storefront-api-dev-health"
+        "LogGroupName": "/aws/lambda/storefront-api-production-health"
       }
     },
     "DebugDashdbLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/storefront-api-dev-debug-db"
+        "LogGroupName": "/aws/lambda/storefront-api-production-debug-db"
       }
     },
     "IamRoleLambdaExecution": {
@@ -38,7 +38,7 @@
         "Policies": [
           {
             "PolicyName": {
-              "Fn::Join": ["-", ["storefront-api", "dev", "lambda"]]
+              "Fn::Join": ["-", ["storefront-api", "production", "lambda"]]
             },
             "PolicyDocument": {
               "Version": "2012-10-17",
@@ -48,7 +48,7 @@
                   "Action": ["logs:CreateLogStream", "logs:CreateLogGroup", "logs:TagResource"],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/storefront-api-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/storefront-api-production*:*"
                     }
                   ]
                 },
@@ -57,14 +57,14 @@
                   "Action": ["logs:PutLogEvents"],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/storefront-api-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/storefront-api-production*:*:*"
                     }
                   ]
                 },
                 {
                   "Effect": "Allow",
                   "Action": ["ssm:GetParameter", "ssm:GetParameters"],
-                  "Resource": "arn:aws:ssm:eu-west-2:*:parameter/storefront/dev/*"
+                  "Resource": "arn:aws:ssm:eu-west-2:*:parameter/storefront/production/*"
                 },
                 {
                   "Effect": "Allow",
@@ -92,7 +92,7 @@
             "-",
             [
               "storefront-api",
-              "dev",
+              "production",
               {
                 "Ref": "AWS::Region"
               },
@@ -121,11 +121,11 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-          "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
+          "S3Key": "serverless/storefront-api/production/1745524607002-2025-04-24T19:56:47.002Z/storefront-api.zip"
         },
         "Handler": "dist/lambda.handler",
         "Runtime": "nodejs20.x",
-        "FunctionName": "storefront-api-dev-api",
+        "FunctionName": "storefront-api-production-api",
         "MemorySize": 1024,
         "Timeout": 29,
         "Environment": {
@@ -162,11 +162,11 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-          "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
+          "S3Key": "serverless/storefront-api/production/1745524607002-2025-04-24T19:56:47.002Z/storefront-api.zip"
         },
         "Handler": "dist/health.handler",
         "Runtime": "nodejs20.x",
-        "FunctionName": "storefront-api-dev-health",
+        "FunctionName": "storefront-api-production-health",
         "MemorySize": 512,
         "Timeout": 10,
         "Environment": {
@@ -203,11 +203,11 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
-          "S3Key": "serverless/storefront-api/dev/1745486813239-2025-04-24T09:26:53.239Z/storefront-api.zip"
+          "S3Key": "serverless/storefront-api/production/1745524607002-2025-04-24T19:56:47.002Z/storefront-api.zip"
         },
         "Handler": "dist/debug-db.handler",
         "Runtime": "nodejs20.x",
-        "FunctionName": "storefront-api-dev-debug-db",
+        "FunctionName": "storefront-api-production-debug-db",
         "MemorySize": 512,
         "Timeout": 10,
         "Environment": {
@@ -239,40 +239,40 @@
       },
       "DependsOn": ["DebugDashdbLogGroup"]
     },
-    "ApiLambdaVersionDUY8asTZG9v98uvFGfxjkAjHAyiDGl1ndLDUMxfDAWg": {
+    "ApiLambdaVersionyth6PHMLgAUSxlaijqDk3R6Q8f1n8qLp4lAYEvJ274": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
+        "CodeSha256": "/rEH77B8I5FqzGtmv9XwSujYYqI7+3duU3i93gSpBl8="
       }
     },
-    "HealthLambdaVersioneW2InatS3dzwhZW1dTqeCKxr9xMaopSbmhUsiEUY3fM": {
+    "HealthLambdaVersion3mlcFXFUvcHewiSn2Cy4Ome2fOvnFo3rBGarh0MilQk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HealthLambdaFunction"
         },
-        "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
+        "CodeSha256": "/rEH77B8I5FqzGtmv9XwSujYYqI7+3duU3i93gSpBl8="
       }
     },
-    "DebugDashdbLambdaVersionoC7ZX8aqF3iHZUu955UsOVASCbfyMOmgcHkPmY4b0w": {
+    "DebugDashdbLambdaVersionrh5GLFZAMo5D3P9KVuhYfx8N0rNppnKluCq9ZPPJo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DebugDashdbLambdaFunction"
         },
-        "CodeSha256": "hyG6tu1Bz+AZOl8F3+fFkTLbeR4JLI/47188il+JvBE="
+        "CodeSha256": "/rEH77B8I5FqzGtmv9XwSujYYqI7+3duU3i93gSpBl8="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-storefront-api",
+        "Name": "production-storefront-api",
         "BinaryMediaTypes": ["image/jpeg", "image/png", "application/octet-stream"],
         "EndpointConfiguration": {
           "Types": ["EDGE"]
@@ -660,13 +660,13 @@
       },
       "DependsOn": ["DebugDashdbLambdaPermissionApiGateway"]
     },
-    "ApiGatewayDeployment1745486798246": {
+    "ApiGatewayDeployment1745524595743": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         },
-        "StageName": "dev"
+        "StageName": "production"
       },
       "DependsOn": [
         "ApiGatewayMethodOptions",
@@ -786,34 +786,34 @@
     "ServerlessDeploymentBucketName": {
       "Value": "serverless-framework-deployments-eu-west-2-4e33c77a-a1c3",
       "Export": {
-        "Name": "sls-storefront-api-dev-ServerlessDeploymentBucketName"
+        "Name": "sls-storefront-api-production-ServerlessDeploymentBucketName"
       }
     },
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionDUY8asTZG9v98uvFGfxjkAjHAyiDGl1ndLDUMxfDAWg"
+        "Ref": "ApiLambdaVersionyth6PHMLgAUSxlaijqDk3R6Q8f1n8qLp4lAYEvJ274"
       },
       "Export": {
-        "Name": "sls-storefront-api-dev-ApiLambdaFunctionQualifiedArn"
+        "Name": "sls-storefront-api-production-ApiLambdaFunctionQualifiedArn"
       }
     },
     "HealthLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HealthLambdaVersioneW2InatS3dzwhZW1dTqeCKxr9xMaopSbmhUsiEUY3fM"
+        "Ref": "HealthLambdaVersion3mlcFXFUvcHewiSn2Cy4Ome2fOvnFo3rBGarh0MilQk"
       },
       "Export": {
-        "Name": "sls-storefront-api-dev-HealthLambdaFunctionQualifiedArn"
+        "Name": "sls-storefront-api-production-HealthLambdaFunctionQualifiedArn"
       }
     },
     "DebugDashdbLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "DebugDashdbLambdaVersionoC7ZX8aqF3iHZUu955UsOVASCbfyMOmgcHkPmY4b0w"
+        "Ref": "DebugDashdbLambdaVersionrh5GLFZAMo5D3P9KVuhYfx8N0rNppnKluCq9ZPPJo"
       },
       "Export": {
-        "Name": "sls-storefront-api-dev-DebugDashdbLambdaFunctionQualifiedArn"
+        "Name": "sls-storefront-api-production-DebugDashdbLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {
@@ -834,12 +834,12 @@
             {
               "Ref": "AWS::URLSuffix"
             },
-            "/dev"
+            "/production"
           ]
         ]
       },
       "Export": {
-        "Name": "sls-storefront-api-dev-ServiceEndpoint"
+        "Name": "sls-storefront-api-production-ServiceEndpoint"
       }
     }
   }
